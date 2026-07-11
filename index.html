@@ -3,636 +3,516 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sílabos 2026-I · Patricia Arhuata Mamani</title>
+<title>Sílabos 2026-I · FINESI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap');
+  :root{
+    --ink:      #17261c;
+    --lamp:     #e0a445;
+    --lamp-dim: #b9822f;
+    --card:     #f2ead5;
+    --card-line:#c9bb95;
+    --paper-shadow: rgba(0,0,0,.35);
+    --text-dark:#20291f;
+    --text-soft:#5b5240;
+    --brass:    #b8863b;
+    --wood:     #24352a;
+    --wood-2:   #1c2a21;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(ellipse 900px 500px at 50% -10%, rgba(224,164,69,.10), transparent 60%),
+      var(--wood-2);
+    color:var(--card);
+    font-family:'Spectral', serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
 
-:root {
-  --ink: #16233D;
-  --ink-soft: #4B5866;
-  --paper: #F3F1E8;
-  --paper-raised: #FBFAF5;
-  --rule: #CBC2A8;
-  --chalk: #DFA82E;
-  --signal: #3E6259;
-  --danger: #A6432F;
-  --scatter-bg: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27340%27%20height%3D%27340%27%20viewBox%3D%270%200%20340%20340%27%3E%0A%20%20%3Crect%20width%3D%27340%27%20height%3D%27340%27%20fill%3D%27none%27/%3E%0A%20%20%3Cg%20stroke%3D%27%23CBC2A8%27%20stroke-width%3D%271%27%20opacity%3D%270.55%27%3E%0A%20%20%20%20%3Cline%20x1%3D%2738%27%20y1%3D%2720%27%20x2%3D%2738%27%20y2%3D%27300%27/%3E%0A%20%20%20%20%3Cline%20x1%3D%2738%27%20y1%3D%27300%27%20x2%3D%27320%27%20y2%3D%27300%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Cg%20stroke%3D%27%23CBC2A8%27%20stroke-width%3D%271%27%20opacity%3D%270.35%27%3E%0A%20%20%20%20%3Cline%20x1%3D%2734%27%20y1%3D%27260%27%20x2%3D%2742%27%20y2%3D%27260%27/%3E%0A%20%20%20%20%3Cline%20x1%3D%2734%27%20y1%3D%27220%27%20x2%3D%2742%27%20y2%3D%27220%27/%3E%0A%20%20%20%20%3Cline%20x1%3D%2734%27%20y1%3D%27180%27%20x2%3D%2742%27%20y2%3D%27180%27/%3E%0A%20%20%20%20%3Cline%20x1%3D%2734%27%20y1%3D%27140%27%20x2%3D%2742%27%20y2%3D%27140%27/%3E%0A%20%20%20%20%3Cline%20x1%3D%2734%27%20y1%3D%27100%27%20x2%3D%2742%27%20y2%3D%27100%27/%3E%0A%20%20%20%20%3Cline%20x1%3D%2734%27%20y1%3D%2760%27%20x2%3D%2742%27%20y2%3D%2760%27/%3E%0A%20%20%20%20%3Cline%20x1%3D%2778%27%20y1%3D%27296%27%20x2%3D%2778%27%20y2%3D%27304%27/%3E%0A%20%20%20%20%3Cline%20x1%3D%27118%27%20y1%3D%27296%27%20x2%3D%27118%27%20y2%3D%27304%27/%3E%0A%20%20%20%20%3Cline%20x1%3D%27158%27%20y1%3D%27296%27%20x2%3D%27158%27%20y2%3D%27304%27/%3E%0A%20%20%20%20%3Cline%20x1%3D%27198%27%20y1%3D%27296%27%20x2%3D%27198%27%20y2%3D%27304%27/%3E%0A%20%20%20%20%3Cline%20x1%3D%27238%27%20y1%3D%27296%27%20x2%3D%27238%27%20y2%3D%27304%27/%3E%0A%20%20%20%20%3Cline%20x1%3D%27278%27%20y1%3D%27296%27%20x2%3D%27278%27%20y2%3D%27304%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Cline%20x1%3D%2745%27%20y1%3D%27268%27%20x2%3D%27300%27%20y2%3D%2755%27%20stroke%3D%27%23DFA82E%27%20stroke-width%3D%271.4%27%20opacity%3D%270.4%27%20stroke-dasharray%3D%272%205%27/%3E%0A%20%20%3Cg%20fill%3D%27%233E6259%27%20opacity%3D%270.55%27%3E%0A%20%20%20%20%3Ccircle%20cx%3D%2770%27%20cy%3D%27250%27%20r%3D%273.4%27/%3E%0A%20%20%20%20%3Ccircle%20cx%3D%2795%27%20cy%3D%27230%27%20r%3D%273.4%27/%3E%0A%20%20%20%20%3Ccircle%20cx%3D%2788%27%20cy%3D%27205%27%20r%3D%273.4%27/%3E%0A%20%20%20%20%3Ccircle%20cx%3D%27120%27%20cy%3D%27215%27%20r%3D%273.4%27/%3E%0A%20%20%20%20%3Ccircle%20cx%3D%27140%27%20cy%3D%27180%27%20r%3D%273.4%27/%3E%0A%20%20%20%20%3Ccircle%20cx%3D%27128%27%20cy%3D%27150%27%20r%3D%273.4%27/%3E%0A%20%20%20%20%3Ccircle%20cx%3D%27165%27%20cy%3D%27160%27%20r%3D%273.4%27/%3E%0A%20%20%20%20%3Ccircle%20cx%3D%27185%27%20cy%3D%27130%27%20r%3D%273.4%27/%3E%0A%20%20%20%20%3Ccircle%20cx%3D%27178%27%20cy%3D%27105%27%20r%3D%273.4%27/%3E%0A%20%20%20%20%3Ccircle%20cx%3D%27210%27%20cy%3D%27115%27%20r%3D%273.4%27/%3E%0A%20%20%20%20%3Ccircle%20cx%3D%27232%27%20cy%3D%2790%27%20r%3D%273.4%27/%3E%0A%20%20%20%20%3Ccircle%20cx%3D%27222%27%20cy%3D%2770%27%20r%3D%273.4%27/%3E%0A%20%20%20%20%3Ccircle%20cx%3D%27258%27%20cy%3D%2778%27%20r%3D%273.4%27/%3E%0A%20%20%20%20%3Ccircle%20cx%3D%27275%27%20cy%3D%2760%27%20r%3D%273.4%27/%3E%0A%20%20%20%20%3Ccircle%20cx%3D%27266%27%20cy%3D%2745%27%20r%3D%273.4%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27150%27%20y%3D%27325%27%20font-family%3D%27JetBrains%20Mono%2C%20monospace%27%20font-size%3D%2713%27%20fill%3D%27%2316233D%27%20opacity%3D%270.10%27%3E%26%23963%3B%20%26%23956%3B%20%26%23946%3B%20%26%23967%3B%26%23178%3B%20%26%23963%3B%26%23178%3B%20%26%23961%3B%3C/text%3E%0A%3C/svg%3E");
-}
+  /* subtle wood-grain / vignette texture */
+  body::before{
+    content:"";
+    position:fixed; inset:0; pointer-events:none; z-index:0;
+    background-image: repeating-linear-gradient(180deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 3px);
+    mix-blend-mode:overlay;
+  }
 
-* { box-sizing: border-box; }
+  .wrap{max-width:980px; margin:0 auto; padding:0 24px 100px; position:relative; z-index:1;}
 
-body {
-  margin: 0;
-  background-color: var(--paper);
-  background-image: var(--scatter-bg);
-  background-size: 340px 340px;
-  color: var(--ink);
-  font-family: 'Inter', sans-serif;
-  -webkit-font-smoothing: antialiased;
-}
+  /* ---------- HERO (photo as background of the whole cover section) ---------- */
+  .hero{
+    position:relative;
+    margin:36px 0 56px;
+    padding:76px 24px 46px;
+    text-align:center;
+    border-radius:4px;
+    overflow:hidden;
+    box-shadow:0 22px 40px -18px rgba(0,0,0,.55);
+    border:1px solid rgba(224,164,69,.25);
+  }
+  .hero img{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    object-fit:cover;
+    filter:sepia(.18) saturate(1.05) contrast(1.05) brightness(.6);
+    z-index:0;
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0; z-index:1;
+    background:linear-gradient(180deg,
+      rgba(28,42,33,.55) 0%,
+      rgba(28,42,33,.72) 55%,
+      var(--wood-2) 100%);
+  }
+  .hero > *{ position:relative; z-index:2; }
+  .hero .caption{
+    display:block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px; letter-spacing:2px; text-transform:uppercase;
+    color:var(--lamp);
+    margin-top:26px;
+  }
 
-@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  /* ---------- HEADER (text content inside .hero) ---------- */
+  header{
+    text-align:center;
+  }
+  .seal{
+    width:78px; height:78px; margin:0 auto 22px;
+    border-radius:50%;
+    border:1.5px solid var(--lamp);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px; letter-spacing:.5px;
+    color:var(--lamp);
+    position:relative;
+    background:rgba(28,42,33,.5);
+    backdrop-filter:blur(2px);
+    z-index:3;
+  }
+  .seal::before{
+    content:"";
+    position:absolute; inset:6px;
+    border:1px solid rgba(224,164,69,.5);
+    border-radius:50%;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:var(--lamp-dim);
+    margin:0 0 14px;
+  }
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:clamp(34px, 5.2vw, 58px);
+    line-height:1.05;
+    margin:0 0 16px;
+    color:#f6efdc;
+    letter-spacing:-.5px;
+  }
+  h1 em{
+    font-style:italic;
+    font-weight:400;
+    color:var(--lamp);
+  }
+  .subtitle{
+    max-width:520px; margin:0 auto;
+    color:#c9c2ad;
+    font-size:16px;
+    line-height:1.6;
+  }
+  .meta-row{
+    margin-top:28px;
+    display:flex; gap:28px; justify-content:center; flex-wrap:wrap;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--lamp-dim);
+  }
+  .meta-row span b{color:#e8dcb8; font-weight:600;}
 
-.wrap { max-width: 880px; margin: 0 auto; padding: 0 22px; }
+  /* ---------- DRAWER LABEL ---------- */
+  .drawer-label{
+    display:flex; align-items:center; gap:14px;
+    margin:0 0 26px;
+    color:#c9c2ad;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+  }
+  .drawer-label::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:linear-gradient(90deg, rgba(224,164,69,.4), transparent);
+  }
 
-a { color: inherit; }
+  /* ---------- CATALOG CARDS ---------- */
+  .catalog{ display:flex; flex-direction:column; gap:16px; }
 
-header.hero {
-  padding: 52px 0 30px;
-  border-bottom: 1px solid var(--rule);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-}
+  details.card{
+    background:var(--card);
+    color:var(--text-dark);
+    border-radius:3px;
+    box-shadow:0 14px 30px -12px var(--paper-shadow), 0 1px 0 rgba(255,255,255,.4) inset;
+    position:relative;
+    overflow:hidden;
+    border:1px solid var(--card-line);
+  }
+  /* punch holes, like a real index card */
+  details.card::before{
+    content:"";
+    position:absolute; left:0; top:0; bottom:0; width:34px;
+    background-image:
+      radial-gradient(circle 4px, var(--wood-2) 3.5px, transparent 3.6px);
+    background-repeat:repeat-y;
+    background-position:17px 26px;
+    background-size:100% 46px;
+    border-right:1px dashed var(--card-line);
+    opacity:.55;
+  }
 
-.hero-fig { flex-shrink: 0; }
+  summary{
+    list-style:none;
+    cursor:pointer;
+    padding:22px 26px 22px 56px;
+    display:flex;
+    align-items:center;
+    gap:20px;
+    position:relative;
+  }
+  summary::-webkit-details-marker{display:none;}
 
-@media (max-width: 640px) {
-  header.hero { flex-direction: column; align-items: flex-start; }
-  .hero-fig { display: none; }
-}
+  .code{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:1px;
+    color:var(--brass);
+    border:1px solid var(--brass);
+    border-radius:2px;
+    padding:4px 8px;
+    flex-shrink:0;
+    background:rgba(184,134,59,.08);
+  }
+  .titles{flex:1; min-width:0;}
+  .course-name{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:19px;
+    margin:0 0 3px;
+    color:var(--ink);
+    letter-spacing:-.2px;
+  }
+  .course-tag{
+    font-size:13px;
+    color:var(--text-soft);
+    font-style:italic;
+  }
+  .chev{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:18px;
+    color:var(--brass);
+    transition:transform .25s ease;
+    flex-shrink:0;
+  }
+  details[open] .chev{ transform:rotate(45deg); }
 
-.eyebrow {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--signal);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 0 0 14px;
-}
-.eyebrow::before { content: ''; width: 22px; height: 1px; background: var(--signal); }
+  .card-body{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    border-top:1px dashed var(--card-line);
+    padding-top:18px;
+    margin:0 26px 26px 56px;
+  }
+  .card-body p{
+    margin:0;
+    max-width:560px;
+    font-size:14.5px;
+    line-height:1.65;
+    color:var(--text-soft);
+  }
 
-h1 {
-  font-family: 'Fraunces', serif;
-  font-weight: 700;
-  font-size: clamp(1.9rem, 5vw, 3rem);
-  line-height: 1.06;
-  margin: 0 0 16px;
-}
+  /* PDF preview, styled like a photo pinned onto the index card */
+  .preview{
+    position:relative;
+    width:100%;
+    max-width:520px;
+    background:#fff;
+    border:1px solid var(--card-line);
+    border-radius:2px;
+    box-shadow:0 10px 20px -10px rgba(0,0,0,.45);
+    overflow:hidden;
+    transform:rotate(-.4deg);
+  }
+  .preview::before{
+    content:"vista previa";
+    position:absolute; top:8px; right:10px; z-index:2;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:9.5px; letter-spacing:1.5px; text-transform:uppercase;
+    color:var(--brass);
+    background:rgba(242,234,213,.9);
+    padding:2px 6px;
+    border-radius:2px;
+    pointer-events:none;
+  }
+  .preview iframe{
+    display:block;
+    width:100%;
+    height:340px;
+    border:0;
+  }
+  .preview-fallback{
+    padding:16px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--text-soft);
+  }
 
-.hero p.meta {
-  font-size: 14.5px;
-  color: var(--ink-soft);
-  line-height: 1.6;
-  max-width: 56ch;
-  margin: 0;
-}
-.hero p.meta strong { color: var(--ink); }
+  .actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+  .stamp{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:10px 16px;
+    border-radius:2px;
+    transform:rotate(-1deg);
+    transition:transform .18s ease, background .18s ease, color .18s ease;
+    white-space:nowrap;
+  }
+  .stamp-primary{
+    color:var(--ink);
+    border:1.5px solid var(--ink);
+  }
+  .stamp-primary:hover{
+    background:var(--ink);
+    color:var(--card);
+    transform:rotate(0deg);
+  }
+  .stamp-alt{
+    color:var(--brass);
+    border:1.5px solid var(--brass);
+  }
+  .stamp-alt:hover{
+    background:var(--brass);
+    color:var(--card);
+    transform:rotate(0deg);
+  }
 
-nav.index {
-  padding: 26px 0 8px;
-}
-nav.index .label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11.5px;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--ink-soft);
-  margin: 0 0 12px;
-}
-nav.index a {
-  display: block;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 13.5px;
-  text-decoration: none;
-  color: var(--ink);
-  padding: 8px 0;
-  border-bottom: 1px dashed var(--rule);
-}
-nav.index a:hover { color: var(--signal); }
+  /* animate open/close */
+  details > summary{ transition:background .15s ease; }
+  details[open] > summary{ background:rgba(184,134,59,.06); }
 
-main { padding: 20px 0 80px; display: grid; gap: 16px; }
+  /* ---------- FOOTER ---------- */
+  footer{
+    margin-top:70px;
+    text-align:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    letter-spacing:1px;
+    color:#7d7660;
+  }
+  footer .line{
+    width:60px; height:1px; margin:0 auto 18px;
+    background:rgba(224,164,69,.35);
+  }
 
-details.course {
-  background: var(--paper-raised);
-  border: 1px solid var(--rule);
-  border-radius: 2px;
-  box-shadow: 3px 3px 0 rgba(22,35,61,0.05);
-  scroll-margin-top: 20px;
-}
-
-details.course[open] {
-  box-shadow: 5px 5px 0 rgba(22,35,61,0.08);
-  border-color: var(--ink);
-}
-
-summary {
-  list-style: none;
-  cursor: pointer;
-  padding: 20px 22px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-summary::-webkit-details-marker { display: none; }
-
-summary .code {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
-  color: var(--signal);
-  letter-spacing: 0.06em;
-  min-width: 78px;
-}
-
-summary .name {
-  font-family: 'Fraunces', serif;
-  font-weight: 600;
-  font-size: 1.12rem;
-  flex: 1;
-}
-
-summary .toggle {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 18px;
-  color: var(--chalk);
-  border: 1px solid var(--chalk);
-  border-radius: 50%;
-  width: 26px;
-  height: 26px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  transition: transform 0.15s ease;
-}
-details[open] summary .toggle { transform: rotate(45deg); }
-
-.course-body {
-  padding: 0 24px 26px;
-  border-top: 1px solid var(--rule);
-  margin-top: 2px;
-  padding-top: 20px;
-}
-
-.fact-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 22px;
-  margin-bottom: 22px;
-}
-.fact { display: flex; flex-direction: column; gap: 3px; }
-.fact .label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--ink-soft);
-}
-.fact .value { font-size: 13.5px; font-weight: 500; }
-
-.course-body h3 {
-  font-family: 'Fraunces', serif;
-  font-size: 1.02rem;
-  font-weight: 600;
-  margin: 22px 0 10px;
-  padding-bottom: 6px;
-  border-bottom: 1px solid var(--rule);
-}
-.course-body h3:first-of-type { margin-top: 0; }
-
-.course-body p,
-.course-body li {
-  font-size: 14px;
-  line-height: 1.7;
-  color: var(--ink-soft);
-}
-
-.course-body ol, .course-body ul { margin: 0; padding-left: 20px; }
-.course-body li + li { margin-top: 5px; }
-
-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
-th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--rule); }
-th {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10.5px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--ink-soft);
-  font-weight: 500;
-}
-
-.todo {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11.5px;
-  color: var(--danger);
-  background: rgba(166,67,47,0.07);
-  border: 1px dashed var(--danger);
-  border-radius: 2px;
-  padding: 8px 12px;
-  display: inline-block;
-  margin-top: 8px;
-}
-
-.pdf-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 13px;
-  color: var(--paper);
-  background: var(--ink);
-  text-decoration: none;
-  padding: 9px 16px;
-  border-radius: 2px;
-  margin-top: 20px;
-}
-.pdf-link:hover { background: var(--signal); }
-
-.banner {
-  margin: 26px 0 0;
-  height: 240px;
-  border-radius: 2px;
-  overflow: hidden;
-  position: relative;
-  background-image:
-    linear-gradient(180deg, rgba(22,35,61,0.30) 0%, rgba(22,35,61,0.90) 100%),
-    url('finesi.jpg');
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: flex-end;
-  padding: 22px 24px;
-}
-.banner .banner-caption {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11.5px;
-  color: var(--paper);
-  opacity: 0.85;
-  letter-spacing: 0.06em;
-}
-@media (max-width: 640px) { .banner { height: 170px; } }
-
-footer {
-  border-top: 1px solid var(--rule);
-  padding: 22px 0 46px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 12.5px;
-  color: var(--ink-soft);
-}
+  @media (max-width:560px){
+    summary{ padding:18px 18px 18px 46px; gap:14px; flex-wrap:wrap;}
+    .card-body{ margin:0 18px 22px 46px; }
+    details.card::before{ width:24px; background-position:11px 22px; }
+    .chev{ order:3; }
+  }
 </style>
 </head>
 <body>
-
 <div class="wrap">
-  <header class="hero">
-    <div class="hero-text">
-      <p class="eyebrow">Archivo académico · 2026-I</p>
-      <h1>Sílabos del ciclo</h1>
-      <p class="meta">
-        <strong>Patricia Arhuata Mamani</strong> · Universidad Nacional del Altiplano – Puno<br>
-        Escuela Profesional de Ingeniería Estadística e Informática.
-        Haz clic en cada curso para ver su sílabo completo.
-      </p>
-    </div>
-    <svg class="hero-fig" width="150" height="150" viewBox="0 0 150 150" aria-hidden="true">
-      <line x1="20" y1="14" x2="20" y2="128" stroke="var(--rule)" stroke-width="1.5"/>
-      <line x1="20" y1="128" x2="140" y2="128" stroke="var(--rule)" stroke-width="1.5"/>
-      <line x1="24" y1="112" x2="130" y2="30" stroke="var(--chalk)" stroke-width="2" stroke-dasharray="1 5" stroke-linecap="round"/>
-      <g fill="var(--signal)">
-        <circle cx="34" cy="102" r="4.5"/>
-        <circle cx="50" cy="90" r="4.5"/>
-        <circle cx="46" cy="76" r="4.5"/>
-        <circle cx="66" cy="80" r="4.5"/>
-        <circle cx="78" cy="60" r="4.5"/>
-        <circle cx="70" cy="48" r="4.5"/>
-        <circle cx="92" cy="52" r="4.5"/>
-        <circle cx="108" cy="40" r="4.5"/>
-        <circle cx="118" cy="34" r="4.5"/>
-      </g>
-    </svg>
-  </header>
 
-  <div class="banner">
-    <span class="banner-caption">Universidad Nacional del Altiplano · Puno</span>
+  <section class="hero">
+    <img src="finesi.jpg" alt="Facultad de Ingeniería Estadística e Informática - FINESI, Universidad Nacional del Altiplano">
+    <header>
+      <div class="seal">FIEI</div>
+      <p class="eyebrow">FINESI · Universidad Nacional del Altiplano</p>
+      <h1>Sílabos <em>2026&#8209;I</em></h1>
+      <p class="subtitle">Archivo digital de sílabos de los cursos a cargo de la docente Patricia Arhuata M. — consulta, descarga y revisa el detalle de cada curso.</p>
+      <div class="meta-row">
+        <span>Semestre <b>2026&#8209;I</b></span>
+        <span>Cursos <b>06</b></span>
+        <span>Formato <b>PDF</b></span>
+      </div>
+      <span class="caption">FINESI · UNA — Puno</span>
+    </header>
+  </section>
+
+  <p class="drawer-label">Fichero de cursos</p>
+
+  <div class="catalog">
+
+    <details class="card" open>
+      <summary>
+        <span class="code">ANS</span>
+        <span class="titles">
+          <p class="course-name">Aprendizaje No Supervisado</p>
+          <span class="course-tag">Clustering, reducción de dimensionalidad y detección de patrones</span>
+        </span>
+        <span class="chev">+</span>
+      </summary>
+      <div class="card-body">
+        <p>Técnicas de agrupamiento, análisis de componentes principales y modelos para descubrir estructura en datos sin etiquetar. Incluye competencias, unidades temáticas, metodología y sistema de evaluación.</p>
+        <div class="preview">
+          <iframe src="aprendizajeNOsupervisado.pdf#toolbar=0&view=FitH" loading="lazy" title="Vista previa: Aprendizaje No Supervisado">
+            <p class="preview-fallback">Tu navegador no muestra la vista previa del PDF.</p>
+          </iframe>
+        </div>
+        <div class="actions">
+          <a class="stamp stamp-primary" href="aprendizajeNOsupervisado.pdf" target="_blank" rel="noopener">Ver sílabo ↗</a>
+          <a class="stamp stamp-alt" href="aprendizajeNOsupervisado.pdf" download>Descargar ⬇</a>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary>
+        <span class="code">ARD</span>
+        <span class="titles">
+          <p class="course-name">Arquitectura de Redes</p>
+          <span class="course-tag">Diseño, protocolos y topologías de infraestructura de red</span>
+        </span>
+        <span class="chev">+</span>
+      </summary>
+      <div class="card-body">
+        <p>Fundamentos de redes de datos, modelos de referencia, direccionamiento y diseño de arquitecturas escalables y seguras para entornos institucionales.</p>
+        <div class="preview">
+          <iframe src="arquitecturaDEredes.pdf#toolbar=0&view=FitH" loading="lazy" title="Vista previa: Arquitectura de Redes">
+            <p class="preview-fallback">Tu navegador no muestra la vista previa del PDF.</p>
+          </iframe>
+        </div>
+        <div class="actions">
+          <a class="stamp stamp-primary" href="arquitecturaDEredes.pdf" target="_blank" rel="noopener">Ver sílabo ↗</a>
+          <a class="stamp stamp-alt" href="arquitecturaDEredes.pdf" download>Descargar ⬇</a>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary>
+        <span class="code">GPT</span>
+        <span class="titles">
+          <p class="course-name">Gestión de Proyectos de TICs</p>
+          <span class="course-tag">Planificación, ejecución y control de proyectos tecnológicos</span>
+        </span>
+        <span class="chev">+</span>
+      </summary>
+      <div class="card-body">
+        <p>Metodologías de gestión de proyectos aplicadas al desarrollo de soluciones TIC: alcance, cronograma, costos, riesgos y cierre de proyecto.</p>
+        <div class="preview">
+          <iframe src="gestionDEproyectosDEtics.pdf#toolbar=0&view=FitH" loading="lazy" title="Vista previa: Gestión de Proyectos de TICs">
+            <p class="preview-fallback">Tu navegador no muestra la vista previa del PDF.</p>
+          </iframe>
+        </div>
+        <div class="actions">
+          <a class="stamp stamp-primary" href="gestionDEproyectosDEtics.pdf" target="_blank" rel="noopener">Ver sílabo ↗</a>
+          <a class="stamp stamp-alt" href="gestionDEproyectosDEtics.pdf" download>Descargar ⬇</a>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary>
+        <span class="code">MLI</span>
+        <span class="titles">
+          <p class="course-name">Modelos Lineales</p>
+          <span class="course-tag">Fundamentos estadísticos para la modelación de datos</span>
+        </span>
+        <span class="chev">+</span>
+      </summary>
+      <div class="card-body">
+        <p>Formulación, estimación y diagnóstico de modelos lineales generales, base para el análisis estadístico aplicado en las siguientes unidades del curso.</p>
+        <div class="preview">
+          <iframe src="modelosLINEALES.pdf#toolbar=0&view=FitH" loading="lazy" title="Vista previa: Modelos Lineales">
+            <p class="preview-fallback">Tu navegador no muestra la vista previa del PDF.</p>
+          </iframe>
+        </div>
+        <div class="actions">
+          <a class="stamp stamp-primary" href="modelosLINEALES.pdf" target="_blank" rel="noopener">Ver sílabo ↗</a>
+          <a class="stamp stamp-alt" href="modelosLINEALES.pdf" download>Descargar ⬇</a>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary>
+        <span class="code">RLN</span>
+        <span class="titles">
+          <p class="course-name">Regresión Lineal y No Lineal</p>
+          <span class="course-tag">Modelamiento predictivo y análisis de relaciones entre variables</span>
+        </span>
+        <span class="chev">+</span>
+      </summary>
+      <div class="card-body">
+        <p>Construcción, validación e interpretación de modelos de regresión lineal y no lineal, con énfasis en su aplicación a problemas reales.</p>
+        <div class="preview">
+          <iframe src="regresionLINEALynoLINEAL.pdf#toolbar=0&view=FitH" loading="lazy" title="Vista previa: Regresión Lineal y No Lineal">
+            <p class="preview-fallback">Tu navegador no muestra la vista previa del PDF.</p>
+          </iframe>
+        </div>
+        <div class="actions">
+          <a class="stamp stamp-primary" href="regresionLINEALynoLINEAL.pdf" target="_blank" rel="noopener">Ver sílabo ↗</a>
+          <a class="stamp stamp-alt" href="regresionLINEALynoLINEAL.pdf" download>Descargar ⬇</a>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary>
+        <span class="code">SDT</span>
+        <span class="titles">
+          <p class="course-name">Series de Tiempo</p>
+          <span class="course-tag">Análisis, pronóstico y modelamiento de datos temporales</span>
+        </span>
+        <span class="chev">+</span>
+      </summary>
+      <div class="card-body">
+        <p>Descomposición, estacionariedad y modelos de pronóstico (ARIMA y afines) para el análisis de datos observados a lo largo del tiempo.</p>
+        <div class="preview">
+          <iframe src="seriesDEtiempo.pdf#toolbar=0&view=FitH" loading="lazy" title="Vista previa: Series de Tiempo">
+            <p class="preview-fallback">Tu navegador no muestra la vista previa del PDF.</p>
+          </iframe>
+        </div>
+        <div class="actions">
+          <a class="stamp stamp-primary" href="seriesDEtiempo.pdf" target="_blank" rel="noopener">Ver sílabo ↗</a>
+          <a class="stamp stamp-alt" href="seriesDEtiempo.pdf" download>Descargar ⬇</a>
+        </div>
+      </div>
+    </details>
+
   </div>
 
-  <nav class="index">
-    <p class="label">Índice — 06 cursos</p>
-      <a href="#ans-601">ANS-601 · Aprendizaje No Supervisado</a>
-      <a href="#arp-602">ARP-602 · Arquitectura de Redes y Protocolos</a>
-      <a href="#gpt-603">GPT-603 · Gestión de Proyectos TICs</a>
-      <a href="#mli-604">MLI-604 · Modelos Lineales</a>
-      <a href="#rln-605">RLN-605 · Regresión Lineal y No Lineal</a>
-      <a href="#sdt-606">SDT-606 · Series de Tiempo</a>
-  </nav>
-
-  <main>
-
-    <details class="course" id="ans-601">
-      <summary>
-        <span class="code">ANS-601</span>
-        <span class="name">Aprendizaje No Supervisado</span>
-        <span class="toggle" aria-hidden="true">+</span>
-      </summary>
-
-      <div class="course-body">
-        <div class="fact-row">
-          <div class="fact"><span class="label">Docente</span><span class="value">Ing. Alemán Gonzales Leonid</span></div>
-          <div class="fact"><span class="label">Ciclo</span><span class="value">2026-I</span></div>
-          <div class="fact"><span class="label">Créditos</span><span class="value">—</span></div>
-        </div>
-
-        <h3>Sumilla</h3>
-        <p>Curso orientado al estudio de técnicas de aprendizaje no supervisado: clustering (K-means, DBSCAN, jerárquico) y reducción de dimensionalidad (PCA, t-SNE, LDA), con aplicación práctica en Python.</p>
-        <p class="todo">TODO: reemplaza con la sumilla real del sílabo oficial.</p>
-
-        <h3>Competencias</h3>
-        <ul>
-            <li>Aplica algoritmos de agrupamiento para identificar patrones en datos no etiquetados.</li>
-            <li>Implementa técnicas de reducción de dimensionalidad para el análisis exploratorio de datos.</li>
-        </ul>
-        <p class="todo">TODO: ajusta según el sílabo oficial.</p>
-
-        <h3>Unidades temáticas</h3>
-        <ol>
-            <li>Fundamentos del aprendizaje no supervisado</li>
-            <li>Algoritmos de clustering</li>
-            <li>Reducción de dimensionalidad</li>
-            <li>Aplicaciones y proyecto integrador</li>
-        </ol>
-        <p class="todo">TODO: completa con semanas y detalle real.</p>
-
-        <h3>Sistema de evaluación</h3>
-        <table>
-          <thead><tr><th>Rubro</th><th>Peso</th></tr></thead>
-          <tbody>
-            <tr><td>Evaluación continua / prácticas</td><td>—</td></tr>
-            <tr><td>Examen parcial</td><td>—</td></tr>
-            <tr><td>Trabajo final / proyecto</td><td>—</td></tr>
-            <tr><td>Examen final</td><td>—</td></tr>
-          </tbody>
-        </table>
-        <p class="todo">TODO: completa los pesos reales de evaluación.</p>
-
-        <a class="pdf-link" href="aprendizajeNOsupervisado.pdf" target="_blank" rel="noopener">📄 Ver PDF del sílabo oficial</a>
-      </div>
-    </details>
-
-
-    <details class="course" id="arp-602">
-      <summary>
-        <span class="code">ARP-602</span>
-        <span class="name">Arquitectura de Redes y Protocolos</span>
-        <span class="toggle" aria-hidden="true">+</span>
-      </summary>
-
-      <div class="course-body">
-        <div class="fact-row">
-          <div class="fact"><span class="label">Docente</span><span class="value">Ing. Apaza Tarqui Alejandro</span></div>
-          <div class="fact"><span class="label">Ciclo</span><span class="value">2026-I</span></div>
-          <div class="fact"><span class="label">Créditos</span><span class="value">—</span></div>
-        </div>
-
-        <h3>Sumilla</h3>
-        <p>Estudio de los modelos de referencia OSI y TCP/IP, protocolos de comunicación, direccionamiento y diseño de arquitecturas de red.</p>
-        <p class="todo">TODO: reemplaza con la sumilla real del sílabo oficial.</p>
-
-        <h3>Competencias</h3>
-        <ul>
-            <li>Diseña arquitecturas de red aplicando modelos de referencia y protocolos estándar.</li>
-            <li>Configura y evalúa protocolos de comunicación en entornos simulados.</li>
-        </ul>
-        <p class="todo">TODO: ajusta según el sílabo oficial.</p>
-
-        <h3>Unidades temáticas</h3>
-        <ol>
-            <li>Modelos de referencia OSI y TCP/IP</li>
-            <li>Protocolos de capa de red y transporte</li>
-            <li>Direccionamiento y enrutamiento</li>
-            <li>Seguridad y diseño de arquitecturas de red</li>
-        </ol>
-        <p class="todo">TODO: completa con semanas y detalle real.</p>
-
-        <h3>Sistema de evaluación</h3>
-        <table>
-          <thead><tr><th>Rubro</th><th>Peso</th></tr></thead>
-          <tbody>
-            <tr><td>Evaluación continua / prácticas</td><td>—</td></tr>
-            <tr><td>Examen parcial</td><td>—</td></tr>
-            <tr><td>Trabajo final / proyecto</td><td>—</td></tr>
-            <tr><td>Examen final</td><td>—</td></tr>
-          </tbody>
-        </table>
-        <p class="todo">TODO: completa los pesos reales de evaluación.</p>
-
-        <a class="pdf-link" href="arquitecturaDEredes.pdf" target="_blank" rel="noopener">📄 Ver PDF del sílabo oficial</a>
-      </div>
-    </details>
-
-
-    <details class="course" id="gpt-603">
-      <summary>
-        <span class="code">GPT-603</span>
-        <span class="name">Gestión de Proyectos TICs</span>
-        <span class="toggle" aria-hidden="true">+</span>
-      </summary>
-
-      <div class="course-body">
-        <div class="fact-row">
-          <div class="fact"><span class="label">Docente</span><span class="value">Ing. Melgarejo Bolívar Romel Percy</span></div>
-          <div class="fact"><span class="label">Ciclo</span><span class="value">2026-I</span></div>
-          <div class="fact"><span class="label">Créditos</span><span class="value">—</span></div>
-        </div>
-
-        <h3>Sumilla</h3>
-        <p>Curso sobre metodologías y buenas prácticas para la planificación, ejecución y control de proyectos de tecnologías de información y comunicación, con uso de GitHub, GitHub Projects y Notion.</p>
-        <p class="todo">TODO: reemplaza con la sumilla real del sílabo oficial.</p>
-
-        <h3>Competencias</h3>
-        <ul>
-            <li>Planifica proyectos TIC aplicando metodologías tradicionales, ágiles e híbridas (PMBOK, Scrum, Kanban).</li>
-            <li>Gestiona el alcance, tiempo, costo y riesgos de un proyecto TIC mediante un portafolio digital.</li>
-        </ul>
-        <p class="todo">TODO: ajusta según el sílabo oficial.</p>
-
-        <h3>Unidades temáticas</h3>
-        <ol>
-            <li>Formulación, planificación y organización del portafolio de proyectos TIC</li>
-            <li>PMBOK, Scrum y Kanban aplicados a proyectos TIC</li>
-            <li>Gestión de cronograma, riesgos y calidad</li>
-            <li>Ejecución, seguimiento, control y cierre de proyectos</li>
-        </ol>
-        <p class="todo">TODO: completa con semanas y detalle real.</p>
-
-        <h3>Sistema de evaluación</h3>
-        <table>
-          <thead><tr><th>Rubro</th><th>Peso</th></tr></thead>
-          <tbody>
-            <tr><td>Evaluación continua / prácticas</td><td>—</td></tr>
-            <tr><td>Examen parcial</td><td>—</td></tr>
-            <tr><td>Trabajo final / proyecto</td><td>—</td></tr>
-            <tr><td>Examen final</td><td>—</td></tr>
-          </tbody>
-        </table>
-        <p class="todo">TODO: completa los pesos reales de evaluación.</p>
-
-        <a class="pdf-link" href="gestionDEproyectosDEtics.pdf" target="_blank" rel="noopener">📄 Ver PDF del sílabo oficial</a>
-      </div>
-    </details>
-
-
-    <details class="course" id="mli-604">
-      <summary>
-        <span class="code">MLI-604</span>
-        <span class="name">Modelos Lineales</span>
-        <span class="toggle" aria-hidden="true">+</span>
-      </summary>
-
-      <div class="course-body">
-        <div class="fact-row">
-          <div class="fact"><span class="label">Docente</span><span class="value">Ing. Morillos Valderrama Santos Octavio</span></div>
-          <div class="fact"><span class="label">Ciclo</span><span class="value">2026-I</span></div>
-          <div class="fact"><span class="label">Créditos</span><span class="value">—</span></div>
-        </div>
-
-        <h3>Sumilla</h3>
-        <p>Curso sobre la formulación, estimación e inferencia en modelos lineales generales, incluyendo diagnóstico de supuestos y aplicaciones.</p>
-        <p class="todo">TODO: reemplaza con la sumilla real del sílabo oficial.</p>
-
-        <h3>Competencias</h3>
-        <ul>
-            <li>Formula y estima modelos lineales generales para el análisis de datos.</li>
-            <li>Evalúa el cumplimiento de supuestos mediante diagnóstico de residuos.</li>
-        </ul>
-        <p class="todo">TODO: ajusta según el sílabo oficial.</p>
-
-        <h3>Unidades temáticas</h3>
-        <ol>
-            <li>Modelo lineal general: formulación matricial</li>
-            <li>Estimación por mínimos cuadrados</li>
-            <li>Inferencia y pruebas de hipótesis</li>
-            <li>Diagnóstico y modelos lineales generalizados</li>
-        </ol>
-        <p class="todo">TODO: completa con semanas y detalle real.</p>
-
-        <h3>Sistema de evaluación</h3>
-        <table>
-          <thead><tr><th>Rubro</th><th>Peso</th></tr></thead>
-          <tbody>
-            <tr><td>Evaluación continua / prácticas</td><td>—</td></tr>
-            <tr><td>Examen parcial</td><td>—</td></tr>
-            <tr><td>Trabajo final / proyecto</td><td>—</td></tr>
-            <tr><td>Examen final</td><td>—</td></tr>
-          </tbody>
-        </table>
-        <p class="todo">TODO: completa los pesos reales de evaluación.</p>
-
-        <a class="pdf-link" href="modelosLINEALES.pdf" target="_blank" rel="noopener">📄 Ver PDF del sílabo oficial</a>
-      </div>
-    </details>
-
-
-    <details class="course" id="rln-605">
-      <summary>
-        <span class="code">RLN-605</span>
-        <span class="name">Regresión Lineal y No Lineal</span>
-        <span class="toggle" aria-hidden="true">+</span>
-      </summary>
-
-      <div class="course-body">
-        <div class="fact-row">
-          <div class="fact"><span class="label">Docente</span><span class="value">Ing. Vargas Valverde Confesor Milán</span></div>
-          <div class="fact"><span class="label">Ciclo</span><span class="value">2026-I</span></div>
-          <div class="fact"><span class="label">Créditos</span><span class="value">—</span></div>
-        </div>
-
-        <h3>Sumilla</h3>
-        <p>Estudio de modelos de regresión lineal simple, múltiple y no lineal, con énfasis en estimación, diagnóstico y aplicación con datos reales.</p>
-        <p class="todo">TODO: reemplaza con la sumilla real del sílabo oficial.</p>
-
-        <h3>Competencias</h3>
-        <ul>
-            <li>Construye modelos de regresión lineal simple y múltiple para explicar relaciones entre variables.</li>
-            <li>Aplica modelos de regresión no lineal cuando el supuesto de linealidad no se cumple.</li>
-        </ul>
-        <p class="todo">TODO: ajusta según el sílabo oficial.</p>
-
-        <h3>Unidades temáticas</h3>
-        <ol>
-            <li>Regresión lineal simple</li>
-            <li>Regresión lineal múltiple</li>
-            <li>Diagnóstico de supuestos (multicolinealidad, heterocedasticidad)</li>
-            <li>Modelos de regresión no lineal</li>
-        </ol>
-        <p class="todo">TODO: completa con semanas y detalle real.</p>
-
-        <h3>Sistema de evaluación</h3>
-        <table>
-          <thead><tr><th>Rubro</th><th>Peso</th></tr></thead>
-          <tbody>
-            <tr><td>Evaluación continua / prácticas</td><td>—</td></tr>
-            <tr><td>Examen parcial</td><td>—</td></tr>
-            <tr><td>Trabajo final / proyecto</td><td>—</td></tr>
-            <tr><td>Examen final</td><td>—</td></tr>
-          </tbody>
-        </table>
-        <p class="todo">TODO: completa los pesos reales de evaluación.</p>
-
-        <a class="pdf-link" href="regresionLINEALynoLINEAL.pdf" target="_blank" rel="noopener">📄 Ver PDF del sílabo oficial</a>
-      </div>
-    </details>
-
-
-    <details class="course" id="sdt-606">
-      <summary>
-        <span class="code">SDT-606</span>
-        <span class="name">Series de Tiempo</span>
-        <span class="toggle" aria-hidden="true">+</span>
-      </summary>
-
-      <div class="course-body">
-        <div class="fact-row">
-          <div class="fact"><span class="label">Docente</span><span class="value">Ing. Lluén Vallejos César Augusto</span></div>
-          <div class="fact"><span class="label">Ciclo</span><span class="value">2026-I</span></div>
-          <div class="fact"><span class="label">Créditos</span><span class="value">—</span></div>
-        </div>
-
-        <h3>Sumilla</h3>
-        <p>Curso sobre el análisis y modelamiento de series de tiempo: estacionariedad, metodología Box-Jenkins, modelos SARIMA y pronóstico.</p>
-        <p class="todo">TODO: reemplaza con la sumilla real del sílabo oficial.</p>
-
-        <h3>Competencias</h3>
-        <ul>
-            <li>Analiza la estacionariedad y estructura de autocorrelación de una serie de tiempo.</li>
-            <li>Construye modelos SARIMA/ARIMAX y genera pronósticos con su respectiva validación.</li>
-        </ul>
-        <p class="todo">TODO: ajusta según el sílabo oficial.</p>
-
-        <h3>Unidades temáticas</h3>
-        <ol>
-            <li>Fundamentos y componentes de una serie de tiempo</li>
-            <li>Estacionariedad y pruebas ADF</li>
-            <li>Metodología Box-Jenkins: identificación, estimación y diagnóstico</li>
-            <li>Modelos SARIMA/ARIMAX y pronóstico</li>
-        </ol>
-        <p class="todo">TODO: completa con semanas y detalle real.</p>
-
-        <h3>Sistema de evaluación</h3>
-        <table>
-          <thead><tr><th>Rubro</th><th>Peso</th></tr></thead>
-          <tbody>
-            <tr><td>Evaluación continua / prácticas</td><td>—</td></tr>
-            <tr><td>Examen parcial</td><td>—</td></tr>
-            <tr><td>Trabajo final / proyecto</td><td>—</td></tr>
-            <tr><td>Examen final</td><td>—</td></tr>
-          </tbody>
-        </table>
-        <p class="todo">TODO: completa los pesos reales de evaluación.</p>
-
-        <a class="pdf-link" href="seriesDEtiempo.pdf" target="_blank" rel="noopener">📄 Ver PDF del sílabo oficial</a>
-      </div>
-    </details>
-
-  </main>
-
   <footer>
-    Escuela Profesional de Ingeniería Estadística e Informática · UNA Puno
+    <div class="line"></div>
+    Actualizado · Semestre 2026&#8209;I · FINESI
   </footer>
-</div>
 
+</div>
 </body>
 </html>
