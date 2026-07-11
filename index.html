@@ -1,218 +1,638 @@
-
-```html
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
-<link rel="stylesheet" type="text/css" href="./lib/style.css">
-<script type="text/javascript" src="./lib/hidebib.js"></script>
-<title>UNAP-EST315</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<meta name="keywords" content="gestión de proyectos TIC, GitHub, Notion, portafolios, ciencia de datos, desarrollo de software, redes, telecomunicaciones, estadística, PMBOK, Scrum, Kanban" />
-<meta name="description" content="Sílabo actualizado del curso de Gestión de Proyectos TICs - Ingeniería Estadística e Informática - UNAP" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sílabos 2026-I · Patricia Arhuata Mamani</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+:root {
+  --ink: #16233D;
+  --ink-soft: #4B5866;
+  --paper: #F3F1E8;
+  --paper-raised: #FBFAF5;
+  --rule: #CBC2A8;
+  --chalk: #DFA82E;
+  --signal: #3E6259;
+  --danger: #A6432F;
+  --scatter-bg: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27340%27%20height%3D%27340%27%20viewBox%3D%270%200%20340%20340%27%3E%0A%20%20%3Crect%20width%3D%27340%27%20height%3D%27340%27%20fill%3D%27none%27/%3E%0A%20%20%3Cg%20stroke%3D%27%23CBC2A8%27%20stroke-width%3D%271%27%20opacity%3D%270.55%27%3E%0A%20%20%20%20%3Cline%20x1%3D%2738%27%20y1%3D%2720%27%20x2%3D%2738%27%20y2%3D%27300%27/%3E%0A%20%20%20%20%3Cline%20x1%3D%2738%27%20y1%3D%27300%27%20x2%3D%27320%27%20y2%3D%27300%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Cg%20stroke%3D%27%23CBC2A8%27%20stroke-width%3D%271%27%20opacity%3D%270.35%27%3E%0A%20%20%20%20%3Cline%20x1%3D%2734%27%20y1%3D%27260%27%20x2%3D%2742%27%20y2%3D%27260%27/%3E%0A%20%20%20%20%3Cline%20x1%3D%2734%27%20y1%3D%27220%27%20x2%3D%2742%27%20y2%3D%27220%27/%3E%0A%20%20%20%20%3Cline%20x1%3D%2734%27%20y1%3D%27180%27%20x2%3D%2742%27%20y2%3D%27180%27/%3E%0A%20%20%20%20%3Cline%20x1%3D%2734%27%20y1%3D%27140%27%20x2%3D%2742%27%20y2%3D%27140%27/%3E%0A%20%20%20%20%3Cline%20x1%3D%2734%27%20y1%3D%27100%27%20x2%3D%2742%27%20y2%3D%27100%27/%3E%0A%20%20%20%20%3Cline%20x1%3D%2734%27%20y1%3D%2760%27%20x2%3D%2742%27%20y2%3D%2760%27/%3E%0A%20%20%20%20%3Cline%20x1%3D%2778%27%20y1%3D%27296%27%20x2%3D%2778%27%20y2%3D%27304%27/%3E%0A%20%20%20%20%3Cline%20x1%3D%27118%27%20y1%3D%27296%27%20x2%3D%27118%27%20y2%3D%27304%27/%3E%0A%20%20%20%20%3Cline%20x1%3D%27158%27%20y1%3D%27296%27%20x2%3D%27158%27%20y2%3D%27304%27/%3E%0A%20%20%20%20%3Cline%20x1%3D%27198%27%20y1%3D%27296%27%20x2%3D%27198%27%20y2%3D%27304%27/%3E%0A%20%20%20%20%3Cline%20x1%3D%27238%27%20y1%3D%27296%27%20x2%3D%27238%27%20y2%3D%27304%27/%3E%0A%20%20%20%20%3Cline%20x1%3D%27278%27%20y1%3D%27296%27%20x2%3D%27278%27%20y2%3D%27304%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Cline%20x1%3D%2745%27%20y1%3D%27268%27%20x2%3D%27300%27%20y2%3D%2755%27%20stroke%3D%27%23DFA82E%27%20stroke-width%3D%271.4%27%20opacity%3D%270.4%27%20stroke-dasharray%3D%272%205%27/%3E%0A%20%20%3Cg%20fill%3D%27%233E6259%27%20opacity%3D%270.55%27%3E%0A%20%20%20%20%3Ccircle%20cx%3D%2770%27%20cy%3D%27250%27%20r%3D%273.4%27/%3E%0A%20%20%20%20%3Ccircle%20cx%3D%2795%27%20cy%3D%27230%27%20r%3D%273.4%27/%3E%0A%20%20%20%20%3Ccircle%20cx%3D%2788%27%20cy%3D%27205%27%20r%3D%273.4%27/%3E%0A%20%20%20%20%3Ccircle%20cx%3D%27120%27%20cy%3D%27215%27%20r%3D%273.4%27/%3E%0A%20%20%20%20%3Ccircle%20cx%3D%27140%27%20cy%3D%27180%27%20r%3D%273.4%27/%3E%0A%20%20%20%20%3Ccircle%20cx%3D%27128%27%20cy%3D%27150%27%20r%3D%273.4%27/%3E%0A%20%20%20%20%3Ccircle%20cx%3D%27165%27%20cy%3D%27160%27%20r%3D%273.4%27/%3E%0A%20%20%20%20%3Ccircle%20cx%3D%27185%27%20cy%3D%27130%27%20r%3D%273.4%27/%3E%0A%20%20%20%20%3Ccircle%20cx%3D%27178%27%20cy%3D%27105%27%20r%3D%273.4%27/%3E%0A%20%20%20%20%3Ccircle%20cx%3D%27210%27%20cy%3D%27115%27%20r%3D%273.4%27/%3E%0A%20%20%20%20%3Ccircle%20cx%3D%27232%27%20cy%3D%2790%27%20r%3D%273.4%27/%3E%0A%20%20%20%20%3Ccircle%20cx%3D%27222%27%20cy%3D%2770%27%20r%3D%273.4%27/%3E%0A%20%20%20%20%3Ccircle%20cx%3D%27258%27%20cy%3D%2778%27%20r%3D%273.4%27/%3E%0A%20%20%20%20%3Ccircle%20cx%3D%27275%27%20cy%3D%2760%27%20r%3D%273.4%27/%3E%0A%20%20%20%20%3Ccircle%20cx%3D%27266%27%20cy%3D%2745%27%20r%3D%273.4%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27150%27%20y%3D%27325%27%20font-family%3D%27JetBrains%20Mono%2C%20monospace%27%20font-size%3D%2713%27%20fill%3D%27%2316233D%27%20opacity%3D%270.10%27%3E%26%23963%3B%20%26%23956%3B%20%26%23946%3B%20%26%23967%3B%26%23178%3B%20%26%23963%3B%26%23178%3B%20%26%23961%3B%3C/text%3E%0A%3C/svg%3E");
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background-color: var(--paper);
+  background-image: var(--scatter-bg);
+  background-size: 340px 340px;
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+.wrap { max-width: 880px; margin: 0 auto; padding: 0 22px; }
+
+a { color: inherit; }
+
+header.hero {
+  padding: 52px 0 30px;
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.hero-fig { flex-shrink: 0; }
+
+@media (max-width: 640px) {
+  header.hero { flex-direction: column; align-items: flex-start; }
+  .hero-fig { display: none; }
+}
+
+.eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--signal);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 14px;
+}
+.eyebrow::before { content: ''; width: 22px; height: 1px; background: var(--signal); }
+
+h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: clamp(1.9rem, 5vw, 3rem);
+  line-height: 1.06;
+  margin: 0 0 16px;
+}
+
+.hero p.meta {
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  max-width: 56ch;
+  margin: 0;
+}
+.hero p.meta strong { color: var(--ink); }
+
+nav.index {
+  padding: 26px 0 8px;
+}
+nav.index .label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-soft);
+  margin: 0 0 12px;
+}
+nav.index a {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13.5px;
+  text-decoration: none;
+  color: var(--ink);
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--rule);
+}
+nav.index a:hover { color: var(--signal); }
+
+main { padding: 20px 0 80px; display: grid; gap: 16px; }
+
+details.course {
+  background: var(--paper-raised);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  box-shadow: 3px 3px 0 rgba(22,35,61,0.05);
+  scroll-margin-top: 20px;
+}
+
+details.course[open] {
+  box-shadow: 5px 5px 0 rgba(22,35,61,0.08);
+  border-color: var(--ink);
+}
+
+summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 20px 22px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+summary::-webkit-details-marker { display: none; }
+
+summary .code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--signal);
+  letter-spacing: 0.06em;
+  min-width: 78px;
+}
+
+summary .name {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 1.12rem;
+  flex: 1;
+}
+
+summary .toggle {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 18px;
+  color: var(--chalk);
+  border: 1px solid var(--chalk);
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.15s ease;
+}
+details[open] summary .toggle { transform: rotate(45deg); }
+
+.course-body {
+  padding: 0 24px 26px;
+  border-top: 1px solid var(--rule);
+  margin-top: 2px;
+  padding-top: 20px;
+}
+
+.fact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin-bottom: 22px;
+}
+.fact { display: flex; flex-direction: column; gap: 3px; }
+.fact .label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-soft);
+}
+.fact .value { font-size: 13.5px; font-weight: 500; }
+
+.course-body h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.02rem;
+  font-weight: 600;
+  margin: 22px 0 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--rule);
+}
+.course-body h3:first-of-type { margin-top: 0; }
+
+.course-body p,
+.course-body li {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+
+.course-body ol, .course-body ul { margin: 0; padding-left: 20px; }
+.course-body li + li { margin-top: 5px; }
+
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--rule); }
+th {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+
+.todo {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  color: var(--danger);
+  background: rgba(166,67,47,0.07);
+  border: 1px dashed var(--danger);
+  border-radius: 2px;
+  padding: 8px 12px;
+  display: inline-block;
+  margin-top: 8px;
+}
+
+.pdf-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--paper);
+  background: var(--ink);
+  text-decoration: none;
+  padding: 9px 16px;
+  border-radius: 2px;
+  margin-top: 20px;
+}
+.pdf-link:hover { background: var(--signal); }
+
+.banner {
+  margin: 26px 0 0;
+  height: 240px;
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+  background-image:
+    linear-gradient(180deg, rgba(22,35,61,0.30) 0%, rgba(22,35,61,0.90) 100%),
+    url('finesi.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  padding: 22px 24px;
+}
+.banner .banner-caption {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  color: var(--paper);
+  opacity: 0.85;
+  letter-spacing: 0.06em;
+}
+@media (max-width: 640px) { .banner { height: 170px; } }
+
+footer {
+  border-top: 1px solid var(--rule);
+  padding: 22px 0 46px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+}
+</style>
 </head>
+<body>
 
-<body style="background-color: #060913; margin: 0; padding:0;">
-<div style="padding: 25px;">
-<table width="800" border="0" align="center" cellpadding="20" style="background-color: #fff;">
-<tr>
-<td>
+<div class="wrap">
+  <header class="hero">
+    <div class="hero-text">
+      <p class="eyebrow">Archivo académico · 2026-I</p>
+      <h1>Sílabos del ciclo</h1>
+      <p class="meta">
+        <strong>Patricia Arhuata Mamani</strong> · Universidad Nacional del Altiplano – Puno<br>
+        Escuela Profesional de Ingeniería Estadística e Informática.
+        Haz clic en cada curso para ver su sílabo completo.
+      </p>
+    </div>
+    <svg class="hero-fig" width="150" height="150" viewBox="0 0 150 150" aria-hidden="true">
+      <line x1="20" y1="14" x2="20" y2="128" stroke="var(--rule)" stroke-width="1.5"/>
+      <line x1="20" y1="128" x2="140" y2="128" stroke="var(--rule)" stroke-width="1.5"/>
+      <line x1="24" y1="112" x2="130" y2="30" stroke="var(--chalk)" stroke-width="2" stroke-dasharray="1 5" stroke-linecap="round"/>
+      <g fill="var(--signal)">
+        <circle cx="34" cy="102" r="4.5"/>
+        <circle cx="50" cy="90" r="4.5"/>
+        <circle cx="46" cy="76" r="4.5"/>
+        <circle cx="66" cy="80" r="4.5"/>
+        <circle cx="78" cy="60" r="4.5"/>
+        <circle cx="70" cy="48" r="4.5"/>
+        <circle cx="92" cy="52" r="4.5"/>
+        <circle cx="108" cy="40" r="4.5"/>
+        <circle cx="118" cy="34" r="4.5"/>
+      </g>
+    </svg>
+  </header>
 
-<table width="100%" align="center" border="0" cellpadding="10">
-<tr>
-<td width="70%" style="vertical-align: top; text-align: left;">
-<p style="font-size: 36px;">Gestión de Proyectos TICs</p>
-<p style="font-size: 16px;">
-Ingeniería Estadística e Informática<br>
-Facultad de Ingeniería Estadística e Informática<br>
-Universidad Nacional del Altiplano - Puno
-</p>
-<p style="font-size: 16px;">
-Código: EST315 | Ciclo: VI | Créditos: 4<br>
-Horas: 3 teóricas, 2 prácticas | Total: 5 horas
-</p>
-<p style="font-size: 16px;">
-Prof. M. Sc. Romel Percy Melgarejo Bolívar
-</p>
-</td>
-<td width="30%" valign="bottom" align="right"></td>
-</tr>
+  <div class="banner">
+    <span class="banner-caption">Universidad Nacional del Altiplano · Puno</span>
+  </div>
 
-<tr>
-<td colspan="2">
-<p>
-<a href="#sumilla">Sumilla</a> |
-<a href="#logro">Logro</a> |
-<a href="#contenido">Contenido</a> |
-<a href="#metodologia">Metodología</a> |
-<a href="#evaluacion">Evaluación</a> |
-<a href="#entregables">Entregables</a> |
-<a href="#recursos">Recursos</a> |
-<a href="#bibliografia">Bibliografía</a> |
-<a href="#contacto">Contacto</a>
-</p>
-</td>
-</tr>
-</table>
+  <nav class="index">
+    <p class="label">Índice — 06 cursos</p>
+      <a href="#ans-601">ANS-601 · Aprendizaje No Supervisado</a>
+      <a href="#arp-602">ARP-602 · Arquitectura de Redes y Protocolos</a>
+      <a href="#gpt-603">GPT-603 · Gestión de Proyectos TICs</a>
+      <a href="#mli-604">MLI-604 · Modelos Lineales</a>
+      <a href="#rln-605">RLN-605 · Regresión Lineal y No Lineal</a>
+      <a href="#sdt-606">SDT-606 · Series de Tiempo</a>
+  </nav>
 
-<hr/>
+  <main>
 
-<heading id="sumilla">Sumilla</heading>
-<p style="text-align: justify">
-El curso de Gestión de Proyectos TICs corresponde al área de Estudios de Especialidad y es de naturaleza teórico-práctica. Tiene como propósito desarrollar competencias para formular, planificar, ejecutar, monitorear, controlar y cerrar proyectos tecnológicos vinculados a la Ingeniería Estadística e Informática.
-</p>
+    <details class="course" id="ans-601">
+      <summary>
+        <span class="code">ANS-601</span>
+        <span class="name">Aprendizaje No Supervisado</span>
+        <span class="toggle" aria-hidden="true">+</span>
+      </summary>
 
-<p style="text-align: justify">
-El curso se orienta a la gestión de portafolios de proyectos desde el inicio hasta el cierre, integrando las principales líneas de desarrollo profesional de la carrera: desarrollo de software, programación, diseño de sistemas, redes y telecomunicaciones, estadística aplicada, ciencia de datos, inteligencia artificial, análisis estadístico y asesorías de tesis relacionadas con el procesamiento de datos.
-</p>
+      <div class="course-body">
+        <div class="fact-row">
+          <div class="fact"><span class="label">Docente</span><span class="value">Ing. Alemán Gonzales Leonid</span></div>
+          <div class="fact"><span class="label">Ciclo</span><span class="value">2026-I</span></div>
+          <div class="fact"><span class="label">Créditos</span><span class="value">—</span></div>
+        </div>
 
-<p style="text-align: justify">
-Para ello, los estudiantes utilizarán herramientas colaborativas como GitHub, GitHub Projects y Notion, aplicando metodologías tradicionales, ágiles e híbridas como PMBOK, Scrum, Kanban, Design Thinking y gestión basada en evidencias. El curso promueve el trabajo en equipo, la trazabilidad, la documentación técnica, la gestión de tareas, la comunicación efectiva y la entrega progresiva de valor mediante proyectos reales.
-</p>
+        <h3>Sumilla</h3>
+        <p>Curso orientado al estudio de técnicas de aprendizaje no supervisado: clustering (K-means, DBSCAN, jerárquico) y reducción de dimensionalidad (PCA, t-SNE, LDA), con aplicación práctica en Python.</p>
+        <p class="todo">TODO: reemplaza con la sumilla real del sílabo oficial.</p>
 
-<hr/>
+        <h3>Competencias</h3>
+        <ul>
+            <li>Aplica algoritmos de agrupamiento para identificar patrones en datos no etiquetados.</li>
+            <li>Implementa técnicas de reducción de dimensionalidad para el análisis exploratorio de datos.</li>
+        </ul>
+        <p class="todo">TODO: ajusta según el sílabo oficial.</p>
 
-<heading id="logro">Logro del curso</heading>
-<p style="text-align: justify">
-Al finalizar el curso, el estudiante gestiona portafolios y proyectos de Tecnologías de Información y Comunicación aplicando metodologías tradicionales, ágiles e híbridas para planificar, ejecutar, monitorear y controlar iniciativas relacionadas con desarrollo de software, redes y telecomunicaciones, estadística, ciencia de datos, inteligencia artificial e investigación aplicada, utilizando herramientas digitales que garanticen trazabilidad, calidad y cumplimiento de objetivos durante todo el ciclo de vida del proyecto.
-</p>
+        <h3>Unidades temáticas</h3>
+        <ol>
+            <li>Fundamentos del aprendizaje no supervisado</li>
+            <li>Algoritmos de clustering</li>
+            <li>Reducción de dimensionalidad</li>
+            <li>Aplicaciones y proyecto integrador</li>
+        </ol>
+        <p class="todo">TODO: completa con semanas y detalle real.</p>
 
-<hr/>
+        <h3>Sistema de evaluación</h3>
+        <table>
+          <thead><tr><th>Rubro</th><th>Peso</th></tr></thead>
+          <tbody>
+            <tr><td>Evaluación continua / prácticas</td><td>—</td></tr>
+            <tr><td>Examen parcial</td><td>—</td></tr>
+            <tr><td>Trabajo final / proyecto</td><td>—</td></tr>
+            <tr><td>Examen final</td><td>—</td></tr>
+          </tbody>
+        </table>
+        <p class="todo">TODO: completa los pesos reales de evaluación.</p>
 
-<heading id="contenido">Contenido</heading>
+        <a class="pdf-link" href="aprendizajeNOsupervisado.pdf" target="_blank" rel="noopener">📄 Ver PDF del sílabo oficial</a>
+      </div>
+    </details>
 
-<div class="pub">
-<heading>Unidad I: Formulación, planificación y organización del portafolio de proyectos TIC</heading>
-<p><b>Duración:</b> Semanas 1 al 9</p>
-<p><b>Logro de unidad:</b> Formula y organiza un proyecto TIC real mediante la identificación de problemas, definición de objetivos, planificación de entregables y construcción de un portafolio digital en GitHub y Notion.</p>
 
-<ul>
-<li><b>Semana 1:</b> Presentación del curso. Enfoque por proyectos y portafolios. Líneas de trabajo: software, redes, estadística, ciencia de datos e investigación.</li>
-<li><b>Semana 2:</b> Gestión de proyectos TIC. Proyecto, programa y portafolio. Ciclo de vida del proyecto.</li>
-<li><b>Semana 3:</b> Identificación de problemas, necesidades y oportunidades en contextos reales.</li>
-<li><b>Semana 4:</b> Design Thinking e ideación de proyectos tecnológicos.</li>
-<li><b>Semana 5:</b> Formulación del proyecto: problema, objetivos, alcance, entregables e indicadores.</li>
-<li><b>Semana 6:</b> Acta de constitución del proyecto. Roles, responsabilidades e interesados.</li>
-<li><b>Semana 7:</b> Organización del portafolio en Notion: documentación, cronograma, bitácora y evidencias.</li>
-<li><b>Semana 8:</b> Organización del repositorio en GitHub: estructura, README, issues, milestones y control de versiones.</li>
-<li><b>Semana 9:</b> Sustentación parcial del proyecto: pitch, Project Charter, tablero de seguimiento y portafolio inicial.</li>
-</ul>
+    <details class="course" id="arp-602">
+      <summary>
+        <span class="code">ARP-602</span>
+        <span class="name">Arquitectura de Redes y Protocolos</span>
+        <span class="toggle" aria-hidden="true">+</span>
+      </summary>
+
+      <div class="course-body">
+        <div class="fact-row">
+          <div class="fact"><span class="label">Docente</span><span class="value">Ing. Apaza Tarqui Alejandro</span></div>
+          <div class="fact"><span class="label">Ciclo</span><span class="value">2026-I</span></div>
+          <div class="fact"><span class="label">Créditos</span><span class="value">—</span></div>
+        </div>
+
+        <h3>Sumilla</h3>
+        <p>Estudio de los modelos de referencia OSI y TCP/IP, protocolos de comunicación, direccionamiento y diseño de arquitecturas de red.</p>
+        <p class="todo">TODO: reemplaza con la sumilla real del sílabo oficial.</p>
+
+        <h3>Competencias</h3>
+        <ul>
+            <li>Diseña arquitecturas de red aplicando modelos de referencia y protocolos estándar.</li>
+            <li>Configura y evalúa protocolos de comunicación en entornos simulados.</li>
+        </ul>
+        <p class="todo">TODO: ajusta según el sílabo oficial.</p>
+
+        <h3>Unidades temáticas</h3>
+        <ol>
+            <li>Modelos de referencia OSI y TCP/IP</li>
+            <li>Protocolos de capa de red y transporte</li>
+            <li>Direccionamiento y enrutamiento</li>
+            <li>Seguridad y diseño de arquitecturas de red</li>
+        </ol>
+        <p class="todo">TODO: completa con semanas y detalle real.</p>
+
+        <h3>Sistema de evaluación</h3>
+        <table>
+          <thead><tr><th>Rubro</th><th>Peso</th></tr></thead>
+          <tbody>
+            <tr><td>Evaluación continua / prácticas</td><td>—</td></tr>
+            <tr><td>Examen parcial</td><td>—</td></tr>
+            <tr><td>Trabajo final / proyecto</td><td>—</td></tr>
+            <tr><td>Examen final</td><td>—</td></tr>
+          </tbody>
+        </table>
+        <p class="todo">TODO: completa los pesos reales de evaluación.</p>
+
+        <a class="pdf-link" href="arquitecturaDEredes.pdf" target="_blank" rel="noopener">📄 Ver PDF del sílabo oficial</a>
+      </div>
+    </details>
+
+
+    <details class="course" id="gpt-603">
+      <summary>
+        <span class="code">GPT-603</span>
+        <span class="name">Gestión de Proyectos TICs</span>
+        <span class="toggle" aria-hidden="true">+</span>
+      </summary>
+
+      <div class="course-body">
+        <div class="fact-row">
+          <div class="fact"><span class="label">Docente</span><span class="value">Ing. Melgarejo Bolívar Romel Percy</span></div>
+          <div class="fact"><span class="label">Ciclo</span><span class="value">2026-I</span></div>
+          <div class="fact"><span class="label">Créditos</span><span class="value">—</span></div>
+        </div>
+
+        <h3>Sumilla</h3>
+        <p>Curso sobre metodologías y buenas prácticas para la planificación, ejecución y control de proyectos de tecnologías de información y comunicación, con uso de GitHub, GitHub Projects y Notion.</p>
+        <p class="todo">TODO: reemplaza con la sumilla real del sílabo oficial.</p>
+
+        <h3>Competencias</h3>
+        <ul>
+            <li>Planifica proyectos TIC aplicando metodologías tradicionales, ágiles e híbridas (PMBOK, Scrum, Kanban).</li>
+            <li>Gestiona el alcance, tiempo, costo y riesgos de un proyecto TIC mediante un portafolio digital.</li>
+        </ul>
+        <p class="todo">TODO: ajusta según el sílabo oficial.</p>
+
+        <h3>Unidades temáticas</h3>
+        <ol>
+            <li>Formulación, planificación y organización del portafolio de proyectos TIC</li>
+            <li>PMBOK, Scrum y Kanban aplicados a proyectos TIC</li>
+            <li>Gestión de cronograma, riesgos y calidad</li>
+            <li>Ejecución, seguimiento, control y cierre de proyectos</li>
+        </ol>
+        <p class="todo">TODO: completa con semanas y detalle real.</p>
+
+        <h3>Sistema de evaluación</h3>
+        <table>
+          <thead><tr><th>Rubro</th><th>Peso</th></tr></thead>
+          <tbody>
+            <tr><td>Evaluación continua / prácticas</td><td>—</td></tr>
+            <tr><td>Examen parcial</td><td>—</td></tr>
+            <tr><td>Trabajo final / proyecto</td><td>—</td></tr>
+            <tr><td>Examen final</td><td>—</td></tr>
+          </tbody>
+        </table>
+        <p class="todo">TODO: completa los pesos reales de evaluación.</p>
+
+        <a class="pdf-link" href="gestionDEproyectosDEtics.pdf" target="_blank" rel="noopener">📄 Ver PDF del sílabo oficial</a>
+      </div>
+    </details>
+
+
+    <details class="course" id="mli-604">
+      <summary>
+        <span class="code">MLI-604</span>
+        <span class="name">Modelos Lineales</span>
+        <span class="toggle" aria-hidden="true">+</span>
+      </summary>
+
+      <div class="course-body">
+        <div class="fact-row">
+          <div class="fact"><span class="label">Docente</span><span class="value">Ing. Morillos Valderrama Santos Octavio</span></div>
+          <div class="fact"><span class="label">Ciclo</span><span class="value">2026-I</span></div>
+          <div class="fact"><span class="label">Créditos</span><span class="value">—</span></div>
+        </div>
+
+        <h3>Sumilla</h3>
+        <p>Curso sobre la formulación, estimación e inferencia en modelos lineales generales, incluyendo diagnóstico de supuestos y aplicaciones.</p>
+        <p class="todo">TODO: reemplaza con la sumilla real del sílabo oficial.</p>
+
+        <h3>Competencias</h3>
+        <ul>
+            <li>Formula y estima modelos lineales generales para el análisis de datos.</li>
+            <li>Evalúa el cumplimiento de supuestos mediante diagnóstico de residuos.</li>
+        </ul>
+        <p class="todo">TODO: ajusta según el sílabo oficial.</p>
+
+        <h3>Unidades temáticas</h3>
+        <ol>
+            <li>Modelo lineal general: formulación matricial</li>
+            <li>Estimación por mínimos cuadrados</li>
+            <li>Inferencia y pruebas de hipótesis</li>
+            <li>Diagnóstico y modelos lineales generalizados</li>
+        </ol>
+        <p class="todo">TODO: completa con semanas y detalle real.</p>
+
+        <h3>Sistema de evaluación</h3>
+        <table>
+          <thead><tr><th>Rubro</th><th>Peso</th></tr></thead>
+          <tbody>
+            <tr><td>Evaluación continua / prácticas</td><td>—</td></tr>
+            <tr><td>Examen parcial</td><td>—</td></tr>
+            <tr><td>Trabajo final / proyecto</td><td>—</td></tr>
+            <tr><td>Examen final</td><td>—</td></tr>
+          </tbody>
+        </table>
+        <p class="todo">TODO: completa los pesos reales de evaluación.</p>
+
+        <a class="pdf-link" href="modelosLINEALES.pdf" target="_blank" rel="noopener">📄 Ver PDF del sílabo oficial</a>
+      </div>
+    </details>
+
+
+    <details class="course" id="rln-605">
+      <summary>
+        <span class="code">RLN-605</span>
+        <span class="name">Regresión Lineal y No Lineal</span>
+        <span class="toggle" aria-hidden="true">+</span>
+      </summary>
+
+      <div class="course-body">
+        <div class="fact-row">
+          <div class="fact"><span class="label">Docente</span><span class="value">Ing. Vargas Valverde Confesor Milán</span></div>
+          <div class="fact"><span class="label">Ciclo</span><span class="value">2026-I</span></div>
+          <div class="fact"><span class="label">Créditos</span><span class="value">—</span></div>
+        </div>
+
+        <h3>Sumilla</h3>
+        <p>Estudio de modelos de regresión lineal simple, múltiple y no lineal, con énfasis en estimación, diagnóstico y aplicación con datos reales.</p>
+        <p class="todo">TODO: reemplaza con la sumilla real del sílabo oficial.</p>
+
+        <h3>Competencias</h3>
+        <ul>
+            <li>Construye modelos de regresión lineal simple y múltiple para explicar relaciones entre variables.</li>
+            <li>Aplica modelos de regresión no lineal cuando el supuesto de linealidad no se cumple.</li>
+        </ul>
+        <p class="todo">TODO: ajusta según el sílabo oficial.</p>
+
+        <h3>Unidades temáticas</h3>
+        <ol>
+            <li>Regresión lineal simple</li>
+            <li>Regresión lineal múltiple</li>
+            <li>Diagnóstico de supuestos (multicolinealidad, heterocedasticidad)</li>
+            <li>Modelos de regresión no lineal</li>
+        </ol>
+        <p class="todo">TODO: completa con semanas y detalle real.</p>
+
+        <h3>Sistema de evaluación</h3>
+        <table>
+          <thead><tr><th>Rubro</th><th>Peso</th></tr></thead>
+          <tbody>
+            <tr><td>Evaluación continua / prácticas</td><td>—</td></tr>
+            <tr><td>Examen parcial</td><td>—</td></tr>
+            <tr><td>Trabajo final / proyecto</td><td>—</td></tr>
+            <tr><td>Examen final</td><td>—</td></tr>
+          </tbody>
+        </table>
+        <p class="todo">TODO: completa los pesos reales de evaluación.</p>
+
+        <a class="pdf-link" href="regresionLINEALynoLINEAL.pdf" target="_blank" rel="noopener">📄 Ver PDF del sílabo oficial</a>
+      </div>
+    </details>
+
+
+    <details class="course" id="sdt-606">
+      <summary>
+        <span class="code">SDT-606</span>
+        <span class="name">Series de Tiempo</span>
+        <span class="toggle" aria-hidden="true">+</span>
+      </summary>
+
+      <div class="course-body">
+        <div class="fact-row">
+          <div class="fact"><span class="label">Docente</span><span class="value">Ing. Lluén Vallejos César Augusto</span></div>
+          <div class="fact"><span class="label">Ciclo</span><span class="value">2026-I</span></div>
+          <div class="fact"><span class="label">Créditos</span><span class="value">—</span></div>
+        </div>
+
+        <h3>Sumilla</h3>
+        <p>Curso sobre el análisis y modelamiento de series de tiempo: estacionariedad, metodología Box-Jenkins, modelos SARIMA y pronóstico.</p>
+        <p class="todo">TODO: reemplaza con la sumilla real del sílabo oficial.</p>
+
+        <h3>Competencias</h3>
+        <ul>
+            <li>Analiza la estacionariedad y estructura de autocorrelación de una serie de tiempo.</li>
+            <li>Construye modelos SARIMA/ARIMAX y genera pronósticos con su respectiva validación.</li>
+        </ul>
+        <p class="todo">TODO: ajusta según el sílabo oficial.</p>
+
+        <h3>Unidades temáticas</h3>
+        <ol>
+            <li>Fundamentos y componentes de una serie de tiempo</li>
+            <li>Estacionariedad y pruebas ADF</li>
+            <li>Metodología Box-Jenkins: identificación, estimación y diagnóstico</li>
+            <li>Modelos SARIMA/ARIMAX y pronóstico</li>
+        </ol>
+        <p class="todo">TODO: completa con semanas y detalle real.</p>
+
+        <h3>Sistema de evaluación</h3>
+        <table>
+          <thead><tr><th>Rubro</th><th>Peso</th></tr></thead>
+          <tbody>
+            <tr><td>Evaluación continua / prácticas</td><td>—</td></tr>
+            <tr><td>Examen parcial</td><td>—</td></tr>
+            <tr><td>Trabajo final / proyecto</td><td>—</td></tr>
+            <tr><td>Examen final</td><td>—</td></tr>
+          </tbody>
+        </table>
+        <p class="todo">TODO: completa los pesos reales de evaluación.</p>
+
+        <a class="pdf-link" href="seriesDEtiempo.pdf" target="_blank" rel="noopener">📄 Ver PDF del sílabo oficial</a>
+      </div>
+    </details>
+
+  </main>
+
+  <footer>
+    Escuela Profesional de Ingeniería Estadística e Informática · UNA Puno
+  </footer>
 </div>
 
-<div class="pub">
-<heading>Unidad II: Ejecución, seguimiento, control y cierre de proyectos TIC</heading>
-<p><b>Duración:</b> Semanas 10 al 18</p>
-<p><b>Logro de unidad:</b> Ejecuta, monitorea y cierra un proyecto TIC aplicando metodologías ágiles, gestión visual, control de riesgos, indicadores de avance y presentación de resultados mediante un portafolio digital funcional.</p>
-
-<ul>
-<li><b>Semana 10:</b> PMBOK aplicado a proyectos TIC. Enfoques predictivos, adaptativos e híbridos.</li>
-<li><b>Semana 11:</b> Scrum aplicado a proyectos de software, ciencia de datos, redes e investigación.</li>
-<li><b>Semana 12:</b> Kanban y gestión visual de tareas mediante GitHub Projects y Notion.</li>
-<li><b>Semana 13:</b> Gestión del cronograma, recursos, costos y responsabilidades del equipo.</li>
-<li><b>Semana 14:</b> Gestión de riesgos, calidad y cambios en proyectos TIC.</li>
-<li><b>Semana 15:</b> Métricas e indicadores: avance, cumplimiento, productividad, backlog, issues y evidencias.</li>
-<li><b>Semana 16:</b> Documentación técnica, informe del proyecto, manuales, reportes estadísticos o reportes de ciencia de datos.</li>
-<li><b>Semana 17:</b> Preparación de la presentación final: demo, dashboard, prototipo, análisis, informe o solución implementada.</li>
-<li><b>Semana 18:</b> Presentación final, cierre del proyecto, evaluación del portafolio y reflexión del aprendizaje.</li>
-</ul>
-</div>
-
-<hr/>
-
-<heading id="metodologia">Metodología</heading>
-<div class="pub">
-<ul>
-<li>Aprendizaje basado en proyectos.</li>
-<li>Trabajo colaborativo por equipos.</li>
-<li>Uso obligatorio de GitHub, GitHub Projects y Notion.</li>
-<li>Aplicación de Scrum, Kanban, PMBOK y metodologías híbridas.</li>
-<li>Desarrollo de portafolios digitales de proyectos.</li>
-<li>Asesoría continua y revisión semanal de avances.</li>
-<li>Presentaciones parciales y finales tipo Demo Day.</li>
-</ul>
-</div>
-
-<hr/>
-
-<heading id="evaluacion">Evaluación</heading>
-<div class="pub">
-<ul>
-<li><b>Portafolio digital en Notion y GitHub:</b> 25%</li>
-<li><b>Entregable parcial de la Unidad I:</b> 25%</li>
-<li><b>Seguimiento, avances y gestión del proyecto:</b> 20%</li>
-<li><b>Producto final, informe y sustentación:</b> 25%</li>
-<li><b>Participación, autoevaluación y coevaluación:</b> 5%</li>
-</ul>
-</div>
-
-<hr/>
-
-<heading id="entregables">Entregables</heading>
-<div class="pub">
-<ul>
-<li>Idea de proyecto TIC.</li>
-<li>Project Charter.</li>
-<li>Portafolio en Notion.</li>
-<li>Repositorio en GitHub.</li>
-<li>Tablero Kanban o Scrum.</li>
-<li>Bitácora de avances.</li>
-<li>Cronograma del proyecto.</li>
-<li>Matriz de riesgos.</li>
-<li>Informe técnico o científico.</li>
-<li>Producto funcional, prototipo, dashboard, análisis estadístico, modelo de datos o solución implementada.</li>
-<li>Presentación final del proyecto.</li>
-</ul>
-</div>
-
-<hr/>
-
-<heading id="recursos">Recursos</heading>
-<div class="pub">
-<ul>
-<li><a href="https://github.com/" target="_blank">GitHub</a></li>
-<li><a href="https://docs.github.com/en/issues/planning-and-tracking-with-projects" target="_blank">GitHub Projects</a></li>
-<li><a href="https://notion.so/" target="_blank">Notion</a></li>
-<li><a href="https://www.pmi.org/" target="_blank">Project Management Institute</a></li>
-<li><a href="https://www.scrum.org/" target="_blank">Scrum.org</a></li>
-<li><a href="https://trello.com/" target="_blank">Trello</a></li>
-<li><a href="https://www.atlassian.com/software/jira" target="_blank">Jira</a></li>
-<li><a href="https://colab.research.google.com/" target="_blank">Google Colab</a></li>
-</ul>
-</div>
-
-<hr/>
-
-<heading id="bibliografia">Bibliografía</heading>
-<div class="pub">
-<ul>
-<li>Project Management Institute. PMBOK® Guide – Seventh Edition. PMI, 2021.</li>
-<li>Schwaber, K. & Sutherland, J. The Scrum Guide. 2020.</li>
-<li>Schwalbe, K. Information Technology Project Management. Cengage Learning.</li>
-<li>Meredith, J. R. & Mantel, S. J. Project Management: A Managerial Approach.</li>
-<li>Pressman, R. Ingeniería del Software: Un enfoque práctico.</li>
-<li>Kerzner, H. Project Management: A Systems Approach to Planning, Scheduling, and Controlling.</li>
-<li>Wysocki, R. Effective Project Management: Traditional, Agile, Extreme, Hybrid.</li>
-</ul>
-</div>
-
-<hr/>
-
-<heading id="contacto">Contacto</heading>
-<p>permelro@unap.edu.pe</p>
-
-<hr/>
-
-<div id="footer">
-<heading>&copy; 2026 UNAP - FIEI - Ingeniería Estadística e Informática</heading>
-</div>
-
-</td>
-</tr>
-</table>
-<div style="height: 40px;"></div>
-</div>
-
-<script xml:space="preserve" language="JavaScript">hideallbibs();</script>
 </body>
 </html>
-```
