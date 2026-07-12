@@ -1,172 +1,412 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EST314 · Aprendizaje No Supervisado · FINESI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-body { background-color:#060913; margin:0; padding:0; font-family:'Source Sans Pro', Arial, sans-serif; }
-.wrap { padding:25px; }
-.card { width:800px; max-width:94vw; margin:0 auto; background-color:#fff; border-radius:6px;
-        box-shadow:0 10px 40px rgba(0,0,0,.45); padding:30px 34px; }
-h1.title { font-size:32px; margin:0 0 4px 0; color:#111; }
-.subtitle { font-size:15px; color:#444; line-height:1.5; margin:2px 0; }
-.meta { font-size:14px; color:#666; margin:10px 0 0 0; }
-.meta b { color:#222; }
-.navbar { margin:18px 0 6px 0; padding:10px 0; border-top:1px solid #eee; border-bottom:1px solid #eee; }
-.navbar a { color:#7a2fe0; text-decoration:none; font-size:13.5px; margin-right:4px; }
-.navbar a:hover { text-decoration:underline; }
-hr { border:none; border-top:1px solid #eaeaea; margin:22px 0; }
-heading { display:block; font-weight:700; font-size:20px; color:#1c1c2e; margin-bottom:10px; }
-heading.unit { font-size:16.5px; color:#7a2fe0; margin-top:4px; }
-p { text-align:justify; line-height:1.6; color:#2b2b2b; font-size:15px; }
-.pub { margin-bottom:18px; }
-ul { padding-left:20px; }
-ul li { margin-bottom:6px; line-height:1.5; color:#2b2b2b; font-size:14.5px; }
-.week { margin-bottom:9px; padding:9px 12px; background:#f7f5fc; border-left:3px solid #7a2fe0; border-radius:4px; }
-.week b { color:#1c1c2e; }
-table.infot { width:100%; border-collapse:collapse; margin:10px 0 18px 0; font-size:14px; }
-table.infot td { padding:5px 8px; border-bottom:1px solid #f0f0f0; vertical-align:top; }
-table.infot td.k { color:#7a2fe0; font-weight:600; width:230px; }
-.pill { display:inline-block; background:#efe7fb; color:#5c1fb0; border-radius:20px; padding:3px 12px; font-size:12.5px; font-weight:600; margin-right:6px; }
-#footer heading { text-align:center; font-size:12.5px; color:#999; font-weight:400; }
-.badge-row { margin:8px 0 0 0; }
+:root{
+  --paper:      #fbf3e3;
+  --paper-2:    #f5ead1;
+  --ink:        #4a3524;
+  --ink-soft:   #7a6650;
+  --wine:       #b5657a;
+  --wine-dim:   #8f4d5f;
+  --gold:       #d8a84e;
+  --gold-dim:   #b4863a;
+  --sage:       #8fa377;
+  --sage-dim:   #6d8158;
+  --line:       #d8c6a3;
+  --cream-bg:   #f3e6c9;
+  --shadow:     rgba(122, 90, 42, .18);
+  --navy:       #0d1930;
+  --navy-2:     #16294a;
+}
+*{box-sizing:border-box;}
+
+.foto-fixed{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  z-index:-1;
+  overflow:hidden;
+}
+.foto-fixed img{
+  width:100%; height:100%;
+  object-fit:cover;
+  filter:sepia(.15) saturate(1.05) contrast(1.05) brightness(.55);
+}
+.foto-fixed::after{
+  content:"";
+  position:absolute; inset:0;
+  background:rgba(13,25,48,.42);
+}
+
+.hero{
+  position:relative;
+  padding:56px 24px 46px;
+  text-align:center;
+  overflow:hidden;
+  border-bottom:3px solid var(--gold);
+}
+.hero::before{
+  content:"";
+  position:absolute; top:0; left:0; right:0; bottom:0; z-index:1;
+  background:linear-gradient(180deg, rgba(13,25,48,.25) 0%, rgba(13,25,48,.65) 70%, rgba(13,25,48,.8) 100%);
+}
+.hero > *{ position:relative; z-index:2; max-width:820px; margin-left:auto; margin-right:auto; }
+.hero-code{
+  display:inline-block;
+  font-family:'IBM Plex Mono', monospace;
+  font-size:13px; font-weight:600; letter-spacing:2px;
+  color:#e8c98a;
+  border:1.5px solid #d8a84e;
+  border-radius:20px;
+  padding:5px 16px;
+  margin-bottom:16px;
+  background:rgba(216,168,78,.10);
+}
+.hero h1{
+  font-family:'Fraunces', serif;
+  font-weight:600;
+  font-size:clamp(28px, 4.5vw, 42px);
+  color:#f6efdc;
+  margin:0 0 10px;
+  letter-spacing:-.3px;
+}
+.hero .subtitle{
+  font-size:14px;
+  color:#c9c2ad;
+  margin:0 0 22px;
+  line-height:1.6;
+}
+.hero .pill-row{ display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-bottom:22px;}
+.hero .pill{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:11.5px;
+  color:#dce6d4;
+  border:1px solid rgba(220,230,212,.4);
+  border-radius:20px;
+  padding:5px 13px;
+  background:rgba(255,255,255,.06);
+}
+.hero .docente-box{
+  font-size:13.5px;
+  color:#d8d2bf;
+  line-height:1.8;
+  padding-top:16px;
+  border-top:1px dashed rgba(216,168,78,.35);
+}
+.hero .docente-box b{ color:#f6efdc; }
+
+body{
+  margin:0;
+  background:transparent;
+  font-family:'Spectral', serif;
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:900px; margin:0 auto; padding:0 24px 90px; position:relative; z-index:1;}
+
+.frame{
+  position:relative;
+  border:1.5px solid var(--line);
+  border-top:none;
+  border-radius:0 0 6px 6px;
+  padding:3px;
+  background:var(--paper);
+  box-shadow:0 20px 40px -20px var(--shadow);
+}
+.corner{ position:absolute; width:34px; height:34px; opacity:.55; z-index:2; }
+.corner svg{ width:100%; height:100%; }
+.corner.bl{ bottom:6px; left:6px; transform:scaleY(-1); }
+.corner.br{ bottom:6px; right:6px; transform:scale(-1,-1); }
+.frame-inner{
+  border:1px solid var(--line);
+  border-radius:0 0 4px 4px;
+  padding:44px 46px 50px;
+  position:relative;
+}
+
+nav.toc{
+  margin:26px 0 0;
+  padding:12px 16px;
+  background:var(--paper-2);
+  border:1px solid var(--line);
+  border-radius:4px;
+  font-family:'IBM Plex Mono', monospace;
+  font-size:11.5px;
+  letter-spacing:.3px;
+  display:flex; flex-wrap:wrap; gap:4px 14px;
+}
+nav.toc a{ color:var(--wine-dim); text-decoration:none; }
+nav.toc a:hover{ text-decoration:underline; }
+
+section{ margin-top:38px; }
+h2{
+  font-family:'Fraunces', serif;
+  font-weight:600;
+  font-size:20px;
+  color:var(--ink);
+  margin:0 0 14px;
+  padding-bottom:8px;
+  border-bottom:2px solid var(--gold);
+  display:inline-block;
+}
+p.body-text{ font-size:15px; line-height:1.75; color:var(--ink); text-align:justify; margin:0 0 10px;}
+p.dropcap:first-letter{
+  font-family:'Fraunces', serif;
+  font-weight:700;
+  font-size:52px;
+  float:left;
+  line-height:.8;
+  padding:4px 8px 0 0;
+  color:var(--wine-dim);
+}
+.flourish{
+  text-align:center;
+  color:var(--gold-dim);
+  font-size:15px;
+  letter-spacing:8px;
+  margin:34px 0 -6px;
+  opacity:.7;
+}
+
+.unit-card{
+  background:var(--paper-2);
+  border:1px solid var(--line);
+  border-radius:4px;
+  padding:20px 22px 20px 26px;
+  margin-bottom:16px;
+  position:relative;
+}
+.unit-card::before{
+  content:"";
+  position:absolute; left:0; top:14px; bottom:14px; width:4px;
+  background:var(--wine);
+  border-radius:2px;
+}
+.unit-title{
+  font-family:'Fraunces', serif;
+  font-weight:600;
+  font-size:16.5px;
+  color:var(--wine-dim);
+  margin:0 0 8px;
+}
+.unit-meta{ font-size:12.5px; color:var(--ink-soft); margin-bottom:10px; line-height:1.6;}
+.unit-meta b{ color:var(--ink); }
+ul.week-list{ margin:10px 0 0; padding-left:20px; }
+ul.week-list li{ font-size:14px; line-height:1.65; margin-bottom:7px; color:var(--ink);}
+ul.week-list li b{ color:var(--wine-dim); }
+
+ul.plain{ margin:0; padding-left:20px; }
+ul.plain li{ font-size:14.5px; line-height:1.75; margin-bottom:6px; }
+
+table.eval{ width:100%; border-collapse:collapse; margin-top:10px; font-size:13.5px;}
+table.eval th{
+  background:var(--wine);
+  color:#fdf6ee;
+  font-weight:600;
+  text-align:left;
+  padding:9px 10px;
+  font-size:12.5px;
+  letter-spacing:.3px;
+}
+table.eval td{
+  padding:9px 10px;
+  border-bottom:1px solid var(--line);
+  vertical-align:top;
+}
+table.eval tr:nth-child(even) td{ background:rgba(216,168,78,.07); }
+.formula-note{
+  margin-top:10px;
+  font-size:12.5px;
+  color:var(--ink-soft);
+  font-style:italic;
+}
+
+.biblio-block{ margin-bottom:14px; }
+.biblio-label{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:11px; letter-spacing:1.5px; text-transform:uppercase;
+  color:var(--sage-dim); margin-bottom:8px; display:block;
+}
+
+.contact-box{
+  background:var(--paper-2);
+  border:1px dashed var(--line);
+  border-radius:4px;
+  padding:16px 20px;
+  font-size:14px;
+  color:var(--ink-soft);
+}
+
+footer{
+  text-align:center;
+  margin-top:44px;
+  padding-top:22px;
+  border-top:1px solid var(--line);
+  font-family:'IBM Plex Mono', monospace;
+  font-size:11px;
+  letter-spacing:1px;
+  color:var(--ink-soft);
+}
+
+@media (max-width:600px){
+  .frame-inner{ padding:30px 22px 36px; }
+}
 </style>
-
-<title>UNAP-EST314</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<meta name="keywords" content="Aprendizaje No Supervisado, FINESI, UNAP, sílabo, ingeniería estadística e informática" />
-<meta name="description" content="Sílabo actualizado del curso de Aprendizaje No Supervisado - Ingeniería Estadística e Informática - UNAP" />
 </head>
-
 <body>
+
+<div class="foto-fixed">
+  <img src="finesi.jpg" alt="Facultad de Ingeniería Estadística e Informática - FINESI">
+</div>
+
+<div class="hero">
+  <div class="hero-code">EST314</div>
+  <h1>Aprendizaje No Supervisado</h1>
+  <p class="subtitle">Ingeniería Estadística e Informática — FINESI · Universidad Nacional del Altiplano · Puno</p>
+  <div class="pill-row">
+    <span class="pill">Ciclo VI</span>
+    <span class="pill">Créditos 04</span>
+    <span class="pill">03h teóricas · 02h prácticas · Total 05 horas</span>
+    <span class="pill">2026-I</span>
+  </div>
+  <div class="docente-box">
+    <b>Prerrequisito:</b> EST312 — Estadística Computacional<br>
+    <b>Docente:</b> Alemán Gonzales Leonid — Nombrado-Ordinario, Profesor Asociado<br>
+    <b>Ambiente:</b> Aula 201 · Pabellón A y Laboratorio 02
+  </div>
+</div>
+
 <div class="wrap">
-<div class="card">
+  <div class="frame">
+    <div class="corner bl"><svg viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg"><path d="M2 20 C2 8, 8 2, 20 2" fill="none" stroke="#b5657a" stroke-width="1.4"/><path d="M2 13 C2 6, 6 2, 13 2" fill="none" stroke="#d8a84e" stroke-width="1"/><circle cx="2" cy="20" r="1.6" fill="#b5657a"/><circle cx="20" cy="2" r="1.6" fill="#b5657a"/></svg></div>
+    <div class="corner br"><svg viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg"><path d="M2 20 C2 8, 8 2, 20 2" fill="none" stroke="#b5657a" stroke-width="1.4"/><path d="M2 13 C2 6, 6 2, 13 2" fill="none" stroke="#d8a84e" stroke-width="1"/><circle cx="2" cy="20" r="1.6" fill="#b5657a"/><circle cx="20" cy="2" r="1.6" fill="#b5657a"/></svg></div>
+  <div class="frame-inner">
 
-<h1 class="title">Aprendizaje No Supervisado</h1>
-<p class="subtitle">
-Ingeniería Estadística e Informática<br>
-Facultad de Ingeniería Estadística e Informática<br>
-Universidad Nacional del Altiplano - Puno
-</p>
-<div class="badge-row">
-  <span class="pill">Código: EST314</span>
-  <span class="pill">Ciclo: VI</span>
-  <span class="pill">Créditos: 04</span>
-</div>
-<p class="meta"><b>Horas:</b> 03h teóricas, 02h prácticas — Total 05 horas</p>
-<p class="meta"><b>Docente:</b> Aleman Gonzales, Leonid</p>
-<p class="meta"><b>Prerrequisito:</b> EST312 - Estadística Computacional</p>
+    <nav class="toc">
+      <a href="#sumilla">Sumilla</a>
+      <a href="#perfil">Perfil</a>
+      <a href="#logro">Logro</a>
+      <a href="#contenido">Contenido</a>
+      <a href="#metodologia">Metodología</a>
+      <a href="#evaluacion">Evaluación</a>
+      <a href="#bibliografia">Bibliografía</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
 
-<div class="navbar">
-<a href="#sumilla">Sumilla</a> |
-<a href="#logro">Logro</a> |
-<a href="#contenido">Contenido</a> |
-<a href="#metodologia">Metodología</a> |
-<a href="#evaluacion">Evaluación</a> |
-<a href="#bibliografia">Bibliografía</a> |
-<a href="#contacto">Contacto</a>
-</div>
+    <section id="sumilla">
+      <h2>Sumilla</h2>
+      <p class="body-text dropcap">El curso de Aprendizaje No Supervisado corresponde al área curricular de Estudios de especialidad, es de naturaleza teórico-práctica, cuyo propósito es proponer y aplicar técnicas de preparación, preprocesamiento, reducción de la dimensionalidad, agrupamiento y reglas de asociación sobre un conjunto de datos y sus aplicaciones. Unidad I: metodología, técnicas de preprocesamiento y reducción de dimensionalidad. Unidad II: técnicas de agrupamiento, reglas de asociación y aplicaciones avanzadas.</p>
+    </section>
 
-<hr/>
+    <section id="perfil">
+      <h2>Perfil del egresado</h2>
+      <p class="body-text">CE2. Construye y analiza modelos estadísticos y/o algoritmos computacionales para la toma de mejores decisiones en condiciones de incertidumbre, para el desarrollo de la región y el país, asumiendo una actitud científica y ética, utilizando técnicas estadísticas y/o informáticas referidas a la ciencia de datos.</p>
+    </section>
 
-<heading id="sumilla">Sumilla</heading>
-<p>El curso de Aprendizaje No Supervisado corresponde al área curricular de estudios de especialidad, es de naturaleza teórico-práctica, cuyo propósito es proponer y aplicar técnicas de preparación, preprocesamiento, reducción de la dimensionalidad, agrupamiento y reglas de asociación sobre un conjunto de datos y sus aplicaciones.</p>
-<p>Su contenido está organizado en dos unidades: Metodología, técnicas de preprocesamiento y reducción de dimensionalidad; y Técnicas de agrupamiento, reglas de asociación y aplicaciones avanzadas.</p>
+    <section id="logro">
+      <h2>Logro del curso</h2>
+      <p class="body-text">Aplica adecuadamente las técnicas de aprendizaje no supervisado para el desarrollo aplicado a casos avanzados, en cuatro dimensiones: metodología, reducción de dimensionalidad, agrupamiento y reglas de decisiones.</p>
+    </section>
 
-<hr/>
+    <div class="flourish">❧</div>
+    <section id="contenido">
+      <h2>Contenido</h2>
+      <div class="unit-card">
+        <p class="unit-title">Unidad I · Metodología, preprocesamiento y reducción de dimensionalidad</p>
+        <p class="unit-meta"><b>Duración:</b> 30 de marzo al 1 de junio 2026 (semanas 1–9, 45 horas)<br><b>Logro de unidad:</b> Aplica adecuadamente la metodología y técnicas de preprocesamiento de datos y reducción de dimensionalidad de las variables para casos de aplicación.</p>
+        <ul class="week-list">
+          <li><b>Semanas 1–2:</b> Introducción al aprendizaje automático no supervisado, metodología de proyectos y flujo de trabajo.</li>
+          <li><b>Semanas 3–4:</b> Preprocesamiento y preparación de datos, Data Wrangling y Feature Engineering.</li>
+          <li><b>Semanas 5–6:</b> Reducción de dimensionalidad clásica y basada en redes neuronales — PCA, SVD, LDA, t-SNE, UMAP, Isomap, LLE. Evaluación de técnicas básicas ANS (50%).</li>
+          <li><b>Semanas 7–8:</b> Reducción probabilística y basada en grafos, extracción avanzada de características — Factor Analysis, SimCLR, Isolation Forest, One-Class SVM.</li>
+          <li><b>Semana 9:</b> Avance de proyecto de aplicación. Evaluación parcial de reducción de dimensionalidad (50%).</li>
+        </ul>
+      </div>
+      <div class="unit-card">
+        <p class="unit-title">Unidad II · Agrupamiento, reglas de asociación y aplicaciones avanzadas</p>
+        <p class="unit-meta"><b>Duración:</b> 1 de junio al 31 de julio 2026 (semanas 10–18, 45 horas)<br><b>Logro de unidad:</b> Aplica adecuadamente técnicas de agrupamiento y reglas de asociación del aprendizaje no supervisado en aplicaciones reales.</p>
+        <ul class="week-list">
+          <li><b>Semanas 10–11:</b> Clustering particional (k-means, k-medoids), jerárquico (Agglomerative) y basado en densidad (DBSCAN, HDBSCAN).</li>
+          <li><b>Semanas 12–13:</b> Clustering probabilístico (Gaussian Mixture Model), basado en grafos (Spectral Clustering), difuso (Fuzzy C-Means) y Deep Embedded Clustering.</li>
+          <li><b>Semanas 14–15:</b> Reglas de asociación: support, confidence, lift, algoritmos Apriori, FP-Growth, Eclat; variantes ponderadas y secuenciales. Evaluación de técnicas avanzadas de agrupamiento (50%).</li>
+          <li><b>Semanas 16–18:</b> Enfoques avanzados (big data, grafos, deep learning), integración final del proyecto y defensa. Evaluación final de Aprendizaje No Supervisado (50%).</li>
+        </ul>
+      </div>
+    </section>
 
-<heading id="logro">Logro del curso</heading>
-<p>Aplica adecuadamente las técnicas de aprendizaje no supervisado para el desarrollo aplicado a casos avanzados, en cuatro dimensiones: metodología, reducción de dimensionalidad, agrupamiento y reglas de decisiones.</p>
+    <div class="flourish">❧</div>
+    <section id="metodologia">
+      <h2>Metodología</h2>
+      <ul class="plain">
+        <li><b>Enseñanza:</b> Videoconferencias, foros de discusión en línea, sala de chat, materiales de lectura, diapositivas y videos.</li>
+        <li><b>Aprendizaje:</b> Análisis de textos, uso de Google Colab y Jupyter Notebook, lenguajes R y Python, resolución de casos y debate.</li>
+        <li><b>Investigación formativa:</b> Revisión estructurada de recursos bibliográficos y presentación de informes con normas APA e IEEE.</li>
+        <li><b>Responsabilidad social:</b> Análisis de problemas sociales mediante estudios de caso o proyectos, con difusión de resultados.</li>
+        <li><b>Enseñanza virtual:</b> Aula virtual, materiales digitales y almacenamiento/procesamiento paralelo en la nube.</li>
+      </ul>
+    </section>
 
-<hr/>
+    <section id="evaluacion">
+      <h2>Evaluación</h2>
+      <table class="eval">
+        <tr><th>Unidad</th><th>Logro de aprendizaje</th><th>Evidencias</th><th>Ponderación</th></tr>
+        <tr><td>1</td><td>Metodología, preprocesamiento y reducción de dimensionalidad</td><td>Evaluación técnicas básicas (50%) + Evaluación parcial reducción (50%)</td><td>50%</td></tr>
+        <tr><td>2</td><td>Agrupamiento y reglas de asociación</td><td>Evaluación técnicas avanzadas (50%) + Evaluación final (50%)</td><td>50%</td></tr>
+      </table>
+      <p class="formula-note">Promedio parcial de unidad = 50% (EVI 1) + 50% (EVI 2) &nbsp;·&nbsp; Promedio final del curso = 50% (I UPP) + 50% (II UPP)</p>
+    </section>
 
-<heading id="contenido">Contenido</heading>
+    <div class="flourish">❧</div>
+    <section id="bibliografia">
+      <h2>Bibliografía</h2>
+      <div class="biblio-block">
+        <span class="biblio-label">Básica</span>
+        <ul class="plain">
+          <li>Correa, J. (2014). <i>Introducción a la Estadística Bayesiana con R</i>. Universidad Nacional de Medellín, Colombia.</li>
+          <li>Correa, J. (2019). <i>Introducción a la Estadística Bayesiana</i>. Instituto Tecnológico Metropolitano.</li>
+          <li>Barber, D. (2017). <i>Bayesian Reasoning and Machine Learning</i> (3ra ed.). Cambridge University Press.</li>
+          <li>Theodoridis, S. (2017). <i>Machine Learning: A Bayesian and Optimization Perspective</i>. Elsevier Ac. Press.</li>
+          <li>Hoff, P. (2009). <i>A First Course in Bayesian Statistical Methods</i>. Springer, USA.</li>
+          <li>Goodfellow, I. &amp; Bengio, Y. (2016). <i>Deep Learning</i>. MIT Press, USA.</li>
+          <li>Bishop, C. (2006). <i>Pattern Recognition and Machine Learning</i>. Springer, USA.</li>
+        </ul>
+      </div>
+      <div class="biblio-block">
+        <span class="biblio-label">Complementaria</span>
+        <ul class="plain">
+          <li>Hastie, T., Tibshirani, R. &amp; Friedman, J. (2014). <i>The Elements of Statistical Learning</i> (2da ed.). Springer.</li>
+          <li>Russell, S. &amp; Norvig, P. (2014). <i>Inteligencia Artificial: Un Enfoque Moderno</i> (3ra ed.). Prentice Hall, México.</li>
+          <li>Stanton, J. (2017). <i>Reasoning with Data: Traditional and Bayesian Statistics Using R</i>. The Guilford Press.</li>
+        </ul>
+      </div>
+      <div class="biblio-block">
+        <span class="biblio-label">Electrónica</span>
+        <ul class="plain">
+          <li>cs.sunysb.edu/~algorith — Algorithm and heuristics.</li>
+          <li>realpython.com/tutorials/machine-learning — Python Machine Learning Tutorials.</li>
+        </ul>
+      </div>
+      <div class="biblio-block">
+        <span class="biblio-label">Producción intelectual del docente</span>
+        <ul class="plain"><li>Guías de programación con Python para Machine Learning (2019).</li></ul>
+      </div>
+    </section>
 
-<div class="pub">
-<heading class="unit">Unidad I: Metodología, preprocesamiento y reducción de dimensionalidad</heading>
-<p><b>Periodo:</b> Del 30 de marzo al 1 de junio de 2026 (45 horas)</p>
-<p><b>Logro de unidad:</b> Aplica adecuadamente la metodología, técnicas de preprocesamiento de datos y reducción de dimensionalidad de las variables para casos de aplicación.</p>
-<div class="week"><b>Semana 1:</b> Introducción al aprendizaje automático, tipos de aprendizaje, diferencias del aprendizaje no supervisado y aplicaciones reales.</div>
-<div class="week"><b>Semana 2:</b> Metodología de proyectos de aprendizaje no supervisado: flujo de trabajo y elementos de trabajo.</div>
-<div class="week"><b>Semana 3:</b> Preprocesamiento y preparación de datos: limpieza, transformación y codificación de variables.</div>
-<div class="week"><b>Semana 4:</b> Data Wrangling e ingeniería de características (Feature Engineering).</div>
-<div class="week"><b>Semana 5:</b> Reducción de dimensionalidad: métodos lineales y no lineales — PCA, SVD, LDA, t-SNE, UMAP, Isomap, LLE.</div>
-<div class="week"><b>Semana 6:</b> Reducción de dimensionalidad basada en redes neuronales. <i>Evaluación de técnicas básicas ANS (50%)</i>.</div>
-<div class="week"><b>Semana 7:</b> Reducción basada en técnicas probabilísticas y grafos: Factor Analysis, Gaussian Process Latent Variable Models, Laplacian Eigenmaps.</div>
-<div class="week"><b>Semana 8:</b> Técnicas avanzadas de extracción de características: SimCLR, detección de anomalías, Isolation Forest, One-Class SVM.</div>
-<div class="week"><b>Semana 9:</b> Avance del proyecto de aplicación. <i>Evaluación parcial de reducción de dimensionalidad (50%)</i>.</div>
-</div>
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <div class="contact-box">Escuela Profesional de Ingeniería Estadística e Informática — FINESI, Universidad Nacional del Altiplano, Puno.</div>
+    </section>
 
-<div class="pub">
-<heading class="unit">Unidad II: Agrupamiento y reglas de asociación</heading>
-<p><b>Periodo:</b> Del 1 de junio al 31 de julio de 2026 (45 horas)</p>
-<p><b>Logro de unidad:</b> Aplica adecuadamente técnicas de agrupamiento y reglas de asociación del aprendizaje no supervisado en aplicaciones reales.</p>
-<div class="week"><b>Semana 10:</b> Técnicas de agrupamiento: concepto de distancia, métodos particionales (centroides), k-means, k-medoids.</div>
-<div class="week"><b>Semana 11:</b> Métodos jerárquicos: Agglomerative Clustering; métodos basados en densidad: DBSCAN, HDBSCAN.</div>
-<div class="week"><b>Semana 12:</b> Métodos basados en modelos probabilísticos (Gaussian Mixture Model) y en grafos (Spectral Clustering).</div>
-<div class="week"><b>Semana 13:</b> Agrupamiento difuso (Fuzzy C-Means), subespacios (CLIQUE, PROCLUS) y Deep Embedded Clustering (DEC).</div>
-<div class="week"><b>Semana 14:</b> Reglas de asociación: métricas (support, confidence, lift, conviction, leverage, Jaccard), Apriori, FP-Growth, Eclat.</div>
-<div class="week"><b>Semana 15:</b> Variantes: asociación ponderada, negativa, alto orden, reglas secuenciales (PrefixSpan, SPADE). <i>Evaluación de técnicas avanzadas (50%)</i>.</div>
-<div class="week"><b>Semana 16:</b> Enfoques avanzados: datos continuos, big data, reglas basadas en grafos y aprendizaje profundo.</div>
-<div class="week"><b>Semana 17:</b> Integración y revisión de proyectos pertinentes al aprendizaje no supervisado.</div>
-<div class="week"><b>Semana 18:</b> Presentación y defensa del proyecto final. <i>Evaluación final (50%)</i>.</div>
-</div>
+    <footer>© 2026 UNAP · FINESI · Ingeniería Estadística e Informática</footer>
 
-<hr/>
-
-<heading id="metodologia">Metodología</heading>
-<div class="pub">
-<ul>
-<li>Videoconferencias, foros de discusión en línea y chat en línea.</li><li>Análisis de textos y artículos; revisión de guías y manuales.</li><li>Uso de Google Colab, Jupyter Notebook, Python y R.</li><li>Resolución de casos y exposición de propuestas de solución.</li><li>Investigación formativa con normas APA e IEEE.</li>
-</ul>
-</div>
-
-<hr/>
-
-<heading id="evaluacion">Evaluación</heading>
-<div class="pub">
-<ul>
-<li>Unidad 1 (50%): Evaluación de técnicas básicas ANS (50%) + Evaluación parcial de reducción de dimensionalidad (50%).</li>
-<li>Unidad 2 (50%): Evaluación de técnicas avanzadas de agrupamiento (50%) + Evaluación final de Aprendizaje no Supervisado (50%).</li>
-<li>Presentación puntual y pertinente del proyecto con el caso aplicado — semanas 7 y 8, 20 al 31 de julio de 2026.</li>
-</ul>
-<p style="font-size:13.5px;color:#666;">Promedio final = 50% (I Unidad Promedio Parcial) + 50% (II Unidad Promedio Parcial)</p>
-</div>
-
-<hr/>
-
-<heading id="bibliografia">Bibliografía</heading>
-<div class="pub">
-<p><b>Básica</b></p>
-<ul>
-<li>Barber, D. (2017). <i>Bayesian Reasoning and Machine Learning</i> (3ra ed.). Cambridge University Press.</li>
-<li>Theodoridis, S. (2017). <i>Machine Learning: A Bayesian and Optimization Perspective</i>. Elsevier.</li>
-<li>Goodfellow, I. y Bengio, Y. (2016). <i>Deep Learning</i>. MIT Press.</li>
-<li>Bishop, C. (2006). <i>Pattern Recognition and Machine Learning</i>. Springer.</li>
-</ul>
-<p><b>Complementaria</b></p>
-<ul>
-<li>Hastie, T., Tibshirani, R. y Friedman, J. (2014). <i>The Elements of Statistical Learning</i> (2da ed.). Springer.</li>
-<li>Russell, S. y Norvig, P. (2014). <i>Inteligencia Artificial: Un Enfoque Moderno</i> (3ra ed.). Prentice Hall.</li>
-</ul>
-<p><b>Electrónica</b></p>
-<ul>
-<li>Python Machine Learning Tutorials — realpython.com/tutorials/machine-learning</li>
-</ul>
-</div>
-
-<hr/>
-
-<heading id="contacto">Contacto</heading>
-<p>Facultad de Ingeniería Estadística e Informática - FINESI, Universidad Nacional del Altiplano, Puno.</p>
-
-<hr/>
-
-<div id="footer">
-<heading>&copy; 2026 UNAP - FINESI - Ingeniería Estadística e Informática</heading>
-</div>
-
-</div>
+  </div></div>
 </div>
 </body>
 </html>
