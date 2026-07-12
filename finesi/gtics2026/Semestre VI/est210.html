@@ -1,173 +1,409 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EST210 · Modelos Lineales · FINESI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-body { background-color:#060913; margin:0; padding:0; font-family:'Source Sans Pro', Arial, sans-serif; }
-.wrap { padding:25px; }
-.card { width:800px; max-width:94vw; margin:0 auto; background-color:#fff; border-radius:6px;
-        box-shadow:0 10px 40px rgba(0,0,0,.45); padding:30px 34px; }
-h1.title { font-size:32px; margin:0 0 4px 0; color:#111; }
-.subtitle { font-size:15px; color:#444; line-height:1.5; margin:2px 0; }
-.meta { font-size:14px; color:#666; margin:10px 0 0 0; }
-.meta b { color:#222; }
-.navbar { margin:18px 0 6px 0; padding:10px 0; border-top:1px solid #eee; border-bottom:1px solid #eee; }
-.navbar a { color:#7a2fe0; text-decoration:none; font-size:13.5px; margin-right:4px; }
-.navbar a:hover { text-decoration:underline; }
-hr { border:none; border-top:1px solid #eaeaea; margin:22px 0; }
-heading { display:block; font-weight:700; font-size:20px; color:#1c1c2e; margin-bottom:10px; }
-heading.unit { font-size:16.5px; color:#7a2fe0; margin-top:4px; }
-p { text-align:justify; line-height:1.6; color:#2b2b2b; font-size:15px; }
-.pub { margin-bottom:18px; }
-ul { padding-left:20px; }
-ul li { margin-bottom:6px; line-height:1.5; color:#2b2b2b; font-size:14.5px; }
-.week { margin-bottom:9px; padding:9px 12px; background:#f7f5fc; border-left:3px solid #7a2fe0; border-radius:4px; }
-.week b { color:#1c1c2e; }
-table.infot { width:100%; border-collapse:collapse; margin:10px 0 18px 0; font-size:14px; }
-table.infot td { padding:5px 8px; border-bottom:1px solid #f0f0f0; vertical-align:top; }
-table.infot td.k { color:#7a2fe0; font-weight:600; width:230px; }
-.pill { display:inline-block; background:#efe7fb; color:#5c1fb0; border-radius:20px; padding:3px 12px; font-size:12.5px; font-weight:600; margin-right:6px; }
-#footer heading { text-align:center; font-size:12.5px; color:#999; font-weight:400; }
-.badge-row { margin:8px 0 0 0; }
+:root{
+  --paper:      #fbf3e3;
+  --paper-2:    #f5ead1;
+  --ink:        #4a3524;
+  --ink-soft:   #7a6650;
+  --wine:       #b5657a;
+  --wine-dim:   #8f4d5f;
+  --gold:       #d8a84e;
+  --gold-dim:   #b4863a;
+  --sage:       #8fa377;
+  --sage-dim:   #6d8158;
+  --line:       #d8c6a3;
+  --cream-bg:   #f3e6c9;
+  --shadow:     rgba(122, 90, 42, .18);
+  --navy:       #0d1930;
+  --navy-2:     #16294a;
+}
+*{box-sizing:border-box;}
+
+.foto-fixed{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  z-index:-1;
+  overflow:hidden;
+}
+.foto-fixed img{
+  width:100%; height:100%;
+  object-fit:cover;
+  filter:sepia(.15) saturate(1.05) contrast(1.05) brightness(.55);
+}
+.foto-fixed::after{
+  content:"";
+  position:absolute; inset:0;
+  background:rgba(13,25,48,.42);
+}
+
+.hero{
+  position:relative;
+  padding:56px 24px 46px;
+  text-align:center;
+  overflow:hidden;
+  border-bottom:3px solid var(--gold);
+}
+.hero::before{
+  content:"";
+  position:absolute; top:0; left:0; right:0; bottom:0; z-index:1;
+  background:linear-gradient(180deg, rgba(13,25,48,.25) 0%, rgba(13,25,48,.65) 70%, rgba(13,25,48,.8) 100%);
+}
+.hero > *{ position:relative; z-index:2; max-width:820px; margin-left:auto; margin-right:auto; }
+.hero-code{
+  display:inline-block;
+  font-family:'IBM Plex Mono', monospace;
+  font-size:13px; font-weight:600; letter-spacing:2px;
+  color:#e8c98a;
+  border:1.5px solid #d8a84e;
+  border-radius:20px;
+  padding:5px 16px;
+  margin-bottom:16px;
+  background:rgba(216,168,78,.10);
+}
+.hero h1{
+  font-family:'Fraunces', serif;
+  font-weight:600;
+  font-size:clamp(28px, 4.5vw, 42px);
+  color:#f6efdc;
+  margin:0 0 10px;
+  letter-spacing:-.3px;
+}
+.hero .subtitle{
+  font-size:14px;
+  color:#c9c2ad;
+  margin:0 0 22px;
+  line-height:1.6;
+}
+.hero .pill-row{ display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-bottom:22px;}
+.hero .pill{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:11.5px;
+  color:#dce6d4;
+  border:1px solid rgba(220,230,212,.4);
+  border-radius:20px;
+  padding:5px 13px;
+  background:rgba(255,255,255,.06);
+}
+.hero .docente-box{
+  font-size:13.5px;
+  color:#d8d2bf;
+  line-height:1.8;
+  padding-top:16px;
+  border-top:1px dashed rgba(216,168,78,.35);
+}
+.hero .docente-box b{ color:#f6efdc; }
+
+body{
+  margin:0;
+  background:transparent;
+  font-family:'Spectral', serif;
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:900px; margin:0 auto; padding:0 24px 90px; position:relative; z-index:1;}
+
+.frame{
+  position:relative;
+  border:1.5px solid var(--line);
+  border-top:none;
+  border-radius:0 0 6px 6px;
+  padding:3px;
+  background:var(--paper);
+  box-shadow:0 20px 40px -20px var(--shadow);
+}
+.corner{ position:absolute; width:34px; height:34px; opacity:.55; z-index:2; }
+.corner svg{ width:100%; height:100%; }
+.corner.bl{ bottom:6px; left:6px; transform:scaleY(-1); }
+.corner.br{ bottom:6px; right:6px; transform:scale(-1,-1); }
+.frame-inner{
+  border:1px solid var(--line);
+  border-radius:0 0 4px 4px;
+  padding:44px 46px 50px;
+  position:relative;
+}
+
+nav.toc{
+  margin:26px 0 0;
+  padding:12px 16px;
+  background:var(--paper-2);
+  border:1px solid var(--line);
+  border-radius:4px;
+  font-family:'IBM Plex Mono', monospace;
+  font-size:11.5px;
+  letter-spacing:.3px;
+  display:flex; flex-wrap:wrap; gap:4px 14px;
+}
+nav.toc a{ color:var(--wine-dim); text-decoration:none; }
+nav.toc a:hover{ text-decoration:underline; }
+
+section{ margin-top:38px; }
+h2{
+  font-family:'Fraunces', serif;
+  font-weight:600;
+  font-size:20px;
+  color:var(--ink);
+  margin:0 0 14px;
+  padding-bottom:8px;
+  border-bottom:2px solid var(--gold);
+  display:inline-block;
+}
+p.body-text{ font-size:15px; line-height:1.75; color:var(--ink); text-align:justify; margin:0 0 10px;}
+p.dropcap:first-letter{
+  font-family:'Fraunces', serif;
+  font-weight:700;
+  font-size:52px;
+  float:left;
+  line-height:.8;
+  padding:4px 8px 0 0;
+  color:var(--wine-dim);
+}
+.flourish{
+  text-align:center;
+  color:var(--gold-dim);
+  font-size:15px;
+  letter-spacing:8px;
+  margin:34px 0 -6px;
+  opacity:.7;
+}
+
+.unit-card{
+  background:var(--paper-2);
+  border:1px solid var(--line);
+  border-radius:4px;
+  padding:20px 22px 20px 26px;
+  margin-bottom:16px;
+  position:relative;
+}
+.unit-card::before{
+  content:"";
+  position:absolute; left:0; top:14px; bottom:14px; width:4px;
+  background:var(--wine);
+  border-radius:2px;
+}
+.unit-title{
+  font-family:'Fraunces', serif;
+  font-weight:600;
+  font-size:16.5px;
+  color:var(--wine-dim);
+  margin:0 0 8px;
+}
+.unit-meta{ font-size:12.5px; color:var(--ink-soft); margin-bottom:10px; line-height:1.6;}
+.unit-meta b{ color:var(--ink); }
+ul.week-list{ margin:10px 0 0; padding-left:20px; }
+ul.week-list li{ font-size:14px; line-height:1.65; margin-bottom:7px; color:var(--ink);}
+ul.week-list li b{ color:var(--wine-dim); }
+
+ul.plain{ margin:0; padding-left:20px; }
+ul.plain li{ font-size:14.5px; line-height:1.75; margin-bottom:6px; }
+
+table.eval{ width:100%; border-collapse:collapse; margin-top:10px; font-size:13.5px;}
+table.eval th{
+  background:var(--wine);
+  color:#fdf6ee;
+  font-weight:600;
+  text-align:left;
+  padding:9px 10px;
+  font-size:12.5px;
+  letter-spacing:.3px;
+}
+table.eval td{
+  padding:9px 10px;
+  border-bottom:1px solid var(--line);
+  vertical-align:top;
+}
+table.eval tr:nth-child(even) td{ background:rgba(216,168,78,.07); }
+.formula-note{
+  margin-top:10px;
+  font-size:12.5px;
+  color:var(--ink-soft);
+  font-style:italic;
+}
+
+.biblio-block{ margin-bottom:14px; }
+.biblio-label{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:11px; letter-spacing:1.5px; text-transform:uppercase;
+  color:var(--sage-dim); margin-bottom:8px; display:block;
+}
+
+.contact-box{
+  background:var(--paper-2);
+  border:1px dashed var(--line);
+  border-radius:4px;
+  padding:16px 20px;
+  font-size:14px;
+  color:var(--ink-soft);
+}
+
+footer{
+  text-align:center;
+  margin-top:44px;
+  padding-top:22px;
+  border-top:1px solid var(--line);
+  font-family:'IBM Plex Mono', monospace;
+  font-size:11px;
+  letter-spacing:1px;
+  color:var(--ink-soft);
+}
+
+@media (max-width:600px){
+  .frame-inner{ padding:30px 22px 36px; }
+}
 </style>
-
-<title>UNAP-EST210</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<meta name="keywords" content="Modelos Lineales, FINESI, UNAP, sílabo, ingeniería estadística e informática" />
-<meta name="description" content="Sílabo actualizado del curso de Modelos Lineales - Ingeniería Estadística e Informática - UNAP" />
 </head>
-
 <body>
+
+<div class="foto-fixed">
+  <img src="finesi.jpg" alt="Facultad de Ingeniería Estadística e Informática - FINESI">
+</div>
+
+<div class="hero">
+  <div class="hero-code">EST210</div>
+  <h1>Modelos Lineales</h1>
+  <p class="subtitle">Ingeniería Estadística e Informática — FINESI · Universidad Nacional del Altiplano · Puno</p>
+  <div class="pill-row">
+    <span class="pill">Ciclo VI</span>
+    <span class="pill">Créditos 05</span>
+    <span class="pill">04h teóricas · 02h prácticas · Total 06 horas</span>
+    <span class="pill">2026-I</span>
+  </div>
+  <div class="docente-box">
+    <b>Prerrequisito:</b> EST307 — Modelos Discretos<br>
+    <b>Docente:</b> Morillos Valderrama Santos Octavio — Nombrado, Principal D.E.<br>
+    <b>Ambiente:</b> Aula 205 · Pabellón Antiguo
+  </div>
+</div>
+
 <div class="wrap">
-<div class="card">
+  <div class="frame">
+    <div class="corner bl"><svg viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg"><path d="M2 20 C2 8, 8 2, 20 2" fill="none" stroke="#b5657a" stroke-width="1.4"/><path d="M2 13 C2 6, 6 2, 13 2" fill="none" stroke="#d8a84e" stroke-width="1"/><circle cx="2" cy="20" r="1.6" fill="#b5657a"/><circle cx="20" cy="2" r="1.6" fill="#b5657a"/></svg></div>
+    <div class="corner br"><svg viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg"><path d="M2 20 C2 8, 8 2, 20 2" fill="none" stroke="#b5657a" stroke-width="1.4"/><path d="M2 13 C2 6, 6 2, 13 2" fill="none" stroke="#d8a84e" stroke-width="1"/><circle cx="2" cy="20" r="1.6" fill="#b5657a"/><circle cx="20" cy="2" r="1.6" fill="#b5657a"/></svg></div>
+  <div class="frame-inner">
 
-<h1 class="title">Modelos Lineales</h1>
-<p class="subtitle">
-Ingeniería Estadística e Informática<br>
-Facultad de Ingeniería Estadística e Informática<br>
-Universidad Nacional del Altiplano - Puno
-</p>
-<div class="badge-row">
-  <span class="pill">Código: EST210</span>
-  <span class="pill">Ciclo: VI</span>
-  <span class="pill">Créditos: 05</span>
-</div>
-<p class="meta"><b>Horas:</b> 04h teóricas, 02h prácticas — Total 06 horas</p>
-<p class="meta"><b>Docente:</b> Morillos Valderrama, Santos Octavio</p>
-<p class="meta"><b>Prerrequisito:</b> EST307 - Modelos Discretos</p>
+    <nav class="toc">
+      <a href="#sumilla">Sumilla</a>
+      <a href="#perfil">Perfil</a>
+      <a href="#logro">Logro</a>
+      <a href="#contenido">Contenido</a>
+      <a href="#metodologia">Metodología</a>
+      <a href="#evaluacion">Evaluación</a>
+      <a href="#bibliografia">Bibliografía</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
 
-<div class="navbar">
-<a href="#sumilla">Sumilla</a> |
-<a href="#logro">Logro</a> |
-<a href="#contenido">Contenido</a> |
-<a href="#metodologia">Metodología</a> |
-<a href="#evaluacion">Evaluación</a> |
-<a href="#bibliografia">Bibliografía</a> |
-<a href="#contacto">Contacto</a>
-</div>
+    <section id="sumilla">
+      <h2>Sumilla</h2>
+      <p class="body-text dropcap">El curso de Modelos Lineales pertenece al área curricular de Estudios de especialidad, es de naturaleza teórico-práctica y tiene como propósito contribuir en forma significativa en la solución de problemas de la vida real, dando lugar a la formalización y rápido perfeccionamiento de los modelos matemáticos, debido esencialmente al avance de la tecnología y la posibilidad de usar la computación en la comprobación de los modelos. La asignatura está dividida en dos unidades didácticas: Distribución de formas cuadráticas y Modelos de rango completo (Unidad 1); Modelos de correlación y Modelo de rango no completo (Unidad 2).</p>
+    </section>
 
-<hr/>
+    <section id="perfil">
+      <h2>Perfil del egresado</h2>
+      <p class="body-text">Utiliza metodologías estadísticas y/o informáticas para promover y desarrollar la investigación científica con el propósito de generar nuevos conocimientos en beneficio del país y la humanidad, con responsabilidad y ética, contando con conocimientos de técnicas estadísticas actualizadas.</p>
+    </section>
 
-<heading id="sumilla">Sumilla</heading>
-<p>El curso de Modelos Lineales pertenece al área curricular de estudios de especialidad, es de naturaleza teórico-práctica y tiene como propósito contribuir en la solución de problemas de la vida real mediante la formalización y perfeccionamiento de modelos matemáticos, aprovechando el avance de la tecnología y la computación para su comprobación.</p>
-<p>La asignatura está dividida en dos unidades: Distribución de formas cuadráticas y Modelos de rango completo (Unidad I); Modelos de correlación y Modelos de rango no completo (Unidad II).</p>
+    <section id="logro">
+      <h2>Logro del curso</h2>
+      <p class="body-text">Explica los fundamentos teóricos para el diseño y análisis de modelos de rango completo y no completo, contrastando pruebas de hipótesis a fin de tomar decisiones correspondientes al estado de la naturaleza.</p>
+    </section>
 
-<hr/>
+    <div class="flourish">❧</div>
+    <section id="contenido">
+      <h2>Contenido</h2>
+      <div class="unit-card">
+        <p class="unit-title">Unidad I · Formas cuadráticas y modelos de rango completo</p>
+        <p class="unit-meta"><b>Duración:</b> 30 de marzo al 1 de junio 2026 (semanas 1–9, 54 horas)<br><b>Logro de unidad:</b> Determina la distribución de formas cuadráticas de variables aleatorias y analiza en forma teórica y práctica los modelos lineales de regresión aplicando inferencias en sus parámetros.</p>
+        <ul class="week-list">
+          <li><b>Semanas 1–3:</b> Introducción a las formas cuadráticas, función de densidad multivariante, momentos, F central y no central, distribuciones e independencia de formas cuadráticas.</li>
+          <li><b>Semanas 4–6:</b> Modelos de rango completo con k variables Xi, tabla de análisis de varianza, correlación múltiple, intervalos de confianza.</li>
+          <li><b>Semanas 7–9:</b> Prueba de hipótesis lineal, modelos reducidos, regresión polinomial, polinomios ortogonales y selección del mejor conjunto de variables.</li>
+        </ul>
+        <p class="unit-meta" style="margin-top:8px;"><b>Evidencia 1:</b> Trabajos (50%) · <b>Evidencia 2:</b> Examen escrito (50%)</p>
+      </div>
+      <div class="unit-card">
+        <p class="unit-title">Unidad II · Modelos de correlación y rango no completo</p>
+        <p class="unit-meta"><b>Duración:</b> 1 de junio al 31 de julio 2026 (semanas 10–18, 54 horas)<br><b>Logro de unidad:</b> Realiza pruebas de hipótesis para los modelos de correlación parcial y múltiple, y distingue las diferencias entre los modelos de rango completo y no completo.</p>
+        <ul class="week-list">
+          <li><b>Semanas 10–12:</b> Modelos de correlación parcial y múltiple, análisis de varianza, efectos principales e interactivos, matriz inversa generalizada.</li>
+          <li><b>Semanas 13–15:</b> Funciones estimables, hipótesis lineal general, contrastes independientes y ortogonales, modelo de clasificación a un criterio.</li>
+          <li><b>Semanas 16–18:</b> Clasificación anidada y cruzada a dos criterios, modelos balanceados, fijos, aleatorios y mixtos.</li>
+        </ul>
+        <p class="unit-meta" style="margin-top:8px;"><b>Evidencia 3:</b> Trabajos (50%) · <b>Evidencia 4:</b> Examen escrito (50%)</p>
+      </div>
+    </section>
 
-<heading id="logro">Logro del curso</heading>
-<p>Explica los fundamentos teóricos para el diseño y análisis de modelos de rango completo y no completo, contrastando pruebas de hipótesis a fin de tomar decisiones correspondientes al estado de la naturaleza.</p>
+    <div class="flourish">❧</div>
+    <section id="metodologia">
+      <h2>Metodología</h2>
+      <ul class="plain">
+        <li><b>Enseñanza:</b> Sesiones de clase donde la mayor parte de los temas son expuestos por el docente y algunos por los estudiantes.</li>
+        <li><b>Aprendizaje:</b> Asignación de problemas y ejercicios presentados por los estudiantes, con dinámica de grupos en exposiciones.</li>
+        <li><b>Investigación formativa:</b> Al finalizar el curso, los estudiantes presentan un trabajo de investigación relacionado con el curso.</li>
+        <li><b>Responsabilidad social:</b> Investigación diagnóstica de la problemática educativa en un IES estatal de la ciudad de Puno.</li>
+        <li><b>Enseñanza virtual:</b> Uso de aulas virtuales Classroom, Webex o Meet.</li>
+      </ul>
+    </section>
 
-<hr/>
+    <section id="evaluacion">
+      <h2>Evaluación</h2>
+      <table class="eval">
+        <tr><th>Unidad</th><th>Logro de aprendizaje</th><th>Evidencias</th><th>Ponderación</th></tr>
+        <tr><td>1</td><td>Distribución de formas cuadráticas y modelos de rango completo</td><td>Evidencia 1 (50%) + Evidencia 2 (50%)</td><td>50%</td></tr>
+        <tr><td>2</td><td>Modelos de correlación y rango no completo</td><td>Evidencia 3 (50%) + Evidencia 4 (50%)</td><td>50%</td></tr>
+      </table>
+      <p class="formula-note">Promedio parcial de unidad = 50% (EVI 1) + 50% (EVI 2) &nbsp;·&nbsp; Promedio final del curso = 50% (I UPP) + 50% (II UPP)</p>
+    </section>
 
-<heading id="contenido">Contenido</heading>
+    <div class="flourish">❧</div>
+    <section id="bibliografia">
+      <h2>Bibliografía</h2>
+      <div class="biblio-block">
+        <span class="biblio-label">Básica</span>
+        <ul class="plain">
+          <li>Daniel, W. (1991). <i>Bioestadística</i> (4ta ed.). Editorial Limusa, México.</li>
+          <li>Fahrmeir, L., Kneib, T., Lang, S. &amp; Marx, B. (2013). <i>Regression</i>. Springer, New York.</li>
+          <li>Graybill, F. (1961). <i>An Introduction to Linear Statistical Models</i>, Vol. I. McGraw-Hill, U.S.A.</li>
+          <li>Hair, J., Anderson, R., Tatham, R. &amp; Black, W. (1999). <i>Análisis Multivariante</i> (5ta ed.). Prentice Hall, Madrid.</li>
+          <li>Montgomery, D., Peck, E. &amp; Vining, G. (2006). <i>Introducción al Análisis de Regresión Lineal</i> (3ra ed.). Compañía Editorial Continental, México.</li>
+          <li>Searle, S. &amp; Gruber, M. (2017). <i>Linear Models</i> (2da ed.). John Wiley, New Jersey.</li>
+        </ul>
+      </div>
+      <div class="biblio-block">
+        <span class="biblio-label">Complementaria</span>
+        <ul class="plain">
+          <li>Neter, J., Wasserman, W. &amp; Kutner, M. (1983). <i>Applied Linear Regression Models</i>. Richard Irwin, U.S.A.</li>
+          <li>Rencher, A. &amp; Schaalje, B. (2008). <i>Linear Models in Statistics</i> (2da ed.). John Wiley, New Jersey.</li>
+        </ul>
+      </div>
+      <div class="biblio-block">
+        <span class="biblio-label">Electrónica</span>
+        <ul class="plain">
+          <li>mascvuex.unex.es — material de modelos lineales.</li>
+          <li>recursos.salonesvirtuales.com — bloques de estudio complementarios.</li>
+        </ul>
+      </div>
+      <div class="biblio-block">
+        <span class="biblio-label">Producción intelectual del docente</span>
+        <ul class="plain"><li>Guías de estudio y práctica.</li></ul>
+      </div>
+    </section>
 
-<div class="pub">
-<heading class="unit">Unidad I: Formas cuadráticas y modelos de rango completo</heading>
-<p><b>Periodo:</b> Del 30 de marzo al 1 de junio de 2026 (54 horas)</p>
-<p><b>Logro de unidad:</b> Determina la distribución de formas cuadráticas de variables aleatorias y analiza en forma teórica y práctica los modelos lineales de regresión aplicando inferencias en sus parámetros.</p>
-<div class="week"><b>Semana 1:</b> Introducción a las formas cuadráticas.</div>
-<div class="week"><b>Semana 2:</b> Función de densidad multivariante: momentos, F central y no central, otras distribuciones no centrales.</div>
-<div class="week"><b>Semana 3:</b> Distribuciones e independencia de formas cuadráticas.</div>
-<div class="week"><b>Semana 4:</b> Modelos de rango completo: estimación con k variables X, métodos de estimación.</div>
-<div class="week"><b>Semana 5:</b> Tabla de análisis de varianza: partición de la suma total de cuadrados, correlación múltiple.</div>
-<div class="week"><b>Semana 6:</b> Análisis de varianza para modelos de regresión. Intervalos de confianza.</div>
-<div class="week"><b>Semana 7:</b> Prueba de hipótesis lineal: cuatro hipótesis comunes y modelos reducidos.</div>
-<div class="week"><b>Semana 8:</b> Regresión polinomial, estimación de la respuesta media e intervalos de confianza. <i>Evidencia 1: Trabajos (50%)</i>.</div>
-<div class="week"><b>Semana 9:</b> Polinomios ortogonales y selección del mejor conjunto de variables independientes. <i>Evidencia 2: Examen escrito (50%)</i>.</div>
-</div>
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <div class="contact-box">Escuela Profesional de Ingeniería Estadística e Informática — FINESI, Universidad Nacional del Altiplano, Puno.</div>
+    </section>
 
-<div class="pub">
-<heading class="unit">Unidad II: Modelos de correlación y de rango no completo</heading>
-<p><b>Periodo:</b> Del 1 de junio al 31 de julio de 2026 (54 horas)</p>
-<p><b>Logro de unidad:</b> Realiza pruebas de hipótesis para los modelos de correlación parcial y múltiple, y distingue las diferencias entre los modelos de rango completo y no completo.</p>
-<div class="week"><b>Semana 10:</b> Modelos de correlación: pruebas de hipótesis, intervalos de confianza, correlación parcial y múltiple.</div>
-<div class="week"><b>Semana 11:</b> Modelos de análisis de varianza: efectos principales e interactivos, clasificaciones cruzadas y anidadas.</div>
-<div class="week"><b>Semana 12:</b> Modelos de rango no completo: clasificación a un criterio, propiedades distribucionales.</div>
-<div class="week"><b>Semana 13:</b> Funciones estimables e intervalos de confianza.</div>
-<div class="week"><b>Semana 14:</b> Hipótesis lineal general: análisis de varianza, contrastes independientes y ortogonales.</div>
-<div class="week"><b>Semana 15:</b> Modelo de clasificación a un criterio: funciones estimables e intervalos de confianza.</div>
-<div class="week"><b>Semana 16:</b> Modelo de clasificación anidada a dos criterios: análisis de varianza y funciones estimables.</div>
-<div class="week"><b>Semana 17:</b> Clasificación cruzada a dos criterios sin interacción. <i>Evidencia 3: Trabajos (50%)</i>.</div>
-<div class="week"><b>Semana 18:</b> Modelo balanceado, modelos fijos, aleatorios y mixtos. <i>Evidencia 4: Examen escrito (50%)</i>.</div>
-</div>
+    <footer>© 2026 UNAP · FINESI · Ingeniería Estadística e Informática</footer>
 
-<hr/>
-
-<heading id="metodologia">Metodología</heading>
-<div class="pub">
-<ul>
-<li>Sesiones de clase: exposición del profesor y de estudiantes en temas teóricos.</li><li>Resolución de problemas y ejercicios prácticos con dinámica de grupos.</li><li>Trabajo de investigación relacionado con el curso al finalizar el semestre.</li><li>Uso de aulas virtuales: Classroom, Webex o Meet.</li>
-</ul>
-</div>
-
-<hr/>
-
-<heading id="evaluacion">Evaluación</heading>
-<div class="pub">
-<ul>
-<li>Unidad 1 (50%): Evidencia 1 — Trabajos (50%) + Evidencia 2 — Examen escrito (50%).</li>
-<li>Unidad 2 (50%): Evidencia 3 — Trabajos (50%) + Evidencia 4 — Examen escrito (50%).</li>
-<li>Aplica el modelo de regresión lineal de rango completo y no completo a casos de estudio, al finalizar cada unidad.</li>
-</ul>
-<p style="font-size:13.5px;color:#666;">Promedio final = 50% (I Unidad Promedio Parcial) + 50% (II Unidad Promedio Parcial)</p>
-</div>
-
-<hr/>
-
-<heading id="bibliografia">Bibliografía</heading>
-<div class="pub">
-<p><b>Básica</b></p>
-<ul>
-<li>Graybill, F. (1961). <i>An Introduction to Linear Statistical Models</i>, Vol. I. McGraw-Hill.</li>
-<li>Montgomery, D., Peck, E. y Vining, G. (2006). <i>Introducción al Análisis de Regresión Lineal</i> (3ra ed.). Compañía Editorial Continental.</li>
-<li>Searle, S. y Gruber, M. (2017). <i>Linear Models</i> (2da ed.). John Wiley.</li>
-<li>Fahrmeir, L., Kneib, T., Lang, S. y Marx, B. (2013). <i>Regression</i>. Springer.</li>
-</ul>
-<p><b>Complementaria</b></p>
-<ul>
-<li>Neter, J., Wasserman, W. y Kutner, M. (1983). <i>Applied Linear Regression Models</i>. Richard Irwin.</li>
-<li>Rencher, A. y Schaalje, B. (2008). <i>Linear Models in Statistics</i> (2da ed.). John Wiley.</li>
-</ul>
-<p><b>Electrónica</b></p>
-<ul>
-<li>mascvuex.unex.es — apuntes de modelos lineales.</li>
-<li>recursos.salonesvirtuales.com — material complementario.</li>
-</ul>
-</div>
-
-<hr/>
-
-<heading id="contacto">Contacto</heading>
-<p>Facultad de Ingeniería Estadística e Informática - FINESI, Universidad Nacional del Altiplano, Puno.</p>
-
-<hr/>
-
-<div id="footer">
-<heading>&copy; 2026 UNAP - FINESI - Ingeniería Estadística e Informática</heading>
-</div>
-
-</div>
+  </div></div>
 </div>
 </body>
 </html>
