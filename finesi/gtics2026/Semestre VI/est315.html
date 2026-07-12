@@ -1,218 +1,431 @@
-
-```html
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
-<link rel="stylesheet" type="text/css" href="./lib/style.css">
-<script type="text/javascript" src="./lib/hidebib.js"></script>
-<title>UNAP-EST315</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<meta name="keywords" content="gestión de proyectos TIC, GitHub, Notion, portafolios, ciencia de datos, desarrollo de software, redes, telecomunicaciones, estadística, PMBOK, Scrum, Kanban" />
-<meta name="description" content="Sílabo actualizado del curso de Gestión de Proyectos TICs - Ingeniería Estadística e Informática - UNAP" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EST315 · Gestión de Proyectos TICs · FINESI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:      #fbf3e3;
+  --paper-2:    #f5ead1;
+  --ink:        #4a3524;
+  --ink-soft:   #7a6650;
+  --wine:       #b5657a;
+  --wine-dim:   #8f4d5f;
+  --gold:       #d8a84e;
+  --gold-dim:   #b4863a;
+  --sage:       #8fa377;
+  --sage-dim:   #6d8158;
+  --line:       #d8c6a3;
+  --cream-bg:   #f3e6c9;
+  --shadow:     rgba(122, 90, 42, .18);
+  --navy:       #0d1930;
+  --navy-2:     #16294a;
+}
+*{box-sizing:border-box;}
+
+.foto-fixed{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  z-index:-1;
+  overflow:hidden;
+}
+.foto-fixed img{
+  width:100%; height:100%;
+  object-fit:cover;
+  filter:sepia(.15) saturate(1.05) contrast(1.05) brightness(.55);
+}
+.foto-fixed::after{
+  content:"";
+  position:absolute; inset:0;
+  background:rgba(13,25,48,.42);
+}
+
+.hero{
+  position:relative;
+  padding:56px 24px 46px;
+  text-align:center;
+  overflow:hidden;
+  border-bottom:3px solid var(--gold);
+}
+.hero::before{
+  content:"";
+  position:absolute; top:0; left:0; right:0; bottom:0; z-index:1;
+  background:linear-gradient(180deg, rgba(13,25,48,.25) 0%, rgba(13,25,48,.65) 70%, rgba(13,25,48,.8) 100%);
+}
+.hero > *{ position:relative; z-index:2; max-width:820px; margin-left:auto; margin-right:auto; }
+.hero-code{
+  display:inline-block;
+  font-family:'IBM Plex Mono', monospace;
+  font-size:13px; font-weight:600; letter-spacing:2px;
+  color:#e8c98a;
+  border:1.5px solid #d8a84e;
+  border-radius:20px;
+  padding:5px 16px;
+  margin-bottom:16px;
+  background:rgba(216,168,78,.10);
+}
+.hero h1{
+  font-family:'Fraunces', serif;
+  font-weight:600;
+  font-size:clamp(28px, 4.5vw, 42px);
+  color:#f6efdc;
+  margin:0 0 10px;
+  letter-spacing:-.3px;
+}
+.hero .subtitle{
+  font-size:14px;
+  color:#c9c2ad;
+  margin:0 0 22px;
+  line-height:1.6;
+}
+.hero .pill-row{ display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-bottom:22px;}
+.hero .pill{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:11.5px;
+  color:#dce6d4;
+  border:1px solid rgba(220,230,212,.4);
+  border-radius:20px;
+  padding:5px 13px;
+  background:rgba(255,255,255,.06);
+}
+.hero .docente-box{
+  font-size:13.5px;
+  color:#d8d2bf;
+  line-height:1.8;
+  padding-top:16px;
+  border-top:1px dashed rgba(216,168,78,.35);
+}
+.hero .docente-box b{ color:#f6efdc; }
+
+body{
+  margin:0;
+  background:transparent;
+  font-family:'Spectral', serif;
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:900px; margin:0 auto; padding:0 24px 90px; position:relative; z-index:1;}
+
+.frame{
+  position:relative;
+  border:1.5px solid var(--line);
+  border-top:none;
+  border-radius:0 0 6px 6px;
+  padding:3px;
+  background:var(--paper);
+  box-shadow:0 20px 40px -20px var(--shadow);
+}
+.corner{ position:absolute; width:34px; height:34px; opacity:.55; z-index:2; }
+.corner svg{ width:100%; height:100%; }
+.corner.bl{ bottom:6px; left:6px; transform:scaleY(-1); }
+.corner.br{ bottom:6px; right:6px; transform:scale(-1,-1); }
+.frame-inner{
+  border:1px solid var(--line);
+  border-radius:0 0 4px 4px;
+  padding:44px 46px 50px;
+  position:relative;
+}
+
+nav.toc{
+  margin:26px 0 0;
+  padding:12px 16px;
+  background:var(--paper-2);
+  border:1px solid var(--line);
+  border-radius:4px;
+  font-family:'IBM Plex Mono', monospace;
+  font-size:11.5px;
+  letter-spacing:.3px;
+  display:flex; flex-wrap:wrap; gap:4px 14px;
+}
+nav.toc a{ color:var(--wine-dim); text-decoration:none; }
+nav.toc a:hover{ text-decoration:underline; }
+
+section{ margin-top:38px; }
+h2{
+  font-family:'Fraunces', serif;
+  font-weight:600;
+  font-size:20px;
+  color:var(--ink);
+  margin:0 0 14px;
+  padding-bottom:8px;
+  border-bottom:2px solid var(--gold);
+  display:inline-block;
+}
+p.body-text{ font-size:15px; line-height:1.75; color:var(--ink); text-align:justify; margin:0 0 10px;}
+p.dropcap:first-letter{
+  font-family:'Fraunces', serif;
+  font-weight:700;
+  font-size:52px;
+  float:left;
+  line-height:.8;
+  padding:4px 8px 0 0;
+  color:var(--wine-dim);
+}
+.flourish{
+  text-align:center;
+  color:var(--gold-dim);
+  font-size:15px;
+  letter-spacing:8px;
+  margin:34px 0 -6px;
+  opacity:.7;
+}
+
+.unit-card{
+  background:var(--paper-2);
+  border:1px solid var(--line);
+  border-radius:4px;
+  padding:20px 22px 20px 26px;
+  margin-bottom:16px;
+  position:relative;
+}
+.unit-card::before{
+  content:"";
+  position:absolute; left:0; top:14px; bottom:14px; width:4px;
+  background:var(--wine);
+  border-radius:2px;
+}
+.unit-title{
+  font-family:'Fraunces', serif;
+  font-weight:600;
+  font-size:16.5px;
+  color:var(--wine-dim);
+  margin:0 0 8px;
+}
+.unit-meta{ font-size:12.5px; color:var(--ink-soft); margin-bottom:10px; line-height:1.6;}
+.unit-meta b{ color:var(--ink); }
+ul.week-list{ margin:10px 0 0; padding-left:20px; }
+ul.week-list li{ font-size:14px; line-height:1.65; margin-bottom:7px; color:var(--ink);}
+ul.week-list li b{ color:var(--wine-dim); }
+
+ul.plain{ margin:0; padding-left:20px; }
+ul.plain li{ font-size:14.5px; line-height:1.75; margin-bottom:6px; }
+
+table.eval{ width:100%; border-collapse:collapse; margin-top:10px; font-size:13.5px;}
+table.eval th{
+  background:var(--wine);
+  color:#fdf6ee;
+  font-weight:600;
+  text-align:left;
+  padding:9px 10px;
+  font-size:12.5px;
+  letter-spacing:.3px;
+}
+table.eval td{
+  padding:9px 10px;
+  border-bottom:1px solid var(--line);
+  vertical-align:top;
+}
+table.eval tr:nth-child(even) td{ background:rgba(216,168,78,.07); }
+.formula-note{
+  margin-top:10px;
+  font-size:12.5px;
+  color:var(--ink-soft);
+  font-style:italic;
+}
+
+.biblio-block{ margin-bottom:14px; }
+.biblio-label{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:11px; letter-spacing:1.5px; text-transform:uppercase;
+  color:var(--sage-dim); margin-bottom:8px; display:block;
+}
+
+.contact-box{
+  background:var(--paper-2);
+  border:1px dashed var(--line);
+  border-radius:4px;
+  padding:16px 20px;
+  font-size:14px;
+  color:var(--ink-soft);
+}
+
+.tag-grid{ display:flex; flex-wrap:wrap; gap:8px; }
+.tag{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:12px;
+  color:var(--wine-dim);
+  border:1px solid var(--wine);
+  border-radius:4px;
+  padding:6px 12px;
+  background:rgba(181,101,122,.07);
+}
+
+footer{
+  text-align:center;
+  margin-top:44px;
+  padding-top:22px;
+  border-top:1px solid var(--line);
+  font-family:'IBM Plex Mono', monospace;
+  font-size:11px;
+  letter-spacing:1px;
+  color:var(--ink-soft);
+}
+
+@media (max-width:600px){
+  .frame-inner{ padding:30px 22px 36px; }
+}
+</style>
 </head>
+<body>
 
-<body style="background-color: #060913; margin: 0; padding:0;">
-<div style="padding: 25px;">
-<table width="800" border="0" align="center" cellpadding="20" style="background-color: #fff;">
-<tr>
-<td>
-
-<table width="100%" align="center" border="0" cellpadding="10">
-<tr>
-<td width="70%" style="vertical-align: top; text-align: left;">
-<p style="font-size: 36px;">Gestión de Proyectos TICs</p>
-<p style="font-size: 16px;">
-Ingeniería Estadística e Informática<br>
-Facultad de Ingeniería Estadística e Informática<br>
-Universidad Nacional del Altiplano - Puno
-</p>
-<p style="font-size: 16px;">
-Código: EST315 | Ciclo: VI | Créditos: 4<br>
-Horas: 3 teóricas, 2 prácticas | Total: 5 horas
-</p>
-<p style="font-size: 16px;">
-Prof. M. Sc. Romel Percy Melgarejo Bolívar
-</p>
-</td>
-<td width="30%" valign="bottom" align="right"></td>
-</tr>
-
-<tr>
-<td colspan="2">
-<p>
-<a href="#sumilla">Sumilla</a> |
-<a href="#logro">Logro</a> |
-<a href="#contenido">Contenido</a> |
-<a href="#metodologia">Metodología</a> |
-<a href="#evaluacion">Evaluación</a> |
-<a href="#entregables">Entregables</a> |
-<a href="#recursos">Recursos</a> |
-<a href="#bibliografia">Bibliografía</a> |
-<a href="#contacto">Contacto</a>
-</p>
-</td>
-</tr>
-</table>
-
-<hr/>
-
-<heading id="sumilla">Sumilla</heading>
-<p style="text-align: justify">
-El curso de Gestión de Proyectos TICs corresponde al área de Estudios de Especialidad y es de naturaleza teórico-práctica. Tiene como propósito desarrollar competencias para formular, planificar, ejecutar, monitorear, controlar y cerrar proyectos tecnológicos vinculados a la Ingeniería Estadística e Informática.
-</p>
-
-<p style="text-align: justify">
-El curso se orienta a la gestión de portafolios de proyectos desde el inicio hasta el cierre, integrando las principales líneas de desarrollo profesional de la carrera: desarrollo de software, programación, diseño de sistemas, redes y telecomunicaciones, estadística aplicada, ciencia de datos, inteligencia artificial, análisis estadístico y asesorías de tesis relacionadas con el procesamiento de datos.
-</p>
-
-<p style="text-align: justify">
-Para ello, los estudiantes utilizarán herramientas colaborativas como GitHub, GitHub Projects y Notion, aplicando metodologías tradicionales, ágiles e híbridas como PMBOK, Scrum, Kanban, Design Thinking y gestión basada en evidencias. El curso promueve el trabajo en equipo, la trazabilidad, la documentación técnica, la gestión de tareas, la comunicación efectiva y la entrega progresiva de valor mediante proyectos reales.
-</p>
-
-<hr/>
-
-<heading id="logro">Logro del curso</heading>
-<p style="text-align: justify">
-Al finalizar el curso, el estudiante gestiona portafolios y proyectos de Tecnologías de Información y Comunicación aplicando metodologías tradicionales, ágiles e híbridas para planificar, ejecutar, monitorear y controlar iniciativas relacionadas con desarrollo de software, redes y telecomunicaciones, estadística, ciencia de datos, inteligencia artificial e investigación aplicada, utilizando herramientas digitales que garanticen trazabilidad, calidad y cumplimiento de objetivos durante todo el ciclo de vida del proyecto.
-</p>
-
-<hr/>
-
-<heading id="contenido">Contenido</heading>
-
-<div class="pub">
-<heading>Unidad I: Formulación, planificación y organización del portafolio de proyectos TIC</heading>
-<p><b>Duración:</b> Semanas 1 al 9</p>
-<p><b>Logro de unidad:</b> Formula y organiza un proyecto TIC real mediante la identificación de problemas, definición de objetivos, planificación de entregables y construcción de un portafolio digital en GitHub y Notion.</p>
-
-<ul>
-<li><b>Semana 1:</b> Presentación del curso. Enfoque por proyectos y portafolios. Líneas de trabajo: software, redes, estadística, ciencia de datos e investigación.</li>
-<li><b>Semana 2:</b> Gestión de proyectos TIC. Proyecto, programa y portafolio. Ciclo de vida del proyecto.</li>
-<li><b>Semana 3:</b> Identificación de problemas, necesidades y oportunidades en contextos reales.</li>
-<li><b>Semana 4:</b> Design Thinking e ideación de proyectos tecnológicos.</li>
-<li><b>Semana 5:</b> Formulación del proyecto: problema, objetivos, alcance, entregables e indicadores.</li>
-<li><b>Semana 6:</b> Acta de constitución del proyecto. Roles, responsabilidades e interesados.</li>
-<li><b>Semana 7:</b> Organización del portafolio en Notion: documentación, cronograma, bitácora y evidencias.</li>
-<li><b>Semana 8:</b> Organización del repositorio en GitHub: estructura, README, issues, milestones y control de versiones.</li>
-<li><b>Semana 9:</b> Sustentación parcial del proyecto: pitch, Project Charter, tablero de seguimiento y portafolio inicial.</li>
-</ul>
+<div class="foto-fixed">
+  <img src="finesi.jpg" alt="Facultad de Ingeniería Estadística e Informática - FINESI">
 </div>
 
-<div class="pub">
-<heading>Unidad II: Ejecución, seguimiento, control y cierre de proyectos TIC</heading>
-<p><b>Duración:</b> Semanas 10 al 18</p>
-<p><b>Logro de unidad:</b> Ejecuta, monitorea y cierra un proyecto TIC aplicando metodologías ágiles, gestión visual, control de riesgos, indicadores de avance y presentación de resultados mediante un portafolio digital funcional.</p>
-
-<ul>
-<li><b>Semana 10:</b> PMBOK aplicado a proyectos TIC. Enfoques predictivos, adaptativos e híbridos.</li>
-<li><b>Semana 11:</b> Scrum aplicado a proyectos de software, ciencia de datos, redes e investigación.</li>
-<li><b>Semana 12:</b> Kanban y gestión visual de tareas mediante GitHub Projects y Notion.</li>
-<li><b>Semana 13:</b> Gestión del cronograma, recursos, costos y responsabilidades del equipo.</li>
-<li><b>Semana 14:</b> Gestión de riesgos, calidad y cambios en proyectos TIC.</li>
-<li><b>Semana 15:</b> Métricas e indicadores: avance, cumplimiento, productividad, backlog, issues y evidencias.</li>
-<li><b>Semana 16:</b> Documentación técnica, informe del proyecto, manuales, reportes estadísticos o reportes de ciencia de datos.</li>
-<li><b>Semana 17:</b> Preparación de la presentación final: demo, dashboard, prototipo, análisis, informe o solución implementada.</li>
-<li><b>Semana 18:</b> Presentación final, cierre del proyecto, evaluación del portafolio y reflexión del aprendizaje.</li>
-</ul>
+<div class="hero">
+  <div class="hero-code">EST315</div>
+  <h1>Gestión de Proyectos TICs</h1>
+  <p class="subtitle">Ingeniería Estadística e Informática — FINESI · Universidad Nacional del Altiplano · Puno</p>
+  <div class="pill-row">
+    <span class="pill">Ciclo VI</span>
+    <span class="pill">Créditos 04</span>
+    <span class="pill">03h teóricas · 02h prácticas · Total 05 horas</span>
+    <span class="pill">2026-I</span>
+  </div>
+  <div class="docente-box">
+    <b>Docente:</b> M. Sc. Romel Percy Melgarejo Bolívar<br>
+    <b>Contacto:</b> permelro@unap.edu.pe
+  </div>
 </div>
 
-<hr/>
+<div class="wrap">
+  <div class="frame">
+    <div class="corner bl"><svg viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg"><path d="M2 20 C2 8, 8 2, 20 2" fill="none" stroke="#b5657a" stroke-width="1.4"/><path d="M2 13 C2 6, 6 2, 13 2" fill="none" stroke="#d8a84e" stroke-width="1"/><circle cx="2" cy="20" r="1.6" fill="#b5657a"/><circle cx="20" cy="2" r="1.6" fill="#b5657a"/></svg></div>
+    <div class="corner br"><svg viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg"><path d="M2 20 C2 8, 8 2, 20 2" fill="none" stroke="#b5657a" stroke-width="1.4"/><path d="M2 13 C2 6, 6 2, 13 2" fill="none" stroke="#d8a84e" stroke-width="1"/><circle cx="2" cy="20" r="1.6" fill="#b5657a"/><circle cx="20" cy="2" r="1.6" fill="#b5657a"/></svg></div>
+  <div class="frame-inner">
 
-<heading id="metodologia">Metodología</heading>
-<div class="pub">
-<ul>
-<li>Aprendizaje basado en proyectos.</li>
-<li>Trabajo colaborativo por equipos.</li>
-<li>Uso obligatorio de GitHub, GitHub Projects y Notion.</li>
-<li>Aplicación de Scrum, Kanban, PMBOK y metodologías híbridas.</li>
-<li>Desarrollo de portafolios digitales de proyectos.</li>
-<li>Asesoría continua y revisión semanal de avances.</li>
-<li>Presentaciones parciales y finales tipo Demo Day.</li>
-</ul>
+    <nav class="toc">
+      <a href="#sumilla">Sumilla</a>
+      <a href="#logro">Logro</a>
+      <a href="#contenido">Contenido</a>
+      <a href="#metodologia">Metodología</a>
+      <a href="#evaluacion">Evaluación</a>
+      <a href="#entregables">Entregables</a>
+      <a href="#recursos">Recursos</a>
+      <a href="#bibliografia">Bibliografía</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <section id="sumilla">
+      <h2>Sumilla</h2>
+      <p class="body-text dropcap">El curso de Gestión de Proyectos TICs corresponde al área de Estudios de Especialidad y es de naturaleza teórico-práctica. Tiene como propósito desarrollar competencias para formular, planificar, ejecutar, monitorear, controlar y cerrar proyectos tecnológicos vinculados a la Ingeniería Estadística e Informática. Se orienta a la gestión de portafolios de proyectos desde el inicio hasta el cierre, integrando desarrollo de software, redes y telecomunicaciones, estadística aplicada, ciencia de datos, inteligencia artificial y asesorías de tesis. Los estudiantes utilizarán herramientas colaborativas como GitHub, GitHub Projects y Notion, aplicando metodologías tradicionales, ágiles e híbridas como PMBOK, Scrum, Kanban y Design Thinking.</p>
+    </section>
+
+    <section id="logro">
+      <h2>Logro del curso</h2>
+      <p class="body-text">Al finalizar el curso, el estudiante gestiona portafolios y proyectos de Tecnologías de Información y Comunicación aplicando metodologías tradicionales, ágiles e híbridas para planificar, ejecutar, monitorear y controlar iniciativas relacionadas con desarrollo de software, redes y telecomunicaciones, estadística, ciencia de datos, inteligencia artificial e investigación aplicada, utilizando herramientas digitales que garanticen trazabilidad, calidad y cumplimiento de objetivos durante todo el ciclo de vida del proyecto.</p>
+    </section>
+
+    <div class="flourish">❧</div>
+    <section id="contenido">
+      <h2>Contenido</h2>
+      <div class="unit-card">
+        <p class="unit-title">Unidad I · Formulación, planificación y organización del portafolio de proyectos TIC</p>
+        <p class="unit-meta"><b>Duración:</b> Semanas 1 al 9<br><b>Logro de unidad:</b> Formula y organiza un proyecto TIC real mediante la identificación de problemas, definición de objetivos, planificación de entregables y construcción de un portafolio digital en GitHub y Notion.</p>
+        <ul class="week-list">
+          <li><b>Semanas 1–2:</b> Enfoque por proyectos y portafolios, líneas de trabajo (software, redes, estadística, ciencia de datos), gestión de proyecto/programa/portafolio y ciclo de vida.</li>
+          <li><b>Semanas 3–5:</b> Identificación de problemas y oportunidades, Design Thinking, formulación del proyecto (objetivos, alcance, entregables, indicadores).</li>
+          <li><b>Semanas 6–8:</b> Acta de constitución, roles e interesados, organización del portafolio en Notion y del repositorio en GitHub (README, issues, milestones).</li>
+          <li><b>Semana 9:</b> Sustentación parcial: pitch, Project Charter, tablero de seguimiento y portafolio inicial.</li>
+        </ul>
+      </div>
+      <div class="unit-card">
+        <p class="unit-title">Unidad II · Ejecución, seguimiento, control y cierre de proyectos TIC</p>
+        <p class="unit-meta"><b>Duración:</b> Semanas 10 al 18<br><b>Logro de unidad:</b> Ejecuta, monitorea y cierra un proyecto TIC aplicando metodologías ágiles, gestión visual, control de riesgos, indicadores de avance y presentación de resultados mediante un portafolio digital funcional.</p>
+        <ul class="week-list">
+          <li><b>Semanas 10–12:</b> PMBOK aplicado a proyectos TIC, Scrum y Kanban con GitHub Projects y Notion.</li>
+          <li><b>Semanas 13–15:</b> Gestión de cronograma, recursos, costos, riesgos, calidad, cambios y métricas de avance.</li>
+          <li><b>Semanas 16–18:</b> Documentación técnica, preparación de demo/dashboard/prototipo, presentación final, cierre del proyecto y reflexión del aprendizaje.</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="flourish">❧</div>
+    <section id="metodologia">
+      <h2>Metodología</h2>
+      <ul class="plain">
+        <li>Aprendizaje basado en proyectos y trabajo colaborativo por equipos.</li>
+        <li>Uso obligatorio de GitHub, GitHub Projects y Notion.</li>
+        <li>Aplicación de Scrum, Kanban, PMBOK y metodologías híbridas.</li>
+        <li>Desarrollo de portafolios digitales de proyectos.</li>
+        <li>Asesoría continua y revisión semanal de avances.</li>
+        <li>Presentaciones parciales y finales tipo Demo Day.</li>
+      </ul>
+    </section>
+
+    <section id="evaluacion">
+      <h2>Evaluación</h2>
+      <table class="eval">
+        <tr><th>Componente</th><th>Ponderación</th></tr>
+        <tr><td>Portafolio digital en Notion y GitHub</td><td>25%</td></tr>
+        <tr><td>Entregable parcial de la Unidad I</td><td>25%</td></tr>
+        <tr><td>Seguimiento, avances y gestión del proyecto</td><td>20%</td></tr>
+        <tr><td>Producto final, informe y sustentación</td><td>25%</td></tr>
+        <tr><td>Participación, autoevaluación y coevaluación</td><td>5%</td></tr>
+      </table>
+    </section>
+
+    <div class="flourish">❧</div>
+    <section id="entregables">
+      <h2>Entregables</h2>
+      <div class="tag-grid">
+        <span class="tag">Idea de proyecto TIC</span>
+        <span class="tag">Project Charter</span>
+        <span class="tag">Portafolio en Notion</span>
+        <span class="tag">Repositorio en GitHub</span>
+        <span class="tag">Tablero Kanban/Scrum</span>
+        <span class="tag">Bitácora de avances</span>
+        <span class="tag">Cronograma del proyecto</span>
+        <span class="tag">Matriz de riesgos</span>
+        <span class="tag">Informe técnico/científico</span>
+        <span class="tag">Producto funcional / dashboard</span>
+        <span class="tag">Presentación final</span>
+      </div>
+    </section>
+
+    <section id="recursos">
+      <h2>Recursos</h2>
+      <div class="tag-grid">
+        <span class="tag">GitHub</span>
+        <span class="tag">GitHub Projects</span>
+        <span class="tag">Notion</span>
+        <span class="tag">Project Management Institute</span>
+        <span class="tag">Scrum.org</span>
+        <span class="tag">Trello</span>
+        <span class="tag">Jira</span>
+        <span class="tag">Google Colab</span>
+      </div>
+    </section>
+
+    <div class="flourish">❧</div>
+    <section id="bibliografia">
+      <h2>Bibliografía</h2>
+      <div class="biblio-block">
+        <ul class="plain">
+          <li>Project Management Institute. <i>PMBOK® Guide</i> (7ma ed.). PMI, 2021.</li>
+          <li>Schwaber, K. &amp; Sutherland, J. <i>The Scrum Guide</i>. 2020.</li>
+          <li>Schwalbe, K. <i>Information Technology Project Management</i>. Cengage Learning.</li>
+          <li>Meredith, J. R. &amp; Mantel, S. J. <i>Project Management: A Managerial Approach</i>.</li>
+          <li>Pressman, R. <i>Ingeniería del Software: Un enfoque práctico</i>.</li>
+          <li>Kerzner, H. <i>Project Management: A Systems Approach to Planning, Scheduling, and Controlling</i>.</li>
+          <li>Wysocki, R. <i>Effective Project Management: Traditional, Agile, Extreme, Hybrid</i>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <div class="contact-box">Escuela Profesional de Ingeniería Estadística e Informática — FINESI, Universidad Nacional del Altiplano, Puno.<br>permelro@unap.edu.pe</div>
+    </section>
+
+    <footer>© 2026 UNAP · FINESI · Ingeniería Estadística e Informática</footer>
+
+  </div></div>
 </div>
-
-<hr/>
-
-<heading id="evaluacion">Evaluación</heading>
-<div class="pub">
-<ul>
-<li><b>Portafolio digital en Notion y GitHub:</b> 25%</li>
-<li><b>Entregable parcial de la Unidad I:</b> 25%</li>
-<li><b>Seguimiento, avances y gestión del proyecto:</b> 20%</li>
-<li><b>Producto final, informe y sustentación:</b> 25%</li>
-<li><b>Participación, autoevaluación y coevaluación:</b> 5%</li>
-</ul>
-</div>
-
-<hr/>
-
-<heading id="entregables">Entregables</heading>
-<div class="pub">
-<ul>
-<li>Idea de proyecto TIC.</li>
-<li>Project Charter.</li>
-<li>Portafolio en Notion.</li>
-<li>Repositorio en GitHub.</li>
-<li>Tablero Kanban o Scrum.</li>
-<li>Bitácora de avances.</li>
-<li>Cronograma del proyecto.</li>
-<li>Matriz de riesgos.</li>
-<li>Informe técnico o científico.</li>
-<li>Producto funcional, prototipo, dashboard, análisis estadístico, modelo de datos o solución implementada.</li>
-<li>Presentación final del proyecto.</li>
-</ul>
-</div>
-
-<hr/>
-
-<heading id="recursos">Recursos</heading>
-<div class="pub">
-<ul>
-<li><a href="https://github.com/" target="_blank">GitHub</a></li>
-<li><a href="https://docs.github.com/en/issues/planning-and-tracking-with-projects" target="_blank">GitHub Projects</a></li>
-<li><a href="https://notion.so/" target="_blank">Notion</a></li>
-<li><a href="https://www.pmi.org/" target="_blank">Project Management Institute</a></li>
-<li><a href="https://www.scrum.org/" target="_blank">Scrum.org</a></li>
-<li><a href="https://trello.com/" target="_blank">Trello</a></li>
-<li><a href="https://www.atlassian.com/software/jira" target="_blank">Jira</a></li>
-<li><a href="https://colab.research.google.com/" target="_blank">Google Colab</a></li>
-</ul>
-</div>
-
-<hr/>
-
-<heading id="bibliografia">Bibliografía</heading>
-<div class="pub">
-<ul>
-<li>Project Management Institute. PMBOK® Guide – Seventh Edition. PMI, 2021.</li>
-<li>Schwaber, K. & Sutherland, J. The Scrum Guide. 2020.</li>
-<li>Schwalbe, K. Information Technology Project Management. Cengage Learning.</li>
-<li>Meredith, J. R. & Mantel, S. J. Project Management: A Managerial Approach.</li>
-<li>Pressman, R. Ingeniería del Software: Un enfoque práctico.</li>
-<li>Kerzner, H. Project Management: A Systems Approach to Planning, Scheduling, and Controlling.</li>
-<li>Wysocki, R. Effective Project Management: Traditional, Agile, Extreme, Hybrid.</li>
-</ul>
-</div>
-
-<hr/>
-
-<heading id="contacto">Contacto</heading>
-<p>permelro@unap.edu.pe</p>
-
-<hr/>
-
-<div id="footer">
-<heading>&copy; 2026 UNAP - FIEI - Ingeniería Estadística e Informática</heading>
-</div>
-
-</td>
-</tr>
-</table>
-<div style="height: 40px;"></div>
-</div>
-
-<script xml:space="preserve" language="JavaScript">hideallbibs();</script>
 </body>
 </html>
-```
