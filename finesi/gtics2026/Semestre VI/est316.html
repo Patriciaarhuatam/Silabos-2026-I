@@ -26,6 +26,25 @@
 }
 *{box-sizing:border-box;}
 
+.foto-fixed{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  z-index:-1;
+  overflow:hidden;
+}
+.foto-fixed img{
+  width:100%; height:100%;
+  object-fit:cover;
+  filter:sepia(.15) saturate(1.05) contrast(1.05) brightness(.55);
+}
+.foto-fixed::after{
+  content:"";
+  position:absolute; inset:0;
+  background:rgba(13,25,48,.42);
+}
+
 .hero{
   position:relative;
   padding:56px 24px 46px;
@@ -33,17 +52,10 @@
   overflow:hidden;
   border-bottom:3px solid var(--gold);
 }
-.hero img{
-  position:absolute; top:0; left:0; right:0; bottom:0;
-  width:100%; height:100%;
-  object-fit:cover;
-  filter:sepia(.15) saturate(1.05) contrast(1.05) brightness(.55);
-  z-index:0;
-}
 .hero::before{
   content:"";
   position:absolute; top:0; left:0; right:0; bottom:0; z-index:1;
-  background:linear-gradient(180deg, rgba(13,25,48,.55) 0%, rgba(13,25,48,.78) 60%, var(--navy) 100%);
+  background:linear-gradient(180deg, rgba(13,25,48,.25) 0%, rgba(13,25,48,.65) 70%, rgba(13,25,48,.8) 100%);
 }
 .hero > *{ position:relative; z-index:2; max-width:820px; margin-left:auto; margin-right:auto; }
 .hero-code{
@@ -92,20 +104,12 @@
 
 body{
   margin:0;
-  background:
-    radial-gradient(circle 60px at 8% 12%, rgba(150,110,60,.10), transparent 70%),
-    radial-gradient(circle 90px at 92% 8%, rgba(150,110,60,.08), transparent 70%),
-    radial-gradient(circle 70px at 15% 88%, rgba(150,110,60,.09), transparent 70%),
-    radial-gradient(circle 100px at 88% 92%, rgba(150,110,60,.07), transparent 70%),
-    radial-gradient(circle 50px at 60% 40%, rgba(150,110,60,.05), transparent 70%),
-    radial-gradient(ellipse 900px 400px at 15% 0%, rgba(181,101,122,.10), transparent 60%),
-    radial-gradient(ellipse 900px 400px at 85% 100%, rgba(143,163,119,.12), transparent 60%),
-    var(--cream-bg);
+  background:transparent;
   font-family:'Spectral', serif;
   color:var(--ink);
   -webkit-font-smoothing:antialiased;
 }
-.wrap{max-width:900px; margin:0 auto; padding:0 24px 90px;}
+.wrap{max-width:900px; margin:0 auto; padding:0 24px 90px; position:relative; z-index:1;}
 
 .frame{
   position:relative;
@@ -126,80 +130,6 @@ body{
   padding:44px 46px 50px;
   position:relative;
 }
-
-.top-row{ display:flex; justify-content:space-between; align-items:flex-start; gap:20px; margin-bottom:6px;}
-.code-badge{
-  font-family:'IBM Plex Mono', monospace;
-  font-size:13px;
-  font-weight:600;
-  letter-spacing:1.5px;
-  color:var(--wine-dim);
-  border:2px dashed var(--wine);
-  border-radius:3px;
-  padding:7px 14px;
-  background:rgba(181,101,122,.08);
-  white-space:nowrap;
-  position:relative;
-}
-.code-badge::before{
-  content:"";
-  position:absolute; inset:-6px;
-  border:1px dashed transparent;
-  pointer-events:none;
-}
-.crest{
-  width:58px; height:58px;
-  border-radius:50%;
-  position:relative;
-  display:flex; align-items:center; justify-content:center;
-  font-family:'IBM Plex Mono', monospace;
-  font-size:10px; color:#fdf6ee; letter-spacing:.5px;
-  flex-shrink:0;
-  background: radial-gradient(circle at 35% 30%, var(--gold) 0%, var(--gold-dim) 70%);
-  box-shadow: 0 3px 8px rgba(122,90,42,.35), inset 0 -3px 6px rgba(0,0,0,.15), inset 0 2px 3px rgba(255,255,255,.25);
-}
-.crest::before{
-  content:"";
-  position:absolute; inset:-5px;
-  border-radius:50%;
-  background:
-    repeating-conic-gradient(var(--paper) 0deg 8deg, transparent 8deg 16deg);
-  z-index:-1;
-}
-h1{
-  font-family:'Fraunces', serif;
-  font-weight:600;
-  font-size:clamp(28px, 4vw, 38px);
-  line-height:1.1;
-  margin:14px 0 6px;
-  color:var(--ink);
-  letter-spacing:-.3px;
-}
-.subtitle{
-  font-size:14.5px;
-  color:var(--ink-soft);
-  margin:0 0 18px;
-  line-height:1.6;
-}
-.pill-row{ display:flex; flex-wrap:wrap; gap:10px; margin-bottom:8px; }
-.pill{
-  font-family:'IBM Plex Mono', monospace;
-  font-size:11.5px;
-  color:var(--sage-dim);
-  border:1px solid var(--sage);
-  border-radius:20px;
-  padding:5px 12px;
-  background:rgba(143,163,119,.08);
-}
-.docente-box{
-  margin-top:18px;
-  padding-top:16px;
-  border-top:1px dashed var(--line);
-  font-size:13.5px;
-  color:var(--ink-soft);
-  line-height:1.7;
-}
-.docente-box b{ color:var(--ink); }
 
 nav.toc{
   margin:26px 0 0;
@@ -249,7 +179,7 @@ p.dropcap:first-letter{
   background:var(--paper-2);
   border:1px solid var(--line);
   border-radius:4px;
-  padding:20px 22px;
+  padding:20px 22px 20px 26px;
   margin-bottom:16px;
   position:relative;
 }
@@ -259,7 +189,6 @@ p.dropcap:first-letter{
   background:var(--wine);
   border-radius:2px;
 }
-.unit-card{ padding-left:26px; }
 .unit-title{
   font-family:'Fraunces', serif;
   font-weight:600;
@@ -328,13 +257,16 @@ footer{
 
 @media (max-width:600px){
   .frame-inner{ padding:30px 22px 36px; }
-  .top-row{ flex-direction:column-reverse; }
 }
 </style>
 </head>
 <body>
+
+<div class="foto-fixed">
+  <img src="finesi.jpg" alt="Facultad de Ingeniería Estadística e Informática - FINESI">
+</div>
+
 <div class="hero">
-  <img src="../finesi.jpg" alt="Facultad de Ingeniería Estadística e Informática - FINESI">
   <div class="hero-code">EST316</div>
   <h1>Arquitectura de Redes y Protocolos</h1>
   <p class="subtitle">Ingeniería Estadística e Informática — FINESI · Universidad Nacional del Altiplano · Puno</p>
@@ -347,7 +279,7 @@ footer{
   <div class="docente-box">
     <b>Prerrequisito:</b> ELE311 — Arquitectura de Computadoras<br>
     <b>Docente:</b> Apaza Tarqui Alejandro — Nombrado, Profesor Principal<br>
-    <b>Presentado por:</b> Arhuata Mamani Patricia
+    <b>Ambiente:</b> Aula 205-A
   </div>
 </div>
 
@@ -359,6 +291,7 @@ footer{
 
     <nav class="toc">
       <a href="#sumilla">Sumilla</a>
+      <a href="#perfil">Perfil</a>
       <a href="#logro">Logro</a>
       <a href="#contenido">Contenido</a>
       <a href="#metodologia">Metodología</a>
@@ -369,12 +302,17 @@ footer{
 
     <section id="sumilla">
       <h2>Sumilla</h2>
-      <p class="body-text dropcap">Corresponde al área de estudios de especialidad, de naturaleza teórico-práctica. Su propósito es proporcionar comprensión sobre la organización de redes computacionales y los protocolos que fundamentan su funcionamiento, con énfasis en conectividad usando tecnologías modernas de transmisión de datos. Contenidos: 1) fundamentos, arquitectura, medios y protocolos de comunicación de datos; 2) servicios y seguridad, con talleres de simulación de redes de una organización.</p>
+      <p class="body-text dropcap">El curso de Arquitectura de Redes y Protocolos corresponde al área de estudios de especialidad, es de naturaleza teórico-práctica, cuyo propósito es proporcionar al estudiante la comprensión para implementar la organización de redes computacionales y los protocolos sobre los que se fundamenta su lógica de funcionamiento, con énfasis en la conectividad usando modernas tecnologías de transmisión de datos y comunicaciones. Unidad 1: fundamentos, arquitectura, tipos, medios y protocolos de comunicación de datos. Unidad 2: fundamentos de servicios y seguridad, con talleres de simulación de la red de comunicación de datos de una organización.</p>
+    </section>
+
+    <section id="perfil">
+      <h2>Perfil del egresado</h2>
+      <p class="body-text">Capacidad de diseñar, configurar y administrar redes de telecomunicaciones de acuerdo a políticas de seguridad y estándares vigentes.</p>
     </section>
 
     <section id="logro">
       <h2>Logro del curso</h2>
-      <p class="body-text">Comprende el fundamento de Arquitectura de Redes y Protocolos para el diseño, configuración y administración de redes de telecomunicaciones utilizando herramientas de simulación.</p>
+      <p class="body-text">Comprende el fundamento de Arquitectura de Redes y Protocolos para el diseño, configuración y administración de redes de telecomunicaciones utilizando algunas herramientas de simulación.</p>
     </section>
 
     <div class="flourish">❧</div>
@@ -382,48 +320,46 @@ footer{
       <h2>Contenido</h2>
       <div class="unit-card">
         <p class="unit-title">Unidad I · Fundamentos de comunicación de datos y arquitectura de redes</p>
-        <p class="unit-meta"><b>Duración:</b> 30 de marzo al 1 de junio 2026 (semanas 1–9, 36 horas)<br><b>Logro de unidad:</b> Determina condiciones técnicas y arquitectónicas de redes informáticas, considerando arquitectura, medios, elementos y protocolos.</p>
-        <ul class="week-list"><li><b>Semana 1:</b> Conceptos, elementos de arquitectura de redes y proyectos de conectividad.</li>
-<li><b>Semana 2:</b> Conmutación, modulación y multiplexación.</li>
-<li><b>Semana 3:</b> Tipos de redes: PAN, LAN, MAN, WAN, WLAN, GAN, CAN, SAN, internet/intranet.</li>
-<li><b>Semana 4:</b> Topologías físicas y lógicas, cableado estructurado (Cisco Packet Tracer). Examen escrito (100%).</li>
-<li><b>Semana 5:</b> Modelo OSI y modelo TCP/IP: capas, interfaces y servicios.</li>
-<li><b>Semana 6:</b> Capa física: medios, señalización y codificación.</li>
-<li><b>Semana 7:</b> Tecnología Ethernet/Gigabit Ethernet (IEEE 802.x), NICs, switches, protocolo ARP.</li>
-<li><b>Semana 8:</b> Capa de enlace de datos, control de acceso al medio, entramado.</li>
-<li><b>Semana 9:</b> Capa de red: enrutamiento IPv4, paquetes y direcciones IP.</li></ul>
+        <p class="unit-meta"><b>Duración:</b> 30 de marzo al 1 de junio 2026 (semanas 1–9, 36 horas)<br><b>Logro de unidad:</b> Determina las condiciones técnicas y arquitectónicas del funcionamiento de redes informáticas y teleprocesamiento, tomando en cuenta arquitectura, medios, elementos y protocolos.</p>
+        <ul class="week-list">
+          <li><b>Semanas 1–2:</b> Conceptos y elementos de arquitectura de redes; conmutación, modulación y multiplexación.</li>
+          <li><b>Semanas 3–4:</b> Tipos de redes (PAN, LAN, MAN, WAN, WLAN, GAN, CAN, SAN) y topologías físicas/lógicas con Cisco Packet Tracer.</li>
+          <li><b>Semanas 5–6:</b> Modelos OSI y TCP/IP: protocolos, capas e interfaces; capa física, señalización y codificación.</li>
+          <li><b>Semanas 7–9:</b> Tecnología Ethernet e IEEE 802.x, capa de enlace de datos y capa de red (enrutamiento IPv4, direcciones IP).</li>
+        </ul>
       </div>
       <div class="unit-card">
-        <p class="unit-title">Unidad II · Diseño arquitectónico lógico y protocolar (OSI / TCP-IP)</p>
-        <p class="unit-meta"><b>Duración:</b> 1 de junio al 27 de julio 2026 (semanas 10–17, 32 horas)<br><b>Logro de unidad:</b> Diseña a nivel lógico y protocolar en las capas de los modelos OSI y TCP/IP.</p>
-        <ul class="week-list"><li><b>Semana 10:</b> Router: técnicas de enrutamiento, IPv6, paquetes e interfaces.</li>
-<li><b>Semana 11:</b> Direccionamiento IPv4/IPv6 y subredes con Cisco Packet Tracer.</li>
-<li><b>Semana 12:</b> Capas de transporte, sesión, presentación y aplicación (TCP/UDP, DNS, FTP, SNMP).</li>
-<li><b>Semana 13:</b> Enrutamiento estático y dinámico; proyecto de servidores DNS/HTTP/FTP/correo.</li>
-<li><b>Semana 14:</b> Redes inalámbricas WLAN: arquitectura y control de acceso IEEE 802.11.</li>
-<li><b>Semana 15:</b> Redes satelitales: arquitectura y servicios.</li>
-<li><b>Semana 16:</b> Redes de fibra óptica. Proyecto de red LAN con subneteo.</li>
-<li><b>Semana 17:</b> Fundamentos de seguridad de redes. Examen escrito.</li></ul>
+        <p class="unit-title">Unidad II · Diseño arquitectónico lógico y protocolar en capas OSI/TCP-IP</p>
+        <p class="unit-meta"><b>Duración:</b> 1 de junio al 27 de julio 2026 (semanas 10–17, 32 horas)<br><b>Logro de unidad:</b> Diseño arquitectónico lógico y protocolar en diferentes capas de OSI y TCP/IP.</p>
+        <ul class="week-list">
+          <li><b>Semanas 10–11:</b> Dispositivo Router, enrutamiento IPv6 y direccionamiento de IPs con Cisco Packet Tracer.</li>
+          <li><b>Semanas 12–13:</b> Capas de transporte, sesión, presentación y aplicación (TCP/UDP, DNS, FTP, SNMP); enrutamiento estático y dinámico.</li>
+          <li><b>Semanas 14–16:</b> Redes inalámbricas (WLAN, IEEE 802.11), redes satelitales y redes de fibra óptica.</li>
+          <li><b>Semana 17:</b> Fundamentos de seguridad de redes de computadoras.</li>
+        </ul>
       </div>
     </section>
 
     <div class="flourish">❧</div>
     <section id="metodologia">
       <h2>Metodología</h2>
-      <ul class="plain"><li>Exposiciones magistrales, videoconferencias, foros de debate y chat en línea.</li>
-<li>Aprendizaje basado en problemas, casos y proyectos.</li>
-<li>Simuladores Cisco Packet Tracer y Benchwork.</li>
-<li>Aula virtual UNAP, Zoom, G-Suite/Moodle.</li></ul>
+      <ul class="plain">
+        <li><b>Enseñanza:</b> Videoconferencias, foros de debate, chat en línea, diapositivas, videos referenciales y clases magistrales.</li>
+        <li><b>Aprendizaje:</b> Comprensión de textos, trabajos grupales, debate, exposición y aprendizaje basado en problemas y proyectos.</li>
+        <li><b>Investigación formativa:</b> Investigación activa y seminarios de investigación en semilleros.</li>
+        <li><b>Responsabilidad social:</b> Investigación diagnóstica de la problemática educativa en una IES estatal de Puno.</li>
+        <li><b>Enseñanza virtual:</b> Zoom, aulas virtuales UNAP, G-Suite, Moodle y redes sociales para comunicación.</li>
+      </ul>
     </section>
 
     <section id="evaluacion">
       <h2>Evaluación</h2>
       <table class="eval">
-        <tr><th>Unidad</th><th>Logro de aprendizaje</th><th>Evidencias</th><th>Ponderación</th></tr>
-        <tr><td>1</td><td>Fundamentos de comunicación de datos y arquitectura de redes</td><td>Evaluación de Unidad 1 (100%)</td><td>50%</td></tr>
-<tr><td>2</td><td>Diseño arquitectónico lógico y protocolar</td><td>Evaluación de Unidad 2 (100%)</td><td>50%</td></tr>
+        <tr><th>Unidad</th><th>Logro de aprendizaje</th><th>Evidencia</th><th>Ponderación</th></tr>
+        <tr><td>1</td><td>Condiciones técnicas y arquitectónicas de redes informáticas</td><td>Unidad 1 EV (100%)</td><td>50%</td></tr>
+        <tr><td>2</td><td>Diseño arquitectónico lógico y protocolar</td><td>Unidad 2 EV (100%)</td><td>50%</td></tr>
       </table>
-      <p class="formula-note">Promedio final del curso = 50% (I unidad) + 50% (II unidad)</p>
+      <p class="formula-note">Promedio parcial unidad 1 = 40% (EVI 1) + 60% (EVI 2) &nbsp;·&nbsp; Promedio parcial unidad 2 = 30% (EVI 1) + 20% (EVI 2) + 50% (EVI 3) &nbsp;·&nbsp; Promedio final = 50% (I UPP) + 50% (II UPP)</p>
     </section>
 
     <div class="flourish">❧</div>
@@ -431,12 +367,34 @@ footer{
       <h2>Bibliografía</h2>
       <div class="biblio-block">
         <span class="biblio-label">Básica</span>
-        <ul class="plain"><li>Tanenbaum, A. S. &amp; Wetherall, D. J. (2012). <i>Redes de computadoras</i> (5ta ed.). Pearson.</li>
-<li>Stallings, W. (2004). <i>Comunicaciones y Redes de Computadores</i> (7ma ed.). Pearson.</li>
-<li>Dordoigne, J. (2015). <i>Redes informáticas: nociones fundamentales</i> (5ta ed.). Eni.</li>
-<li>Apaza T., A. (2002). <i>Redes y Teleproceso</i>. Lucero Impresiones, Puno.</li></ul>
+        <ul class="plain">
+          <li>Apaza T., A. (2002). <i>Redes y Teleproceso</i> (1ra ed.). Puno, Perú: Lucero Impresiones.</li>
+          <li>Domingo, A. A. (2013). <i>Redes locales</i>. McGraw-Hill/Interamericana de España.</li>
+          <li>Dordoigne, J. (2015). <i>Redes informáticas — Nociones fundamentales</i> (5ta ed.). Ediciones Eni.</li>
+          <li>Font, R., Lara, E., Serral i Gracià, R. &amp; Vilajosana, X. (2011). <i>Estructura de redes de computadores</i>. UOC, España.</li>
+          <li>Stallings, W. (2004). <i>Comunicaciones y Redes de Computadores</i> (7ma ed.). Pearson Educación, Madrid.</li>
+          <li>Tanenbaum, A. S. &amp; Wetherall, D. J. (2012). <i>Redes de computadoras</i> (5ta ed.). Pearson Educación, México.</li>
+        </ul>
       </div>
-      <div class="biblio-block"><span class="biblio-label">Complementaria / electrónica</span><ul class="plain"><li>Carballar, J. — <i>Wi-Fi: Instalación, Seguridad y Aplicaciones</i></li><li>Liberatori, M.C. (2018). <i>Redes de datos y sus protocolos</i>, EUDEM.</li></ul></div>
+      <div class="biblio-block">
+        <span class="biblio-label">Complementaria</span>
+        <ul class="plain">
+          <li>Carballar, J. (2005). <i>Wi-Fi: Cómo construir una Red Inalámbrica</i>. AlfaOmega.</li>
+          <li>Huidobro, J. M. (2001). <i>Redes y servicios de Telecomunicaciones</i>. Paraninfo.</li>
+          <li>Tomasi, W. (2003). <i>Sistemas de Comunicación Electrónicas</i> (4ta ed.). Pearson Educación, México.</li>
+        </ul>
+      </div>
+      <div class="biblio-block">
+        <span class="biblio-label">Electrónica</span>
+        <ul class="plain">
+          <li>Liberatori, M. C. (2018). <i>Redes de datos y sus protocolos</i>. EUDEM, Mar del Plata.</li>
+          <li>GSMA (2017). Emisión electromagnética de la tecnología 5G, IoT y accesorios tecnológicos.</li>
+        </ul>
+      </div>
+      <div class="biblio-block">
+        <span class="biblio-label">Producción intelectual del docente</span>
+        <ul class="plain"><li>Apaza T., A. (2020). <i>Redes y Teleproceso</i> (2da ed.). Puno, Perú: Lucero Impresiones.</li></ul>
+      </div>
     </section>
 
     <section id="contacto">
