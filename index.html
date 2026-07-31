@@ -3,518 +3,395 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sílabos 2026-I · FINESI</title>
+<title>Semestre VI · FINESI · UNAP</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:      #17261c;
-    --lamp:     #e0a445;
-    --lamp-dim: #b9822f;
-    --card:     #f2ead5;
-    --card-line:#c9bb95;
-    --paper-shadow: rgba(0,0,0,.35);
-    --text-dark:#20291f;
-    --text-soft:#5b5240;
-    --brass:    #b8863b;
-    --wood:     #24352a;
-    --wood-2:   #10203A;
+    --paper: #efe6d2;
+    --paper-deep: #e6d9bc;
+    --card: #f7f1e1;
+    --ink: #2c2418;
+    --ink-soft: #5b4f3a;
+    --oxblood: #7c2d2d;
+    --oxblood-deep: #5e1f1f;
+    --gold: #a9812f;
+    --pine: #495c46;
+    --rule: rgba(44,36,24,0.28);
   }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+
+  *{ box-sizing:border-box; }
+
   body{
     margin:0;
     background:
-      radial-gradient(ellipse 900px 500px at 50% -10%, rgba(224,164,69,.10), transparent 60%),
-      var(--wood-2);
-    color:var(--card);
-    font-family:'Spectral', serif;
+      radial-gradient(ellipse at 20% -10%, rgba(124,45,45,0.06), transparent 45%),
+      radial-gradient(ellipse at 90% 110%, rgba(73,92,70,0.07), transparent 45%),
+      var(--paper);
+    color:var(--ink);
+    font-family:'Cormorant Garamond', serif;
     -webkit-font-smoothing:antialiased;
   }
-  a{color:inherit;}
 
-  /* subtle wood-grain / vignette texture */
+  /* subtle paper grain */
   body::before{
     content:"";
-    position:fixed; inset:0; pointer-events:none; z-index:0;
-    background-image: repeating-linear-gradient(180deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 3px);
-    mix-blend-mode:overlay;
-  }
-
-  .wrap{max-width:980px; margin:0 auto; padding:0 24px 100px; position:relative; z-index:1;}
-
-  /* ---------- HERO (photo as background of the whole cover section) ---------- */
-  .hero{
-    position:relative;
-    margin:36px 0 56px;
-    padding:76px 24px 46px;
-    text-align:center;
-    border-radius:4px;
-    overflow:hidden;
-    box-shadow:0 22px 40px -18px rgba(0,0,0,.55);
-    border:1px solid rgba(224,164,69,.25);
-  }
-  .hero img{
-    position:absolute; inset:0;
-    width:100%; height:100%;
-    object-fit:cover;
-    filter:sepia(.18) saturate(1.05) contrast(1.05) brightness(.6);
+    position:fixed; inset:0;
+    pointer-events:none;
+    opacity:0.5;
+    background-image:
+      repeating-radial-gradient(circle at 0 0, transparent 0, rgba(44,36,24,0.015) 1px, transparent 2px);
+    background-size:3px 3px;
     z-index:0;
   }
-  .hero::before{
-    content:"";
-    position:absolute; inset:0; z-index:1;
-    background:linear-gradient(180deg,
-      rgba(28,42,33,.55) 0%,
-      rgba(28,42,33,.72) 55%,
-      var(--wood-2) 100%);
-  }
-  .hero > *{ position:relative; z-index:2; }
-  .hero .caption{
-    display:block;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:11px; letter-spacing:2px; text-transform:uppercase;
-    color:var(--lamp);
-    margin-top:26px;
-  }
 
-  /* ---------- HEADER (text content inside .hero) ---------- */
+  .wrap{ position:relative; z-index:1; max-width:1180px; margin:0 auto; padding:0 32px 100px; }
+
+  /* ===== HEADER / MASTHEAD ===== */
   header{
+    padding:56px 0 30px;
     text-align:center;
-  }
-  .seal{
-    width:78px; height:78px; margin:0 auto 22px;
-    border-radius:50%;
-    border:1.5px solid var(--lamp);
-    display:flex; align-items:center; justify-content:center;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:11px; letter-spacing:.5px;
-    color:var(--lamp);
-    position:relative;
-    background:rgba(28,42,33,.5);
-    backdrop-filter:blur(2px);
-    z-index:3;
-  }
-  .seal::before{
-    content:"";
-    position:absolute; inset:6px;
-    border:1px solid rgba(224,164,69,.5);
-    border-radius:50%;
+    border-bottom:3px double var(--rule);
+    margin-bottom:56px;
   }
   .eyebrow{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:12px;
-    letter-spacing:3px;
+    font-family:'Courier Prime', monospace;
+    letter-spacing:0.35em;
+    font-size:11px;
     text-transform:uppercase;
-    color:var(--lamp-dim);
-    margin:0 0 14px;
+    color:var(--oxblood);
+    margin-bottom:18px;
+  }
+  .crest{
+    width:64px; height:64px;
+    margin:0 auto 20px;
+    border:2px solid var(--gold);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Playfair Display', serif;
+    font-weight:900;
+    font-size:20px;
+    color:var(--oxblood-deep);
+    background:var(--card);
+    box-shadow:0 0 0 4px var(--paper), 0 0 0 5px var(--rule);
   }
   h1{
-    font-family:'Fraunces', serif;
-    font-weight:600;
-    font-size:clamp(34px, 5.2vw, 58px);
-    line-height:1.05;
-    margin:0 0 16px;
-    color:#f6efdc;
-    letter-spacing:-.5px;
-  }
-  h1 em{
+    font-family:'Playfair Display', serif;
+    font-weight:900;
     font-style:italic;
-    font-weight:400;
-    color:var(--lamp);
+    font-size:clamp(38px,6vw,64px);
+    margin:0 0 10px;
+    letter-spacing:-0.01em;
+    color:var(--ink);
   }
   .subtitle{
-    max-width:520px; margin:0 auto;
-    color:#c9c2ad;
-    font-size:16px;
-    line-height:1.6;
+    font-size:19px;
+    color:var(--ink-soft);
+    max-width:560px;
+    margin:0 auto 22px;
+    line-height:1.5;
   }
   .meta-row{
-    margin-top:28px;
-    margin-bottom:20px;
-    display:flex; gap:28px; justify-content:center; flex-wrap:wrap;
-    font-family:'IBM Plex Mono', monospace;
+    display:flex; justify-content:center; gap:28px; flex-wrap:wrap;
+    font-family:'Courier Prime', monospace;
     font-size:12px;
-    color:var(--lamp-dim);
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
   }
-  .meta-row span b{color:#e8dcb8; font-weight:600;}
+  .meta-row span::before{ content:"—  "; color:var(--gold); }
 
-  /* ---------- DRAWER LABEL ---------- */
+  /* ===== FILE DRAWER LABEL ===== */
   .drawer-label{
-    display:flex; align-items:center; gap:14px;
-    margin:0 0 26px;
-    color:#c9c2ad;
-    font-family:'IBM Plex Mono', monospace;
+    display:flex; align-items:center; gap:16px;
+    margin:0 0 44px;
+  }
+  .drawer-label .tag{
+    font-family:'Courier Prime', monospace;
     font-size:12px;
-    letter-spacing:2px;
+    letter-spacing:0.15em;
     text-transform:uppercase;
+    color:var(--card);
+    background:var(--oxblood);
+    padding:6px 14px;
+    transform:rotate(-1.5deg);
+    box-shadow:2px 3px 0 var(--oxblood-deep);
   }
-  .drawer-label::after{
-    content:"";
-    flex:1;
-    height:1px;
-    background:linear-gradient(90deg, rgba(224,164,69,.4), transparent);
+  .drawer-label .line{
+    flex:1; height:1px;
+    background:repeating-linear-gradient(90deg, var(--rule) 0 6px, transparent 6px 11px);
   }
-
-  /* ---------- CATALOG CARDS ---------- */
-  .catalog{ display:flex; flex-direction:column; gap:16px; }
-
-  details.card{
-    background:var(--card);
-    color:var(--text-dark);
-    border-radius:3px;
-    box-shadow:0 14px 30px -12px var(--paper-shadow), 0 1px 0 rgba(255,255,255,.4) inset;
-    position:relative;
-    overflow:hidden;
-    border:1px solid var(--card-line);
-  }
-  /* punch holes, like a real index card */
-  details.card::before{
-    content:"";
-    position:absolute; left:0; top:0; bottom:0; width:34px;
-    background-image:
-      radial-gradient(circle 4px, var(--wood-2) 3.5px, transparent 3.6px);
-    background-repeat:repeat-y;
-    background-position:17px 26px;
-    background-size:100% 46px;
-    border-right:1px dashed var(--card-line);
-    opacity:.55;
-  }
-
-  summary{
-    list-style:none;
-    cursor:pointer;
-    padding:22px 26px 22px 56px;
-    display:flex;
-    align-items:center;
-    gap:20px;
-    position:relative;
-  }
-  summary::-webkit-details-marker{display:none;}
-
-  .code{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:12px;
-    font-weight:600;
-    letter-spacing:1px;
-    color:var(--brass);
-    border:1px solid var(--brass);
-    border-radius:2px;
-    padding:4px 8px;
-    flex-shrink:0;
-    background:rgba(184,134,59,.08);
-  }
-  .titles{flex:1; min-width:0;}
-  .course-name{
-    font-family:'Fraunces', serif;
-    font-weight:600;
-    font-size:19px;
-    margin:0 0 3px;
-    color:var(--ink);
-    letter-spacing:-.2px;
-  }
-  .course-tag{
-    font-size:13px;
-    color:var(--text-soft);
+  .drawer-label .count{
+    font-family:'Cormorant Garamond', serif;
     font-style:italic;
-  }
-  .chev{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:18px;
-    color:var(--brass);
-    transition:transform .25s ease;
-    flex-shrink:0;
-  }
-  details[open] .chev{ transform:rotate(45deg); }
-
-  .card-body{
-    display:flex;
-    flex-direction:column;
-    gap:18px;
-    border-top:1px dashed var(--card-line);
-    padding-top:18px;
-    margin:0 26px 26px 56px;
-  }
-  .card-body p{
-    margin:0;
-    max-width:560px;
-    font-size:14.5px;
-    line-height:1.65;
-    color:var(--text-soft);
+    font-size:16px;
+    color:var(--ink-soft);
   }
 
-  /* PDF preview, styled like a photo pinned onto the index card */
-  .preview{
+  /* ===== CARD CATALOG GRID ===== */
+  .catalog{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+    gap:38px 30px;
+    padding-top:8px;
+  }
+
+  .card{
     position:relative;
-    width:100%;
-    max-width:520px;
-    background:#fff;
-    border:1px solid var(--card-line);
-    border-radius:2px;
-    box-shadow:0 10px 20px -10px rgba(0,0,0,.45);
-    overflow:hidden;
-    transform:rotate(-.4deg);
-  }
-  .preview::before{
-    content:"vista previa";
-    position:absolute; top:8px; right:10px; z-index:2;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:9.5px; letter-spacing:1.5px; text-transform:uppercase;
-    color:var(--brass);
-    background:rgba(242,234,213,.9);
-    padding:2px 6px;
-    border-radius:2px;
-    pointer-events:none;
-  }
-  .preview iframe{
-    display:block;
-    width:100%;
-    height:340px;
-    border:0;
-  }
-  .preview-fallback{
-    padding:16px;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:12px;
-    color:var(--text-soft);
-  }
-
-  .actions{
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px;
-  }
-  .stamp{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:12px;
-    font-weight:600;
-    letter-spacing:1px;
-    text-transform:uppercase;
+    background:var(--card);
+    border:1px solid rgba(44,36,24,0.18);
+    padding:26px 24px 24px;
     text-decoration:none;
-    padding:10px 16px;
-    border-radius:2px;
-    transform:rotate(-1deg);
-    transition:transform .18s ease, background .18s ease, color .18s ease;
-    white-space:nowrap;
-  }
-  .stamp-primary{
     color:var(--ink);
-    border:1.5px solid var(--ink);
+    display:block;
+    box-shadow:0 1px 2px rgba(44,36,24,0.12), 0 10px 22px -14px rgba(44,36,24,0.35);
+    transition:transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease;
   }
-  .stamp-primary:hover{
-    background:var(--ink);
-    color:var(--card);
-    transform:rotate(0deg);
+  /* faux torn top edge */
+  .card::before{
+    content:"";
+    position:absolute; top:-1px; left:0; right:0; height:6px;
+    background-image:linear-gradient(135deg, var(--card) 50%, transparent 50%),
+                      linear-gradient(225deg, var(--card) 50%, transparent 50%);
+    background-size:12px 12px;
+    background-position:0 0;
+    background-repeat:repeat-x;
   }
-  .stamp-alt{
-    color:var(--brass);
-    border:1.5px solid var(--brass);
-  }
-  .stamp-alt:hover{
-    background:var(--brass);
-    color:var(--card);
-    transform:rotate(0deg);
+  .card:nth-child(6n+1){ transform:rotate(-1.6deg); }
+  .card:nth-child(6n+2){ transform:rotate(1.1deg); }
+  .card:nth-child(6n+3){ transform:rotate(-0.7deg); }
+  .card:nth-child(6n+4){ transform:rotate(1.7deg); }
+  .card:nth-child(6n+5){ transform:rotate(-1.2deg); }
+  .card:nth-child(6n+6){ transform:rotate(0.9deg); }
+
+  .card:hover{
+    transform:rotate(0deg) translateY(-6px);
+    box-shadow:0 4px 6px rgba(44,36,24,0.14), 0 22px 34px -16px rgba(44,36,24,0.4);
+    z-index:2;
   }
 
-  /* animate open/close */
-  details > summary{ transition:background .15s ease; }
-  details[open] > summary{ background:rgba(184,134,59,.06); }
+  .pin{
+    position:absolute; top:-9px; left:50%; transform:translateX(-50%);
+    width:16px; height:16px; border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, #d9a54a, var(--gold) 60%, #7a5b1b 100%);
+    box-shadow:0 2px 3px rgba(0,0,0,0.35);
+  }
 
-  /* ---------- FOOTER ---------- */
-  footer{
-    margin-top:70px;
+  .card-code{
+    font-family:'Courier Prime', monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    color:var(--oxblood);
+    display:flex; justify-content:space-between; align-items:baseline;
+    margin-bottom:12px;
+    border-bottom:1px dashed var(--rule);
+    padding-bottom:10px;
+  }
+  .card-code .num{ font-weight:700; }
+  .card-code .idx{ color:var(--gold); }
+
+  .card-title{
+    font-family:'Playfair Display', serif;
+    font-weight:700;
+    font-size:23px;
+    line-height:1.18;
+    margin:0 0 14px;
+    color:var(--ink);
+  }
+
+  .card-facts{
+    display:flex; flex-wrap:wrap; gap:8px 10px;
+    font-family:'Courier Prime', monospace;
+    font-size:10.5px;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:16px;
+  }
+  .card-facts span{
+    border:1px solid var(--rule);
+    padding:3px 8px;
+    background:rgba(255,255,255,0.35);
+  }
+
+  .card-teacher{
+    font-size:15px;
+    font-style:italic;
+    color:var(--ink-soft);
+    margin:0 0 18px;
+    line-height:1.4;
+  }
+  .card-teacher b{
+    display:block;
+    font-style:normal;
+    font-family:'Courier Prime', monospace;
+    font-size:10px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--pine);
+    margin-bottom:3px;
+  }
+
+  .card-cta{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'Courier Prime', monospace;
+    font-size:12px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--oxblood-deep);
+    padding-top:12px;
+    border-top:1px solid var(--rule);
+    width:100%;
+  }
+  .card-cta .arrow{ transition:transform .3s ease; }
+  .card:hover .card-cta .arrow{ transform:translateX(5px); }
+
+  .stamp{
+    position:absolute; bottom:16px; right:16px;
+    width:46px; height:46px;
+    border:1.5px solid var(--pine);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    transform:rotate(-14deg);
+    opacity:0.55;
+    font-family:'Playfair Display', serif;
+    font-size:9px;
+    font-weight:700;
+    letter-spacing:0.05em;
+    color:var(--pine);
     text-align:center;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:11.5px;
-    letter-spacing:1px;
-    color:#7d7660;
-  }
-  footer .line{
-    width:60px; height:1px; margin:0 auto 18px;
-    background:rgba(224,164,69,.35);
+    line-height:1.1;
   }
 
-  @media (max-width:560px){
-    summary{ padding:18px 18px 18px 46px; gap:14px; flex-wrap:wrap;}
-    .card-body{ margin:0 18px 22px 46px; }
-    details.card::before{ width:24px; background-position:11px 22px; }
-    .chev{ order:3; }
+  footer{
+    text-align:center;
+    margin-top:70px;
+    padding-top:26px;
+    border-top:1px solid var(--rule);
+    font-family:'Courier Prime', monospace;
+    font-size:11px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+
+  @media (max-width:520px){
+    .wrap{ padding:0 18px 70px; }
+    header{ padding-top:40px; }
   }
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <section class="hero">
-    <img src="finesi.jpg" alt="Facultad de Ingeniería Estadística e Informática - FINESI, Universidad Nacional del Altiplano">
-    <header>
-      <div class="seal">FINESI</div>
-      <span class="caption">Universidad Nacional del Altiplano</span>
-      <h1>Sílabos <em>2026 &#8209;I</em></h1>
-      <span class="caption">Escuela Profesional de Ingenieria Estadistica e informatica</span>
-      <div class="meta-row">
-        <span>Repositorio <b>Trabajo encargado (Gestion de Proyectos TIC's)</b></span>
-        <span>Cursos <b>06</b></span>
-        <span>Formato <b>PDF</b></span>
-      </div>
-      
-      <p class="subtitle">Docente: Ing. Melgarejo Bolivar Romel Percy</p>
-      <p class="subtitle">Presentado por: Arhuata mamani Patricia</p>
-    </header>
-  </section>
+  <header>
+    <div class="eyebrow">Universidad Nacional del Altiplano · Puno</div>
+    <div class="crest">FI<br>EI</div>
+    <h1>Sílabos, Semestre VI</h1>
+    <p class="subtitle">Facultad de Ingeniería Estadística e Informática — Escuela Profesional de Ingeniería Estadística e Informática.</p>
+    <div class="meta-row">
+      <span>Ciclo VI</span>
+      <span>2026&#8209;I</span>
+      <span>6 cursos</span>
+    </div>
+  </header>
 
-  <p class="drawer-label">Fichero de cursos</p>
+  <div class="drawer-label">
+    <span class="tag">Fichero de cursos</span>
+    <span class="line"></span>
+    <span class="count">selecciona un curso →</span>
+  </div>
 
   <div class="catalog">
 
-    <details class="card" open>
-      <summary>
-        <span class="code">ANS</span>
-        <span class="titles">
-          <p class="course-name">Aprendizaje No Supervisado</p>
-          <span class="course-tag">Clustering, reducción de dimensionalidad y detección de patrones</span>
-        </span>
-        <span class="chev">+</span>
-      </summary>
-      <div class="card-body">
-        <p>Técnicas de agrupamiento, análisis de componentes principales y modelos para descubrir estructura en datos sin etiquetar. Incluye competencias, unidades temáticas, metodología y sistema de evaluación.</p>
-        <div class="preview">
-          <iframe src="aprendizajeNOsupervisado.pdf#toolbar=0&view=FitH" loading="lazy" title="Vista previa: Aprendizaje No Supervisado">
-            <p class="preview-fallback">Tu navegador no muestra la vista previa del PDF.</p>
-          </iframe>
-        </div>
-        <div class="actions">
-          <a class="stamp stamp-primary" href="aprendizajeNOsupervisado.pdf" target="_blank" rel="noopener">Ver sílabo ↗</a>
-          <a class="stamp stamp-alt" href="aprendizajeNOsupervisado.pdf" download>Descargar ⬇</a>
-        </div>
+    <a class="card" href="RegresionLinealyNolineal/">
+      <span class="pin"></span>
+      <div class="card-code"><span class="num">EST209</span><span class="idx">Nº 01</span></div>
+      <h2 class="card-title">Regresión Lineal y No Lineal</h2>
+      <div class="card-facts">
+        <span>04 créditos</span>
+        <span>03h teoría</span>
+        <span>02h práctica</span>
       </div>
-    </details>
+      <p class="card-teacher"><b>Docente</b>Vargas Valverde, Confesor Milan</p>
+      <div class="card-cta">Ver sílabo <span class="arrow">→</span></div>
+      <div class="stamp">FINESI<br>UNAP</div>
+    </a>
 
-    <details class="card">
-      <summary>
-        <span class="code">ARD</span>
-        <span class="titles">
-          <p class="course-name">Arquitectura de Redes</p>
-          <span class="course-tag">Diseño, protocolos y topologías de infraestructura de red</span>
-        </span>
-        <span class="chev">+</span>
-      </summary>
-      <div class="card-body">
-        <p>Fundamentos de redes de datos, modelos de referencia, direccionamiento y diseño de arquitecturas escalables y seguras para entornos institucionales.</p>
-        <div class="preview">
-          <iframe src="arquitecturaDEredes.pdf#toolbar=0&view=FitH" loading="lazy" title="Vista previa: Arquitectura de Redes">
-            <p class="preview-fallback">Tu navegador no muestra la vista previa del PDF.</p>
-          </iframe>
-        </div>
-        <div class="actions">
-          <a class="stamp stamp-primary" href="arquitecturaDEredes.pdf" target="_blank" rel="noopener">Ver sílabo ↗</a>
-          <a class="stamp stamp-alt" href="arquitecturaDEredes.pdf" download>Descargar ⬇</a>
-        </div>
+    <a class="card" href="ModelosLineales/">
+      <span class="pin"></span>
+      <div class="card-code"><span class="num">EST210</span><span class="idx">Nº 02</span></div>
+      <h2 class="card-title">Modelos Lineales</h2>
+      <div class="card-facts">
+        <span>05 créditos</span>
+        <span>04h teoría</span>
+        <span>02h práctica</span>
       </div>
-    </details>
+      <p class="card-teacher"><b>Docente</b>Morillos Valderrama, Santos Octavio</p>
+      <div class="card-cta">Ver sílabo <span class="arrow">→</span></div>
+      <div class="stamp">FINESI<br>UNAP</div>
+    </a>
 
-    <details class="card">
-      <summary>
-        <span class="code">GPT</span>
-        <span class="titles">
-          <p class="course-name">Gestión de Proyectos de TICs</p>
-          <span class="course-tag">Planificación, ejecución y control de proyectos tecnológicos</span>
-        </span>
-        <span class="chev">+</span>
-      </summary>
-      <div class="card-body">
-        <p>Metodologías de gestión de proyectos aplicadas al desarrollo de soluciones TIC: alcance, cronograma, costos, riesgos y cierre de proyecto.</p>
-        <div class="preview">
-          <iframe src="gestionDEproyectosDEtics.pdf#toolbar=0&view=FitH" loading="lazy" title="Vista previa: Gestión de Proyectos de TICs">
-            <p class="preview-fallback">Tu navegador no muestra la vista previa del PDF.</p>
-          </iframe>
-        </div>
-        <div class="actions">
-          <a class="stamp stamp-primary" href="gestionDEproyectosDEtics.pdf" target="_blank" rel="noopener">Ver sílabo ↗</a>
-          <a class="stamp stamp-alt" href="gestionDEproyectosDEtics.pdf" download>Descargar ⬇</a>
-        </div>
+    <a class="card" href="AprendizajenoSupervisado/">
+      <span class="pin"></span>
+      <div class="card-code"><span class="num">EST314</span><span class="idx">Nº 03</span></div>
+      <h2 class="card-title">Aprendizaje No Supervisado</h2>
+      <div class="card-facts">
+        <span>04 créditos</span>
+        <span>03h teoría</span>
+        <span>02h práctica</span>
       </div>
-    </details>
+      <p class="card-teacher"><b>Docente</b>Alemán Gonzales, Leonid</p>
+      <div class="card-cta">Ver sílabo <span class="arrow">→</span></div>
+      <div class="stamp">FINESI<br>UNAP</div>
+    </a>
 
-    <details class="card">
-      <summary>
-        <span class="code">MLI</span>
-        <span class="titles">
-          <p class="course-name">Modelos Lineales</p>
-          <span class="course-tag">Fundamentos estadísticos para la modelación de datos</span>
-        </span>
-        <span class="chev">+</span>
-      </summary>
-      <div class="card-body">
-        <p>Formulación, estimación y diagnóstico de modelos lineales generales, base para el análisis estadístico aplicado en las siguientes unidades del curso.</p>
-        <div class="preview">
-          <iframe src="modelosLINEALES.pdf#toolbar=0&view=FitH" loading="lazy" title="Vista previa: Modelos Lineales">
-            <p class="preview-fallback">Tu navegador no muestra la vista previa del PDF.</p>
-          </iframe>
-        </div>
-        <div class="actions">
-          <a class="stamp stamp-primary" href="modelosLINEALES.pdf" target="_blank" rel="noopener">Ver sílabo ↗</a>
-          <a class="stamp stamp-alt" href="modelosLINEALES.pdf" download>Descargar ⬇</a>
-        </div>
+    <a class="card" href="GestiondeProyectosTics/">
+      <span class="pin"></span>
+      <div class="card-code"><span class="num">EST315</span><span class="idx">Nº 04</span></div>
+      <h2 class="card-title">Gestión de Proyectos TICs</h2>
+      <div class="card-facts">
+        <span>04 créditos</span>
+        <span>03h teoría</span>
+        <span>02h práctica</span>
       </div>
-    </details>
+      <p class="card-teacher"><b>Docente</b>Romel Percy Melgarejo Bolívar</p>
+      <div class="card-cta">Ver sílabo <span class="arrow">→</span></div>
+      <div class="stamp">FINESI<br>UNAP</div>
+    </a>
 
-    <details class="card">
-      <summary>
-        <span class="code">RLN</span>
-        <span class="titles">
-          <p class="course-name">Regresión Lineal y No Lineal</p>
-          <span class="course-tag">Modelamiento predictivo y análisis de relaciones entre variables</span>
-        </span>
-        <span class="chev">+</span>
-      </summary>
-      <div class="card-body">
-        <p>Construcción, validación e interpretación de modelos de regresión lineal y no lineal, con énfasis en su aplicación a problemas reales.</p>
-        <div class="preview">
-          <iframe src="regresionLINEALynoLINEAL.pdf#toolbar=0&view=FitH" loading="lazy" title="Vista previa: Regresión Lineal y No Lineal">
-            <p class="preview-fallback">Tu navegador no muestra la vista previa del PDF.</p>
-          </iframe>
-        </div>
-        <div class="actions">
-          <a class="stamp stamp-primary" href="regresionLINEALynoLINEAL.pdf" target="_blank" rel="noopener">Ver sílabo ↗</a>
-          <a class="stamp stamp-alt" href="regresionLINEALynoLINEAL.pdf" download>Descargar ⬇</a>
-        </div>
+    <a class="card" href="ArquitecturaRedes/">
+      <span class="pin"></span>
+      <div class="card-code"><span class="num">EST316</span><span class="idx">Nº 05</span></div>
+      <h2 class="card-title">Arquitectura de Redes y Protocolos</h2>
+      <div class="card-facts">
+        <span>03 créditos</span>
+        <span>02h teoría</span>
+        <span>02h práctica</span>
       </div>
-    </details>
+      <p class="card-teacher"><b>Docente</b>Apaza Tarqui, Alejandro</p>
+      <div class="card-cta">Ver sílabo <span class="arrow">→</span></div>
+      <div class="stamp">FINESI<br>UNAP</div>
+    </a>
 
-    <details class="card">
-      <summary>
-        <span class="code">SDT</span>
-        <span class="titles">
-          <p class="course-name">Series de Tiempo</p>
-          <span class="course-tag">Análisis, pronóstico y modelamiento de datos temporales</span>
-        </span>
-        <span class="chev">+</span>
-      </summary>
-      <div class="card-body">
-        <p>Descomposición, estacionariedad y modelos de pronóstico (ARIMA y afines) para el análisis de datos observados a lo largo del tiempo.</p>
-        <div class="preview">
-          <iframe src="seriesDEtiempo.pdf#toolbar=0&view=FitH" loading="lazy" title="Vista previa: Series de Tiempo">
-            <p class="preview-fallback">Tu navegador no muestra la vista previa del PDF.</p>
-          </iframe>
-        </div>
-        <div class="actions">
-          <a class="stamp stamp-primary" href="seriesDEtiempo.pdf" target="_blank" rel="noopener">Ver sílabo ↗</a>
-          <a class="stamp stamp-alt" href="seriesDEtiempo.pdf" download>Descargar ⬇</a>
-        </div>
+    <a class="card" href="SeriesdeTiempo/">
+      <span class="pin"></span>
+      <div class="card-code"><span class="num">EST317</span><span class="idx">Nº 06</span></div>
+      <h2 class="card-title">Series de Tiempo</h2>
+      <div class="card-facts">
+        <span>04 créditos</span>
+        <span>03h teoría</span>
+        <span>02h práctica</span>
       </div>
-    </details>
+      <p class="card-teacher"><b>Docente</b>Lluén Vallejos, César Augusto</p>
+      <div class="card-cta">Ver sílabo <span class="arrow">→</span></div>
+      <div class="stamp">FINESI<br>UNAP</div>
+    </a>
 
   </div>
 
-  <footer>
-    <div class="line"></div>
-    Gestion de Proyectos Tic's · Semestre VI · Turno Tarde
-  </footer>
+  <footer>© 2026 UNAP · FINESI · Ingeniería Estadística e Informática</footer>
 
 </div>
 </body>
