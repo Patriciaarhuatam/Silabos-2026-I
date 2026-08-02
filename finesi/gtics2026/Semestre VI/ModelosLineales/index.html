@@ -8,21 +8,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:      #fbf3e3;
-  --paper-2:    #f5ead1;
-  --ink:        #4a3524;
-  --ink-soft:   #7a6650;
-  --wine:       #b5657a;
-  --wine-dim:   #8f4d5f;
-  --gold:       #d8a84e;
-  --gold-dim:   #b4863a;
-  --sage:       #8fa377;
-  --sage-dim:   #6d8158;
-  --line:       #d8c6a3;
-  --cream-bg:   #f3e6c9;
-  --shadow:     rgba(122, 90, 42, .18);
-  --navy:       #0d1930;
-  --navy-2:     #16294a;
+  --paper:      #f7f2e4;
+  --paper-2:    #eee3c8;
+  --ink:        #2c2415;
+  --ink-soft:   #5c503b;
+  --wine:       #1f3f5e;
+  --wine-dim:   #14293e;
+  --gold:       #c9a24b;
+  --gold-dim:   #9c7d2f;
+  --sage:       #6f8f7c;
+  --sage-dim:   #4f6c5a;
+  --line:       #cdbb90;
+  --cream-bg:   #efe2bf;
+  --shadow:     rgba(35, 28, 10, .22);
+  --navy:       #0c1a2b;
+  --navy-2:     #142c46;
 }
 *{box-sizing:border-box;}
 
@@ -77,7 +77,7 @@
   background:rgba(216,168,78,.22); border-color:var(--gold); transform:translateX(-2px);
 }
 .download-btn{
-  color:#f6efdc; border:none; background:rgba(216,168,78,.20); border:1px solid rgba(216,168,78,.5);
+  color:#f6efdc; border:1px solid rgba(216,168,78,.5); background:rgba(216,168,78,.20);
 }
 .download-btn:hover{
   background:var(--gold-dim); border-color:var(--gold-dim); color:#2a1d10; transform:translateY(-2px);
@@ -95,23 +95,6 @@
 .top-btn.visible{ opacity:1; pointer-events:auto; transform:translateY(0); }
 .top-btn:hover{ background:var(--gold-dim); }
 .top-btn svg{ width:18px; height:18px; }
-
-@media print{
-  .foto-fixed, .hero::before, .hero-actions, .breadcrumb, nav.toc, .top-btn, .footer-back{
-    display:none !important;
-  }
-  body, .hero{ background:#fff !important; color:#000 !important; }
-  .hero{ border-bottom:2px solid #333; padding:20px 10px; }
-  .hero h1, .hero-code, .hero .subtitle, .hero .docente-box, .hero .docente-box b, .hero .pill{
-    color:#000 !important; text-shadow:none !important; border-color:#333 !important; background:none !important;
-  }
-  .frame{ border:none; box-shadow:none; background:#fff; }
-  .frame-inner{ border:none; padding:0; }
-  .wrap{ max-width:100%; padding:0; }
-  .unit-card, .contact-box{ background:#f7f7f7 !important; break-inside:avoid; }
-  section{ break-inside:avoid-page; }
-  a{ color:#000 !important; text-decoration:none !important; }
-}
 
 .hero-code{
   display:inline-block;
@@ -330,6 +313,74 @@ footer{
 @media (max-width:600px){
   .frame-inner{ padding:30px 22px 36px; }
 }
+
+/* ===== Documento oficial del sílabo (visible en pantalla y al imprimir) ===== */
+.p-header{ text-align:center; margin-bottom:22px; padding-bottom:16px; border-bottom:2px solid var(--gold); }
+.p-header .p-title{
+  font-family:'Fraunces', serif; font-weight:700; font-size:24px; letter-spacing:1px;
+  margin:0 0 6px; color:var(--wine-dim);
+}
+.p-header .p-org{ font-size:12.5px; font-weight:600; margin:2px 0; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.3px; }
+
+h2.p-section{
+  font-family:'Fraunces', serif; font-weight:600; font-size:18px; color:#fdf6ee;
+  background:var(--wine); padding:8px 14px; margin:32px 0 14px; border-radius:4px;
+  text-transform:none; letter-spacing:.2px;
+}
+h3.p-sub{ font-family:'Fraunces', serif; font-weight:600; font-size:15px; color:var(--wine-dim); margin:16px 0 6px; }
+.p-header + h2.p-section, h2.p-section:first-of-type{ margin-top:0; }
+
+.frame-inner p{ font-size:14.5px; line-height:1.7; margin:6px 0; text-align:justify; color:var(--ink); }
+ul.p-fields{ list-style:none; margin:0 0 10px; padding:0; columns:1; }
+ul.p-fields li{ margin:4px 0; font-size:14px; color:var(--ink); }
+ul.p-fields b{ color:var(--wine-dim); }
+ul.p-plain{ margin:6px 0 10px 20px; padding:0; }
+ul.p-plain li{ margin-bottom:6px; font-size:14px; line-height:1.6; color:var(--ink); }
+
+table.p-table{ width:100%; border-collapse:collapse; margin:10px 0 16px; font-size:12.5px; }
+table.p-table th{
+  background:var(--wine); color:#fdf6ee; border:1px solid var(--line); padding:7px 8px;
+  text-align:left; font-weight:600; font-size:11.5px;
+}
+table.p-table td{ border:1px solid var(--line); padding:7px 8px; vertical-align:top; color:var(--ink); }
+table.p-table tr:nth-child(even) td{ background:rgba(216,168,78,.07); }
+
+.p-unit-meta{ font-size:13px; margin:4px 0 10px; color:var(--ink-soft); }
+.p-unit-meta b{ color:var(--ink); font-weight:600; }
+.p-progress{ font-size:13px; font-weight:700; margin:8px 0; color:var(--sage-dim); }
+.p-note{ font-size:12px; font-style:italic; color:var(--ink-soft); margin:6px 0 0; }
+.p-footer-date{ text-align:right; margin-top:30px; font-size:14px; color:var(--ink-soft); font-style:italic; }
+.p-biblio-label{ font-weight:700; text-transform:uppercase; font-size:11.5px; display:block; margin:12px 0 4px; color:var(--sage-dim); letter-spacing:.5px; }
+
+@media print{
+  .foto-fixed, .hero-actions, .breadcrumb, nav.toc, .top-btn, .footer-back{ display:none !important; }
+  body, .hero{ background:#fff !important; color:#000 !important; }
+  .hero{ border-bottom:2px solid #333; padding:16px 10px; }
+  .hero h1, .hero-code, .hero .subtitle, .hero .docente-box, .hero .docente-box b, .hero .pill{
+    color:#000 !important; text-shadow:none !important; border-color:#333 !important; background:none !important;
+  }
+  .frame{ border:none; box-shadow:none; background:#fff; }
+  .frame-inner{ border:none; padding:0; }
+  .wrap{ max-width:100%; padding:0; }
+  .corner{ display:none; }
+
+  .p-header{ border-bottom:2px solid #000; }
+  .p-header .p-title, .p-header .p-org{ color:#000 !important; }
+  h2.p-section{ background:#e4e4e4 !important; color:#000 !important; border:1px solid #000; border-radius:0; }
+  h3.p-sub{ color:#000 !important; }
+  .frame-inner p, ul.p-fields li, ul.p-plain li{ color:#000 !important; }
+  ul.p-fields b{ color:#000 !important; }
+  table.p-table th{ background:#ddd !important; color:#000 !important; border-color:#000; }
+  table.p-table td{ border-color:#000 !important; color:#000 !important; }
+  table.p-table tr:nth-child(even) td{ background:#f2f2f2 !important; }
+  .p-progress, .p-note, .p-footer-date, .p-biblio-label, .p-unit-meta{ color:#000 !important; }
+
+  table.p-table{ break-inside:auto; }
+  tr{ break-inside:avoid; }
+  h2.p-section{ break-after:avoid; break-inside:avoid; }
+  h3.p-sub{ break-after:avoid; }
+  @page{ margin:14mm 12mm; }
+}
 </style>
 </head>
 <body>
@@ -355,7 +406,7 @@ footer{
   <div class="docente-box">
     <b>Prerrequisito:</b> EST307 — Modelos Discretos<br>
     <b>Docente:</b> Morillos Valderrama Santos Octavio — Nombrado, Principal D.E.<br>
-    <b>Ambiente:</b> Aula 205 · Pabellón Antiguo
+    <b>Ambiente:</b> Aula 205, Pabellón Antiguo
   </div>
 </div>
 
@@ -370,116 +421,170 @@ footer{
     </div>
 
     <nav class="toc">
-      <a href="#sumilla">Sumilla</a>
-      <a href="#perfil">Perfil</a>
-      <a href="#logro">Logro</a>
-      <a href="#contenido">Contenido</a>
-      <a href="#metodologia">Metodología</a>
-      <a href="#evaluacion">Evaluación</a>
-      <a href="#bibliografia">Bibliografía</a>
-      <a href="#contacto">Contacto</a>
+      <a href="#p-info">Información</a>
+      <a href="#p-sumilla">Sumilla</a>
+      <a href="#p-perfil">Perfil</a>
+      <a href="#p-logro">Logro</a>
+      <a href="#p-unidades">Unidades</a>
+      <a href="#p-metodologia">Metodología</a>
+      <a href="#p-medios">Medios</a>
+      <a href="#p-evaluacion">Evaluación</a>
+      <a href="#p-fuentes">Fuentes</a>
     </nav>
 
-    <section id="sumilla">
-      <h2>Sumilla</h2>
-      <p class="body-text dropcap">El curso de Modelos Lineales pertenece al área curricular de Estudios de especialidad, es de naturaleza teórico-práctica y tiene como propósito contribuir en forma significativa en la solución de problemas de la vida real, dando lugar a la formalización y rápido perfeccionamiento de los modelos matemáticos, debido esencialmente al avance de la tecnología y la posibilidad de usar la computación en la comprobación de los modelos. La asignatura está dividida en dos unidades didácticas: Distribución de formas cuadráticas y Modelos de rango completo (Unidad 1); Modelos de correlación y Modelo de rango no completo (Unidad 2).</p>
-    </section>
+  <div class="p-header">
+    <p class="p-title">SÍLABO</p>
+    <p class="p-org">Facultad Ingeniería Estadística e Informática</p>
+    <p class="p-org">Escuela Profesional Ingeniería Estadística e Informática</p>
+    <p class="p-org">Programa de Estudios Ingeniería Estadística e Informática</p>
+  </div>
 
-    <section id="perfil">
-      <h2>Perfil del egresado</h2>
-      <p class="body-text">Utiliza metodologías estadísticas y/o informáticas para promover y desarrollar la investigación científica con el propósito de generar nuevos conocimientos en beneficio del país y la humanidad, con responsabilidad y ética, contando con conocimientos de técnicas estadísticas actualizadas.</p>
-    </section>
+  <h2 class="p-section" id="p-info">I. Información General</h2>
+  <h3 class="p-sub">1.1 Identificación Académica</h3>
+  <ul class="p-fields">
+    <li><b>a) Curso:</b> Modelos Lineales</li>
+    <li><b>b) Código:</b> EST210</li>
+    <li><b>c) Prerrequisito:</b> EST307 — Modelos Discretos</li>
+    <li><b>d) Número de horas lectivas:</b> 04h teóricas · 02h prácticas · Total 06 horas</li>
+    <li><b>e) N° de créditos:</b> 05</li>
+    <li><b>f) Área curricular:</b> Estudios de especialidad · Investigación, desarrollo e innovación</li>
+    <li><b>g) Ciclo del plan de estudios:</b> VI</li>
+    <li><b>h) Duración:</b> Del 30 de marzo al 31 de julio del 2026</li>
+    <li><b>i) Semestre académico:</b> 2026-I</li>
+    <li><b>j) Modalidad de estudios:</b> Presencial</li>
+    <li><b>k) Currículo vigente:</b> 2021 - 2025 V.2.0</li>
+    <li><b>l) Nivel de desempeño:</b> Avanzado</li>
+  </ul>
 
-    <section id="logro">
-      <h2>Logro del curso</h2>
-      <p class="body-text">Explica los fundamentos teóricos para el diseño y análisis de modelos de rango completo y no completo, contrastando pruebas de hipótesis a fin de tomar decisiones correspondientes al estado de la naturaleza.</p>
-    </section>
+  <h3 class="p-sub">1.2 Docente</h3>
+  <ul class="p-fields">
+    <li><b>a) Apellidos y nombres:</b> Morillos Valderrama Santos Octavio</li>
+    <li><b>b) Condición y categoría:</b> Nombrado, Principal D.E.</li>
+    <li><b>c) Especialidad:</b> Doctor en Estadística e Informática</li>
+  </ul>
 
-    <div class="flourish">❧</div>
-    <section id="contenido">
-      <h2>Contenido</h2>
-      <div class="unit-card">
-        <p class="unit-title">Unidad I · Formas cuadráticas y modelos de rango completo</p>
-        <p class="unit-meta"><b>Duración:</b> 30 de marzo al 1 de junio 2026 (semanas 1–9, 54 horas)<br><b>Logro de unidad:</b> Determina la distribución de formas cuadráticas de variables aleatorias y analiza en forma teórica y práctica los modelos lineales de regresión aplicando inferencias en sus parámetros.</p>
-        <ul class="week-list">
-          <li><b>Semanas 1–3:</b> Introducción a las formas cuadráticas, función de densidad multivariante, momentos, F central y no central, distribuciones e independencia de formas cuadráticas.</li>
-          <li><b>Semanas 4–6:</b> Modelos de rango completo con k variables Xi, tabla de análisis de varianza, correlación múltiple, intervalos de confianza.</li>
-          <li><b>Semanas 7–9:</b> Prueba de hipótesis lineal, modelos reducidos, regresión polinomial, polinomios ortogonales y selección del mejor conjunto de variables.</li>
-        </ul>
-        <p class="unit-meta" style="margin-top:8px;"><b>Evidencia 1:</b> Trabajos (50%) · <b>Evidencia 2:</b> Examen escrito (50%)</p>
-      </div>
-      <div class="unit-card">
-        <p class="unit-title">Unidad II · Modelos de correlación y rango no completo</p>
-        <p class="unit-meta"><b>Duración:</b> 1 de junio al 31 de julio 2026 (semanas 10–18, 54 horas)<br><b>Logro de unidad:</b> Realiza pruebas de hipótesis para los modelos de correlación parcial y múltiple, y distingue las diferencias entre los modelos de rango completo y no completo.</p>
-        <ul class="week-list">
-          <li><b>Semanas 10–12:</b> Modelos de correlación parcial y múltiple, análisis de varianza, efectos principales e interactivos, matriz inversa generalizada.</li>
-          <li><b>Semanas 13–15:</b> Funciones estimables, hipótesis lineal general, contrastes independientes y ortogonales, modelo de clasificación a un criterio.</li>
-          <li><b>Semanas 16–18:</b> Clasificación anidada y cruzada a dos criterios, modelos balanceados, fijos, aleatorios y mixtos.</li>
-        </ul>
-        <p class="unit-meta" style="margin-top:8px;"><b>Evidencia 3:</b> Trabajos (50%) · <b>Evidencia 4:</b> Examen escrito (50%)</p>
-      </div>
-    </section>
+  <h3 class="p-sub">1.3 Ambiente donde se realizó el aprendizaje</h3>
+  <p>Aula 205, Pabellón Antiguo</p>
 
-    <div class="flourish">❧</div>
-    <section id="metodologia">
-      <h2>Metodología</h2>
-      <ul class="plain">
-        <li><b>Enseñanza:</b> Sesiones de clase donde la mayor parte de los temas son expuestos por el docente y algunos por los estudiantes.</li>
-        <li><b>Aprendizaje:</b> Asignación de problemas y ejercicios presentados por los estudiantes, con dinámica de grupos en exposiciones.</li>
-        <li><b>Investigación formativa:</b> Al finalizar el curso, los estudiantes presentan un trabajo de investigación relacionado con el curso.</li>
-        <li><b>Responsabilidad social:</b> Investigación diagnóstica de la problemática educativa en un IES estatal de la ciudad de Puno.</li>
-        <li><b>Enseñanza virtual:</b> Uso de aulas virtuales Classroom, Webex o Meet.</li>
-      </ul>
-    </section>
+  <h2 class="p-section" id="p-sumilla">II. Sumilla</h2>
+  <p>El curso de Modelos Lineales pertenece al área curricular de estudios de especialidad, es de naturaleza teórico-práctica y tiene como propósito contribuir en forma significativa en la solución de problemas de la vida real, dando lugar a la formalización y rápido perfeccionamiento de los modelos matemáticos, debido esencialmente al avance de la tecnología y la posibilidad de usar la computación en la comprobación de los modelos. La asignatura está dividida en dos unidades didácticas: Distribución de formas cuadráticas y Modelos de rango completo (Unidad 1); Modelos de correlación y Modelo de rango no completo (Unidad 2).</p>
 
-    <section id="evaluacion">
-      <h2>Evaluación</h2>
-      <table class="eval">
-        <tr><th>Unidad</th><th>Logro de aprendizaje</th><th>Evidencias</th><th>Ponderación</th></tr>
-        <tr><td>1</td><td>Distribución de formas cuadráticas y modelos de rango completo</td><td>Evidencia 1 (50%) + Evidencia 2 (50%)</td><td>50%</td></tr>
-        <tr><td>2</td><td>Modelos de correlación y rango no completo</td><td>Evidencia 3 (50%) + Evidencia 4 (50%)</td><td>50%</td></tr>
-      </table>
-      <p class="formula-note">Promedio parcial de unidad = 50% (EVI 1) + 50% (EVI 2) &nbsp;·&nbsp; Promedio final del curso = 50% (I UPP) + 50% (II UPP)</p>
-    </section>
+  <h2 class="p-section" id="p-perfil">III. Perfil del Egresado</h2>
+  <p>Utiliza metodologías estadísticas y/o informáticas para promover y desarrollar la investigación científica con el propósito de generar nuevos conocimientos en beneficio del país y la humanidad con responsabilidad y ética, contando con conocimientos de técnicas estadísticas actualizadas.</p>
 
-    <div class="flourish">❧</div>
-    <section id="bibliografia">
-      <h2>Bibliografía</h2>
-      <div class="biblio-block">
-        <span class="biblio-label">Básica</span>
-        <ul class="plain">
-          <li>Daniel, W. (1991). <i>Bioestadística</i> (4ta ed.). Editorial Limusa, México.</li>
-          <li>Fahrmeir, L., Kneib, T., Lang, S. &amp; Marx, B. (2013). <i>Regression</i>. Springer, New York.</li>
-          <li>Graybill, F. (1961). <i>An Introduction to Linear Statistical Models</i>, Vol. I. McGraw-Hill, U.S.A.</li>
-          <li>Hair, J., Anderson, R., Tatham, R. &amp; Black, W. (1999). <i>Análisis Multivariante</i> (5ta ed.). Prentice Hall, Madrid.</li>
-          <li>Montgomery, D., Peck, E. &amp; Vining, G. (2006). <i>Introducción al Análisis de Regresión Lineal</i> (3ra ed.). Compañía Editorial Continental, México.</li>
-          <li>Searle, S. &amp; Gruber, M. (2017). <i>Linear Models</i> (2da ed.). John Wiley, New Jersey.</li>
-        </ul>
-      </div>
-      <div class="biblio-block">
-        <span class="biblio-label">Complementaria</span>
-        <ul class="plain">
-          <li>Neter, J., Wasserman, W. &amp; Kutner, M. (1983). <i>Applied Linear Regression Models</i>. Richard Irwin, U.S.A.</li>
-          <li>Rencher, A. &amp; Schaalje, B. (2008). <i>Linear Models in Statistics</i> (2da ed.). John Wiley, New Jersey.</li>
-        </ul>
-      </div>
-      <div class="biblio-block">
-        <span class="biblio-label">Electrónica</span>
-        <ul class="plain">
-          <li>mascvuex.unex.es — material de modelos lineales.</li>
-          <li>recursos.salonesvirtuales.com — bloques de estudio complementarios.</li>
-        </ul>
-      </div>
-      <div class="biblio-block">
-        <span class="biblio-label">Producción intelectual del docente</span>
-        <ul class="plain"><li>Guías de estudio y práctica.</li></ul>
-      </div>
-    </section>
+  <h2 class="p-section" id="p-logro">IV. Logro de Aprendizaje del Curso</h2>
+  <p>Explica los fundamentos teóricos para el diseño y análisis de modelos de rango completo y no completo, contrastando pruebas de hipótesis a fin de tomar decisiones correspondientes al estado de la naturaleza.</p>
 
-    <section id="contacto">
-      <h2>Contacto</h2>
-      <div class="contact-box">Escuela Profesional de Ingeniería Estadística e Informática — FINESI, Universidad Nacional del Altiplano, Puno.</div>
-    </section>
+  <h2 class="p-section" id="p-unidades">V. Tratamiento de Unidades Didácticas</h2>
+  
+  <h3 class="p-sub">Unidad 1: Distribución de formas cuadráticas y modelos de rango completo</h3>
+  <p class="p-unit-meta"><b>Logro de aprendizaje de la unidad:</b> Determina la distribución de formas cuadráticas de variables aleatorias y analiza en forma teórica y práctica los modelos lineales de regresión aplicando inferencias en sus parámetros.</p>
+  <p class="p-unit-meta"><b>Tiempo de desarrollo:</b> Del 30 de marzo al 1 de junio del 2026 (Total 54 horas) &nbsp;·&nbsp; <b>Horas de enseñanza virtual/unidad:</b> 04</p>
+  <table class="p-table">
+<tr><th style="width:6%">Sem.</th><th style="width:32%">Criterios de desempeño</th><th style="width:38%">Conocimientos</th><th style="width:24%">Retroalimentación formal</th></tr>
+<tr><td>1</td><td>Identifica las distribuciones de formas cuadráticas.</td><td>Introducción a las formas cuadráticas.</td><td></td></tr>
+<tr><td>2</td><td>Analiza la función de densidad multivariante.</td><td>Momentos, F central y no central. Otras distribuciones no centrales.</td><td></td></tr>
+<tr><td>3</td><td>Analiza y desarrolla las distribuciones de formas cuadráticas.</td><td>Distribuciones e independencia de formas cuadráticas.</td><td></td></tr>
+<tr><td>4</td><td>Analiza y elabora modelos de rango completo.</td><td>Estimación con k variables Xi. Métodos de estimación.</td><td></td></tr>
+<tr><td>5</td><td>Elabora y analiza la tabla de análisis de varianza.</td><td>Partición de la suma total de cuadrados. Correlación múltiple. Propiedades distribucionales.</td><td></td></tr>
+<tr><td>6</td><td>Aplica las tablas de análisis de varianza a modelos de regresión lineal.</td><td>Análisis de varianza para modelos de regresión. Intervalos de confianza.</td><td></td></tr>
+<tr><td>7</td><td>Elabora hipótesis y estadísticas para un modelo lineal general.</td><td>Prueba de hipótesis lineal. Cuatro hipótesis comunes. Modelos reducidos.</td><td></td></tr>
+<tr><td>8</td><td>Elabora modelos de regresión polinomial y realiza pruebas de hipótesis.</td><td>Regresión polinomial. Estimación de la respuesta media. Intervalos de confianza. Prueba de la función respuesta.</td><td>Evidencia 1: Trabajos (50%)</td></tr>
+<tr><td>9</td><td>Construye polinomios ortogonales y selecciona el mejor conjunto de variables independientes.</td><td>Polinomios ortogonales. Selección del mejor conjunto de variables independientes.</td><td>Evidencia 2: Examen escrito (50%)</td></tr>
+</table>
+  <p class="p-progress">Porcentaje de avance académico de la unidad: 50%</p>
+  <p class="p-note">Durante el desarrollo de la unidad, el docente deberá implementar procesos permanentes de evaluación formativa, brindando retroalimentación descriptiva y reflexiva a partir de los criterios de desempeño establecidos, con la finalidad de orientar la mejora progresiva de las evidencias de aprendizaje y promover la autorregulación del aprendizaje en los estudiantes.</p>
+
+  <h3 class="p-sub">Unidad 2: Modelos de correlación y modelo de rango no completo</h3>
+  <p class="p-unit-meta"><b>Logro de aprendizaje de la unidad:</b> Realiza pruebas de hipótesis para los modelos de correlación parcial y múltiple. Además distingue las diferencias entre los modelos de rango completo y no completo.</p>
+  <p class="p-unit-meta"><b>Tiempo de desarrollo:</b> Del 1 de junio al 31 de julio del 2026 (Total 54 horas) &nbsp;·&nbsp; <b>Horas de enseñanza virtual/unidad:</b> 04</p>
+  <table class="p-table">
+<tr><th style="width:6%">Sem.</th><th style="width:32%">Criterios de desempeño</th><th style="width:38%">Conocimientos</th><th style="width:24%">Retroalimentación formal</th></tr>
+<tr><td>10</td><td>Estudia y analiza los modelos de correlación y realiza pruebas de hipótesis.</td><td>Modelos de correlación. Pruebas de hipótesis. Intervalos de confianza. Correlación parcial y múltiple.</td><td></td></tr>
+<tr><td>11</td><td>Construye y analiza los modelos de análisis de varianza, realiza pruebas de hipótesis.</td><td>Modelos de análisis de varianza. Tipos de clasificaciones. Efectos principales e interactivos. Clasificaciones cruzadas y anidadas. Matriz inversa generalizada.</td><td></td></tr>
+<tr><td>12</td><td>Estudia los modelos de rango no completo y realiza pruebas de hipótesis.</td><td>Modelos de clasificación a un criterio. Propiedades distribucionales. Pruebas de hipótesis.</td><td></td></tr>
+<tr><td>13</td><td>Elabora funciones estimables y realiza pruebas de hipótesis.</td><td>Funciones estimables. Intervalos de confianza. Prueba de estimabilidad.</td><td></td></tr>
+<tr><td>14</td><td>Elabora y construye pruebas de hipótesis y estadística F general.</td><td>Hipótesis lineal general. Análisis de varianza. Contrastes independientes y ortogonales.</td><td></td></tr>
+<tr><td>15</td><td>Analiza los modelos de clasificación a un criterio y realiza pruebas de hipótesis.</td><td>Modelo de clasificación a un criterio. Funciones estimables. Intervalos de confianza.</td><td></td></tr>
+<tr><td>16</td><td>Identifica los modelos de clasificación anidada a dos criterios y realiza pruebas de hipótesis.</td><td>Modelo de clasificación anidada a dos criterios. Análisis de varianza. Funciones estimables. Pruebas de hipótesis.</td><td></td></tr>
+<tr><td>17</td><td>Construye modelos de clasificación cruzada a dos criterios y realiza pruebas de hipótesis.</td><td>Clasificación cruzada a dos criterios sin interacción. Análisis de varianza. Funciones estimables.</td><td>Evidencia 3: Trabajos (50%)</td></tr>
+<tr><td>18</td><td>Identifica los modelos balanceados y los modelos de componentes de varianza.</td><td>Modelo balanceado, modelos fijos, aleatorios y mixtos. Análisis de varianza.</td><td>Evidencia 4: Examen escrito (50%)</td></tr>
+</table>
+  <p class="p-progress">Porcentaje de avance académico de la unidad: 50%</p>
+  <p class="p-note">Durante el desarrollo de la unidad, el docente deberá implementar procesos permanentes de evaluación formativa, brindando retroalimentación descriptiva y reflexiva a partir de los criterios de desempeño establecidos, con la finalidad de orientar la mejora progresiva de las evidencias de aprendizaje y promover la autorregulación del aprendizaje en los estudiantes.</p>
+
+
+  <h2 class="p-section" id="p-metodologia">VI. Estrategias Metodológicas</h2>
+  
+  <h3 class="p-sub">6.1 De enseñanza</h3>
+  <p>Con el propósito de que el estudiante participe activamente, el desarrollo de la asignatura se realizará utilizando como estrategia las sesiones de clase. En el aspecto teórico, la mayor parte de los temas serán expuestos por el profesor y algunos temas serán expuestos por los estudiantes.</p>
+  <h3 class="p-sub">6.2 De aprendizaje</h3>
+  <p>En el aspecto práctico se asignarán problemas y ejercicios que serán presentados por los estudiantes, tanto en la exposición de los temas así como en la exposición de ejercicios y problemas, se hará uso de la dinámica de grupos.</p>
+  <h3 class="p-sub">6.3 De investigación formativa</h3>
+  <p>Al finalizar el curso, los estudiantes presentarán un trabajo de investigación relacionado con el curso.</p>
+  <h3 class="p-sub">6.4 De responsabilidad social universitaria</h3>
+  <p>Investigación diagnóstica de la problemática educativa en un IES estatal de la ciudad de Puno.</p>
+  <h3 class="p-sub">6.5 De enseñanza virtual</h3>
+  <p>Uso de aulas virtuales: Classroom, Webex o Meet.</p>
+
+
+  <h2 class="p-section" id="p-medios">VII. Medios y Materiales Didácticos</h2>
+  <p>Diapositivas, palabra hablada, gráficos estadísticos, programas para computadora y pizarra.</p>
+
+  <h2 class="p-section" id="p-evaluacion">VIII. Evaluación del Aprendizaje</h2>
+  <h3 class="p-sub">8.1 Logro de aprendizaje, evidencias de desempeño, ponderación, técnicas e instrumentos de evaluación</h3>
+  <table class="p-table">
+<tr><th style="width:6%">Unidad</th><th style="width:34%">Logros de aprendizaje</th><th style="width:16%">Evidencias</th><th style="width:10%">Ponderación</th><th style="width:16%">Técnicas</th><th style="width:18%">Instrumentos</th></tr>
+<tr><td>1</td><td>Determina la distribución de formas cuadráticas de variables aleatorias y analiza en forma teórica y práctica los modelos lineales de regresión aplicando inferencias en sus parámetros.</td><td>Evidencia 1: Trabajos (50%) · Evidencia 2: Examen escrito (50%)</td><td>50%</td><td>Observación</td><td>Rúbrica, lista de cotejo, examen</td></tr>
+<tr><td>2</td><td>Realiza pruebas de hipótesis para los modelos de correlación parcial y múltiple. Distingue las diferencias entre los modelos de rango completo y no completo.</td><td>Evidencia 3: Trabajos (50%) · Evidencia 4: Examen escrito (50%)</td><td>50%</td><td>Observación</td><td>Rúbrica, lista de cotejo, examen</td></tr>
+</table>
+  <h3 class="p-sub">8.2 Evidencias de aprendizaje del semestre académico</h3>
+  <table class="p-table">
+<tr><th style="width:40%">Logro de aprendizaje del curso</th><th style="width:44%">Evidencias: acción, objeto o producto</th><th style="width:16%">Fecha de presentación</th></tr>
+<tr><td>Explica los fundamentos teóricos para el diseño y análisis de modelos de rango completo y no completo, contrastando pruebas de hipótesis a fin de tomar decisiones correspondientes al estado de la naturaleza.</td><td>Aplica el modelo de regresión lineal de rango completo y no completo apropiado a casos de estudio.</td><td>Al finalizar cada unidad</td></tr>
+</table>
+<p class="p-note">Es el trabajo realizado durante el desarrollo del curso, con el monitoreo permanente del docente. Es importante tener en cuenta que la naturaleza del producto debe ser coherente con el logro del aprendizaje.</p>
+  <h3 class="p-sub">8.3 Calificación</h3>
+  <p>La fórmula para la obtención del promedio parcial de cada unidad didáctica es la siguiente:</p>
+<ul class="p-plain">
+  <li>Promedio parcial de la unidad 1 = 50% (EVI 1) + 50% (EVI 2)</li>
+  <li>Promedio parcial de la unidad 2 = 50% (EVI 3) + 50% (EVI 4)</li>
+</ul>
+<p>La fórmula para la obtención del promedio final del curso es la siguiente:</p>
+<ul class="p-plain">
+  <li>Promedio final = 50% (I UPP) + 50% (II UPP)</li>
+  <li>I UPP: Primera unidad promedio parcial &nbsp;·&nbsp; II UPP: Segunda unidad promedio parcial</li>
+</ul>
+
+  <h2 class="p-section" id="p-fuentes">IX. Fuentes de Información</h2>
+  
+  <h3 class="p-sub">9.1 Bibliográficas</h3>
+  <span class="p-biblio-label">Básica</span>
+  <ul class="p-plain">
+    <li>Daniel, W. (1991). <i>Bioestadística</i> (4ta ed.). México: Editorial Limusa.</li>
+    <li>Fahrmeir, L., Kneib, T., Lang, S. &amp; Marx, B. (2013). <i>Regression</i>. New York: Springer.</li>
+    <li>Graybill, F. (1961). <i>An Introduction to Linear Statistical Models</i>, Vol. I. U.S.A.: McGraw-Hill.</li>
+    <li>Hair, J., Anderson, R., Tatham, R. &amp; Black, W. (1999). <i>Análisis Multivariante</i> (5ta ed.). Madrid: Prentice Hall.</li>
+    <li>Montgomery, D., Peck, E. &amp; Vining, G. (2006). <i>Introducción al Análisis de Regresión Lineal</i> (3ra ed.). México: Compañía Editorial Continental.</li>
+    <li>Searle, S. &amp; Gruber, M. (2017). <i>Linear Models</i> (2da ed.). New Jersey: John Wiley.</li>
+  </ul>
+  <span class="p-biblio-label">Complementarias</span>
+  <ul class="p-plain">
+    <li>Neter, J., Wasserman, W. &amp; Kutner, M. (1983). <i>Applied Linear Regression Models</i>. U.S.A.: Richard Irwin.</li>
+    <li>Rencher, A. &amp; Schaalje, B. (2008). <i>Linear Models in Statistics</i> (2da ed.). New Jersey: John Wiley.</li>
+  </ul>
+  <span class="p-biblio-label">Electrónicas</span>
+  <ul class="p-plain">
+    <li>mascvuex.unex.es — material de modelos lineales.</li>
+    <li>recursos.salonesvirtuales.com — bloques de estudio complementarios.</li>
+  </ul>
+  <span class="p-biblio-label">Producción intelectual del docente relacionado con el curso</span>
+  <ul class="p-plain">
+    <li>Guías de estudio y práctica.</li>
+  </ul>
+
+
+  <p class="p-footer-date">Puno, Julio del 2026</p>
 
     <footer>
       © 2026 UNAP · FINESI · Ingeniería Estadística e Informática<br>
