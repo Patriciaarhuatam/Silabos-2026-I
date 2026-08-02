@@ -5,423 +5,201 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Semestre VI · FINESI · UNAP</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --navy: #10151f;
-    --navy-deep: #0a0d14;
-    --paper: #f3ead3;
-    --paper-deep: #eadfc0;
-    --card: #f9f2df;
-    --ink: #2c2418;
-    --ink-soft: #5b4f3a;
-    --oxblood: #7c2d2d;
-    --oxblood-deep: #5e1f1f;
-    --gold: #c9a227;
-    --gold-soft: #d9bb62;
-    --cream-text: #f1e9d6;
-    --rule: rgba(44,36,24,0.28);
-  }
+:root{
+  --paper:      #fbf3e3;
+  --paper-2:    #f5ead1;
+  --ink:        #4a3524;
+  --ink-soft:   #7a6650;
+  --wine:       #b5657a;
+  --wine-dim:   #8f4d5f;
+  --gold:       #d8a84e;
+  --gold-dim:   #b4863a;
+  --sage:       #8fa377;
+  --sage-dim:   #6d8158;
+  --line:       #d8c6a3;
+  --shadow:     rgba(122, 90, 42, .18);
+  --navy:       #0d1930;
+}
+*{box-sizing:border-box;}
 
-  *{ box-sizing:border-box; }
+.foto-fixed{
+  position:fixed; inset:0; width:100%; height:100%; z-index:-1; overflow:hidden;
+}
+.foto-fixed img{
+  width:100%; height:100%; object-fit:cover;
+  filter:sepia(.15) saturate(1.05) contrast(1.05) brightness(.55);
+}
+.foto-fixed::after{
+  content:""; position:absolute; inset:0; background:rgba(13,25,48,.42);
+}
 
-  body{
-    margin:0;
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'Cormorant Garamond', serif;
-    -webkit-font-smoothing:antialiased;
-  }
+.hero{
+  position:relative; padding:56px 24px 46px; text-align:center; overflow:hidden;
+  border-bottom:3px solid var(--gold);
+}
+.hero::before{
+  content:""; position:absolute; inset:0; z-index:1;
+  background:linear-gradient(180deg, rgba(13,25,48,.25) 0%, rgba(13,25,48,.65) 70%, rgba(13,25,48,.8) 100%);
+}
+.hero > *{ position:relative; z-index:2; max-width:820px; margin-left:auto; margin-right:auto; }
+.hero-code{
+  display:inline-block; font-family:'IBM Plex Mono', monospace; font-size:13px; font-weight:600;
+  letter-spacing:2px; color:#e8c98a; border:1.5px solid #d8a84e; border-radius:20px;
+  padding:5px 16px; margin-bottom:16px; background:rgba(216,168,78,.10);
+}
+.hero h1{
+  font-family:'Fraunces', serif; font-weight:600; font-size:clamp(28px, 4.5vw, 42px);
+  color:#f6efdc; margin:0 0 10px; letter-spacing:-.3px;
+}
+.hero .subtitle{ font-size:14px; color:#c9c2ad; margin:0 0 22px; line-height:1.6; }
+.hero .pill-row{ display:flex; flex-wrap:wrap; gap:10px; justify-content:center; }
+.hero .pill{
+  font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:#dce6d4;
+  border:1px solid rgba(220,230,212,.4); border-radius:20px; padding:5px 13px;
+  background:rgba(255,255,255,.06);
+}
 
-  /* ===== HERO (matches the course-page header) ===== */
-  .hero{
-    position:relative;
-    padding:78px 32px 60px;
-    text-align:center;
-    overflow:hidden;
-    border-bottom:1px solid var(--gold);
-    box-shadow:0 6px 0 -1px var(--gold-soft) inset;
-  }
-  .hero-bg{
-    position:absolute; inset:0;
-    background-image:
-      linear-gradient(180deg, rgba(10,13,20,0.82), rgba(10,13,20,0.92) 55%, var(--navy) 100%),
-      url('finesi.jpg');
-    background-size:cover;
-    background-position:center 35%;
-    filter:saturate(0.85);
-    z-index:0;
-  }
-  .hero-inner{ position:relative; z-index:1; max-width:760px; margin:0 auto; }
+body{ margin:0; background:transparent; font-family:'Spectral', serif; color:var(--ink); -webkit-font-smoothing:antialiased; }
+.wrap{max-width:1000px; margin:0 auto; padding:0 24px 90px; position:relative; z-index:1;}
 
-  .badge{
-    display:inline-block;
-    font-family:'Courier Prime', monospace;
-    letter-spacing:0.28em;
-    font-size:12px;
-    color:var(--gold-soft);
-    border:1px solid var(--gold);
-    border-radius:22px;
-    padding:8px 22px;
-    margin-bottom:26px;
-    text-transform:uppercase;
-  }
+.frame{
+  position:relative; border:1.5px solid var(--line); border-top:none;
+  border-radius:0 0 6px 6px; padding:3px; background:var(--paper);
+  box-shadow:0 20px 40px -20px var(--shadow);
+}
+.corner{ position:absolute; width:34px; height:34px; opacity:.55; z-index:2; }
+.corner svg{ width:100%; height:100%; }
+.corner.bl{ bottom:6px; left:6px; transform:scaleY(-1); }
+.corner.br{ bottom:6px; right:6px; transform:scale(-1,-1); }
+.frame-inner{ border:1px solid var(--line); border-radius:0 0 4px 4px; padding:44px 46px 50px; position:relative; }
 
-  h1{
-    font-family:'Playfair Display', serif;
-    font-weight:900;
-    font-style:italic;
-    font-size:clamp(38px,6vw,62px);
-    margin:0 0 14px;
-    letter-spacing:-0.01em;
-    color:#fff;
-    text-shadow:0 2px 18px rgba(0,0,0,0.4);
-  }
-  .subtitle{
-    font-size:19px;
-    color:var(--cream-text);
-    opacity:0.88;
-    max-width:560px;
-    margin:0 auto 30px;
-    line-height:1.5;
-  }
+p.intro{ font-size:15px; line-height:1.75; color:var(--ink); text-align:center; max-width:640px; margin:0 auto 30px;}
 
-  .pill-row{
-    display:flex; justify-content:center; gap:14px; flex-wrap:wrap;
-    margin-bottom:34px;
-  }
-  .pill{
-    font-family:'Courier Prime', monospace;
-    font-size:12px;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
-    color:var(--cream-text);
-    border:1px solid rgba(201,162,39,0.55);
-    border-radius:22px;
-    padding:9px 18px;
-    background:rgba(255,255,255,0.03);
-  }
+.flourish{ text-align:center; color:var(--gold-dim); font-size:15px; letter-spacing:8px; margin:0 0 30px; opacity:.7; }
 
-  .hero-rule{
-    border:none;
-    border-top:1px dashed rgba(201,162,39,0.5);
-    max-width:520px;
-    margin:0 auto 26px;
-  }
+.grid{
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:18px;
+}
+.card{
+  display:block; text-decoration:none; color:inherit;
+  background:var(--paper-2); border:1px solid var(--line); border-radius:6px;
+  padding:22px 22px 20px 26px; position:relative; transition:transform .15s ease, box-shadow .15s ease;
+}
+.card::before{
+  content:""; position:absolute; left:0; top:14px; bottom:14px; width:4px;
+  background:var(--wine); border-radius:2px; transition:background .15s ease;
+}
+.card:hover{ transform:translateY(-3px); box-shadow:0 14px 26px -14px var(--shadow); }
+.card:hover::before{ background:var(--gold); }
+.card-code{
+  font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:1.5px;
+  color:var(--sage-dim); text-transform:uppercase; margin-bottom:6px; display:block;
+}
+.card-title{
+  font-family:'Fraunces', serif; font-weight:600; font-size:19px; color:var(--wine-dim);
+  margin:0 0 10px; line-height:1.25;
+}
+.card-meta{ font-size:12px; color:var(--ink-soft); line-height:1.7; margin-bottom:10px; }
+.card-docente{ font-size:12.5px; color:var(--ink); margin-bottom:2px; }
+.card-docente b{ color:var(--wine-dim); font-weight:600; }
+.card-arrow{
+  font-family:'IBM Plex Mono', monospace; font-size:11.5px; letter-spacing:.5px;
+  color:var(--gold-dim); margin-top:12px; display:inline-block;
+}
 
-  .hero-meta{
-    font-size:16px;
-    color:var(--cream-text);
-    opacity:0.92;
-    line-height:1.9;
-  }
-  .hero-meta b{
-    color:var(--gold-soft);
-    font-weight:600;
-  }
+footer{
+  text-align:center; margin-top:44px; padding-top:22px; border-top:1px solid var(--line);
+  font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:1px; color:var(--ink-soft);
+}
 
-  .wrap{ max-width:1180px; margin:0 auto; padding:56px 32px 100px; }
-
-  .drawer-label{
-    display:flex; align-items:center; gap:16px;
-    margin:0 0 44px;
-  }
-  .drawer-label .tag{
-    font-family:'Courier Prime', monospace;
-    font-size:12px;
-    letter-spacing:0.15em;
-    text-transform:uppercase;
-    color:var(--card);
-    background:var(--oxblood);
-    padding:6px 14px;
-    transform:rotate(-1.5deg);
-    box-shadow:2px 3px 0 var(--oxblood-deep);
-  }
-  .drawer-label .line{
-    flex:1; height:1px;
-    background:repeating-linear-gradient(90deg, var(--rule) 0 6px, transparent 6px 11px);
-  }
-  .drawer-label .count{
-    font-family:'Cormorant Garamond', serif;
-    font-style:italic;
-    font-size:16px;
-    color:var(--ink-soft);
-  }
-
-  .catalog{
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
-    gap:38px 30px;
-    padding-top:8px;
-  }
-
-  .card{
-    position:relative;
-    background:var(--card);
-    border:1px solid rgba(44,36,24,0.18);
-    padding:26px 24px 24px;
-    text-decoration:none;
-    color:var(--ink);
-    display:block;
-    box-shadow:0 1px 2px rgba(44,36,24,0.12), 0 10px 22px -14px rgba(44,36,24,0.35);
-    transition:transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease;
-  }
-  .card::before{
-    content:"";
-    position:absolute; top:-1px; left:0; right:0; height:6px;
-    background-image:linear-gradient(135deg, var(--card) 50%, transparent 50%),
-                      linear-gradient(225deg, var(--card) 50%, transparent 50%);
-    background-size:12px 12px;
-    background-position:0 0;
-    background-repeat:repeat-x;
-  }
-  .card:nth-child(6n+1){ transform:rotate(-1.6deg); }
-  .card:nth-child(6n+2){ transform:rotate(1.1deg); }
-  .card:nth-child(6n+3){ transform:rotate(-0.7deg); }
-  .card:nth-child(6n+4){ transform:rotate(1.7deg); }
-  .card:nth-child(6n+5){ transform:rotate(-1.2deg); }
-  .card:nth-child(6n+6){ transform:rotate(0.9deg); }
-
-  .card:hover{
-    transform:rotate(0deg) translateY(-6px);
-    box-shadow:0 4px 6px rgba(44,36,24,0.14), 0 22px 34px -16px rgba(44,36,24,0.4);
-    z-index:2;
-  }
-
-  .pin{
-    position:absolute; top:-9px; left:50%; transform:translateX(-50%);
-    width:16px; height:16px; border-radius:50%;
-    background:radial-gradient(circle at 35% 30%, #e8c25f, var(--gold) 60%, #7a5b1b 100%);
-    box-shadow:0 2px 3px rgba(0,0,0,0.35);
-  }
-
-  .card-code{
-    font-family:'Courier Prime', monospace;
-    font-size:12px;
-    letter-spacing:0.14em;
-    color:var(--oxblood);
-    display:flex; justify-content:space-between; align-items:baseline;
-    margin-bottom:12px;
-    border-bottom:1px dashed var(--rule);
-    padding-bottom:10px;
-  }
-  .card-code .num{ font-weight:700; }
-  .card-code .idx{ color:var(--gold); }
-
-  .card-title{
-    font-family:'Playfair Display', serif;
-    font-weight:700;
-    font-size:23px;
-    line-height:1.18;
-    margin:0 0 14px;
-    color:var(--ink);
-  }
-
-  .card-facts{
-    display:flex; flex-wrap:wrap; gap:8px 10px;
-    font-family:'Courier Prime', monospace;
-    font-size:10.5px;
-    letter-spacing:0.04em;
-    text-transform:uppercase;
-    color:var(--ink-soft);
-    margin-bottom:16px;
-  }
-  .card-facts span{
-    border:1px solid var(--rule);
-    padding:3px 8px;
-    background:rgba(255,255,255,0.4);
-  }
-
-  .card-teacher{
-    font-size:15px;
-    font-style:italic;
-    color:var(--ink-soft);
-    margin:0 0 18px;
-    line-height:1.4;
-  }
-  .card-teacher b{
-    display:block;
-    font-style:normal;
-    font-family:'Courier Prime', monospace;
-    font-size:10px;
-    letter-spacing:0.12em;
-    text-transform:uppercase;
-    color:var(--oxblood);
-    margin-bottom:3px;
-  }
-
-  .card-cta{
-    display:inline-flex; align-items:center; gap:8px;
-    font-family:'Courier Prime', monospace;
-    font-size:12px;
-    letter-spacing:0.1em;
-    text-transform:uppercase;
-    color:var(--oxblood-deep);
-    padding-top:12px;
-    border-top:1px solid var(--rule);
-    width:100%;
-  }
-  .card-cta .arrow{ transition:transform .3s ease; }
-  .card:hover .card-cta .arrow{ transform:translateX(5px); }
-
-  .stamp{
-    position:absolute; bottom:16px; right:16px;
-    width:46px; height:46px;
-    border:1.5px solid var(--gold);
-    border-radius:50%;
-    display:flex; align-items:center; justify-content:center;
-    transform:rotate(-14deg);
-    opacity:0.6;
-    font-family:'Playfair Display', serif;
-    font-size:9px;
-    font-weight:700;
-    letter-spacing:0.05em;
-    color:var(--oxblood-deep);
-    text-align:center;
-    line-height:1.1;
-  }
-
-  footer{
-    text-align:center;
-    margin-top:70px;
-    padding-top:26px;
-    border-top:1px solid var(--rule);
-    font-family:'Courier Prime', monospace;
-    font-size:11px;
-    letter-spacing:0.1em;
-    text-transform:uppercase;
-    color:var(--ink-soft);
-  }
-
-  @media (max-width:520px){
-    .wrap{ padding:44px 18px 70px; }
-    .hero{ padding:56px 20px 44px; }
-  }
+@media (max-width:600px){
+  .frame-inner{ padding:30px 22px 36px; }
+}
 </style>
 </head>
 <body>
 
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-inner">
-      <span class="badge">Semestre VI</span>
-      <h1>Sílabos 2026&#8209;I</h1>
-      <p class="subtitle">Ingeniería Estadística e Informática — FINESI · Universidad Nacional del Altiplano · Puno</p>
-      <div class="pill-row">
-        <span class="pill">Ciclo VI</span>
-        <span class="pill">6 Cursos</span>
-        <span class="pill">2026&#8209;I</span>
-      </div>
-      <hr class="hero-rule">
-      <p class="hero-meta"><b>Escuela:</b> Ingeniería Estadística e Informática &nbsp;·&nbsp; <b>Facultad:</b> FINESI</p>
-    </div>
-  </section>
+<div class="foto-fixed">
+  <img src="finesi.jpg" alt="Facultad de Ingeniería Estadística e Informática - FINESI">
+</div>
 
-  <div class="wrap">
+<div class="hero">
+  <div class="hero-code">SEMESTRE VI</div>
+  <h1>Sílabos 2026-I</h1>
+  <p class="subtitle">Escuela Profesional de Ingeniería Estadística e Informática — FINESI · Universidad Nacional del Altiplano · Puno</p>
+  <div class="pill-row">
+    <span class="pill">6 cursos</span>
+    <span class="pill">Ciclo VI</span>
+    <span class="pill">2026-I</span>
+  </div>
+</div>
 
-    <div class="drawer-label">
-      <span class="tag">Fichero de cursos</span>
-      <span class="line"></span>
-      <span class="count">selecciona un curso →</span>
-    </div>
+<div class="wrap">
+  <div class="frame">
+    <div class="corner bl"><svg viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg"><path d="M2 20 C2 8, 8 2, 20 2" fill="none" stroke="#b5657a" stroke-width="1.4"/><path d="M2 13 C2 6, 6 2, 13 2" fill="none" stroke="#d8a84e" stroke-width="1"/><circle cx="2" cy="20" r="1.6" fill="#b5657a"/><circle cx="20" cy="2" r="1.6" fill="#b5657a"/></svg></div>
+    <div class="corner br"><svg viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg"><path d="M2 20 C2 8, 8 2, 20 2" fill="none" stroke="#b5657a" stroke-width="1.4"/><path d="M2 13 C2 6, 6 2, 13 2" fill="none" stroke="#d8a84e" stroke-width="1"/><circle cx="2" cy="20" r="1.6" fill="#b5657a"/><circle cx="20" cy="2" r="1.6" fill="#b5657a"/></svg></div>
+  <div class="frame-inner">
 
+    <p class="intro">Selecciona un curso para ver su sílabo completo: sumilla, contenido por unidades, metodología, evaluación y bibliografía.</p>
+    <div class="flourish">❧</div>
 
-    <a href="Semestre%20VI/AprendizajenoSupervisado/index.html">
-    VER SÍLABO →
-</a>
-    <div class="catalog">
-    
-      <a class="card" href="RegresionLinealyNolineal/">
-        <span class="pin"></span>
-        <div class="card-code"><span class="num">EST209</span><span class="idx">Nº 01</span></div>
-        <h2 class="card-title">Regresión Lineal y No Lineal</h2>
-        <div class="card-facts">
-          <span>04 créditos</span>
-          <span>03h teoría</span>
-          <span>02h práctica</span>
-        </div>
-        <p class="card-teacher"><b>Docente</b>Vargas Valverde, Confesor Milan</p>
-        <div class="card-cta">Ver sílabo <span class="arrow">→</span></div>
-        <div class="stamp">FINESI<br>UNAP</div>
+    <div class="grid">
+
+      <a class="card" href="Semestre%20VI/ModelosLineales/">
+        <span class="card-code">EST210</span>
+        <p class="card-title">Modelos Lineales</p>
+        <p class="card-meta">Créditos 05 · 04h teóricas · 02h prácticas · Total 06h</p>
+        <p class="card-docente"><b>Docente:</b> Morillos Valderrama Santos Octavio</p>
+        <span class="card-arrow">Ver sílabo →</span>
       </a>
 
-      <a class="card" href="ModelosLineales/">
-        <span class="pin"></span>
-        <div class="card-code"><span class="num">EST210</span><span class="idx">Nº 02</span></div>
-        <h2 class="card-title">Modelos Lineales</h2>
-        <div class="card-facts">
-          <span>05 créditos</span>
-          <span>04h teoría</span>
-          <span>02h práctica</span>
-        </div>
-        <p class="card-teacher"><b>Docente</b>Morillos Valderrama, Santos Octavio</p>
-        <div class="card-cta">Ver sílabo <span class="arrow">→</span></div>
-        <div class="stamp">FINESI<br>UNAP</div>
+      <a class="card" href="Semestre%20VI/RegresionLinealyNolineal/">
+        <span class="card-code">EST209</span>
+        <p class="card-title">Regresión Lineal y No Lineal</p>
+        <p class="card-meta">Créditos 04 · 03h teóricas · 02h prácticas · Total 05h</p>
+        <p class="card-docente"><b>Docente:</b> Vargas Valverde Confesor Milan</p>
+        <span class="card-arrow">Ver sílabo →</span>
       </a>
 
-      <a class="card" href="AprendizajenoSupervisado/">
-        <span class="pin"></span>
-        <div class="card-code"><span class="num">EST314</span><span class="idx">Nº 03</span></div>
-        <h2 class="card-title">Aprendizaje No Supervisado</h2>
-        <div class="card-facts">
-          <span>04 créditos</span>
-          <span>03h teoría</span>
-          <span>02h práctica</span>
-        </div>
-        <p class="card-teacher"><b>Docente</b>Alemán Gonzales, Leonid</p>
-        <div class="card-cta">Ver sílabo <span class="arrow">→</span></div>
-        <div class="stamp">FINESI<br>UNAP</div>
+      <a class="card" href="Semestre%20VI/SeriesdeTiempo/">
+        <span class="card-code">EST317</span>
+        <p class="card-title">Series de Tiempo</p>
+        <p class="card-meta">Créditos 04 · 03h teóricas · 02h prácticas · Total 05h</p>
+        <p class="card-docente"><b>Docente:</b> Lluén Vallejos César Augusto</p>
+        <span class="card-arrow">Ver sílabo →</span>
       </a>
 
-      <a class="card" href="GestiondeProyectosTics/">
-        <span class="pin"></span>
-        <div class="card-code"><span class="num">EST315</span><span class="idx">Nº 04</span></div>
-        <h2 class="card-title">Gestión de Proyectos TICs</h2>
-        <div class="card-facts">
-          <span>04 créditos</span>
-          <span>03h teoría</span>
-          <span>02h práctica</span>
-        </div>
-        <p class="card-teacher"><b>Docente</b>Romel Percy Melgarejo Bolívar</p>
-        <div class="card-cta">Ver sílabo <span class="arrow">→</span></div>
-        <div class="stamp">FINESI<br>UNAP</div>
+      <a class="card" href="Semestre%20VI/AprendizajenoSupervisado/">
+        <span class="card-code">EST314</span>
+        <p class="card-title">Aprendizaje No Supervisado</p>
+        <p class="card-meta">Créditos 04 · 03h teóricas · 02h prácticas · Total 05h</p>
+        <p class="card-docente"><b>Docente:</b> Alemán Gonzales Leonid</p>
+        <span class="card-arrow">Ver sílabo →</span>
       </a>
 
-      <a class="card" href="ArquitecturaRedes/">
-        <span class="pin"></span>
-        <div class="card-code"><span class="num">EST316</span><span class="idx">Nº 05</span></div>
-        <h2 class="card-title">Arquitectura de Redes y Protocolos</h2>
-        <div class="card-facts">
-          <span>03 créditos</span>
-          <span>02h teoría</span>
-          <span>02h práctica</span>
-          <a class="card" href="Semestre%20VI/ArquitecturaRedes/">
-        </div>
-        <p class="card-teacher"><b>Docente</b>Apaza Tarqui, Alejandro</p>
-        <div class="card-cta">Ver sílabo <span class="arrow">→</span></div>
-        <div class="stamp">FINESI<br>UNAP</div>
+      <a class="card" href="Semestre%20VI/ArquitecturaRedes/">
+        <span class="card-code">EST316</span>
+        <p class="card-title">Arquitectura de Redes y Protocolos</p>
+        <p class="card-meta">Créditos 03 · 02h teóricas · 02h prácticas · Total 04h</p>
+        <p class="card-docente"><b>Docente:</b> Apaza Tarqui Alejandro</p>
+        <span class="card-arrow">Ver sílabo →</span>
       </a>
 
-      <a class="card" href="SeriesdeTiempo/">
-        <span class="pin"></span>
-        <div class="card-code"><span class="num">EST317</span><span class="idx">Nº 06</span></div>
-        <h2 class="card-title">Series de Tiempo</h2>
-        <div class="card-facts">
-          <span>04 créditos</span>
-          <span>03h teoría</span>
-          <span>02h práctica</span>
-        </div>
-        <p class="card-teacher"><b>Docente</b>Lluén Vallejos, César Augusto</p>
-        <div class="card-cta">Ver sílabo <span class="arrow">→</span></div>
-        <div class="stamp">FINESI<br>UNAP</div>
+      <a class="card" href="Semestre%20VI/GestiondeProyectosTics/">
+        <span class="card-code">EST315</span>
+        <p class="card-title">Gestión de Proyectos TICs</p>
+        <p class="card-meta">Créditos 04 · 03h teóricas · 02h prácticas · Total 05h</p>
+        <p class="card-docente"><b>Docente:</b> Romel Percy Melgarejo Bolívar</p>
+        <span class="card-arrow">Ver sílabo →</span>
       </a>
 
     </div>
 
     <footer>© 2026 UNAP · FINESI · Ingeniería Estadística e Informática</footer>
 
-  </div>
-
+  </div></div>
+</div>
 </body>
 </html>
