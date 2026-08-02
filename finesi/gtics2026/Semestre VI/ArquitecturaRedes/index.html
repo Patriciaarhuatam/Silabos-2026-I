@@ -314,46 +314,71 @@ footer{
   .frame-inner{ padding:30px 22px 36px; }
 }
 
-/* ===== Documento oficial de impresión (oculto en pantalla) ===== */
-.print-only{ display:none; }
+/* ===== Documento oficial del sílabo (visible en pantalla y al imprimir) ===== */
+.p-header{ text-align:center; margin-bottom:22px; padding-bottom:16px; border-bottom:2px solid var(--gold); }
+.p-header .p-title{
+  font-family:'Fraunces', serif; font-weight:700; font-size:24px; letter-spacing:1px;
+  margin:0 0 6px; color:var(--wine-dim);
+}
+.p-header .p-org{ font-size:12.5px; font-weight:600; margin:2px 0; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.3px; }
 
-.print-only{
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  color:#000; background:#fff; font-size:11px; line-height:1.45;
+h2.p-section{
+  font-family:'Fraunces', serif; font-weight:600; font-size:18px; color:#fdf6ee;
+  background:var(--wine); padding:8px 14px; margin:32px 0 14px; border-radius:4px;
+  text-transform:none; letter-spacing:.2px;
 }
-.print-only .p-header{ text-align:center; margin-bottom:10px; }
-.print-only .p-header .p-title{ font-size:15px; font-weight:700; letter-spacing:1px; margin:0 0 3px; }
-.print-only .p-header .p-org{ font-size:11px; font-weight:700; margin:1px 0; text-transform:uppercase; }
-.print-only h2.p-section{
-  font-size:12px; font-weight:700; background:#e4e4e4; border:1px solid #000;
-  padding:4px 8px; margin:16px 0 8px; text-transform:uppercase;
+h3.p-sub{ font-family:'Fraunces', serif; font-weight:600; font-size:15px; color:var(--wine-dim); margin:16px 0 6px; }
+.p-header + h2.p-section, h2.p-section:first-of-type{ margin-top:0; }
+
+.frame-inner p{ font-size:14.5px; line-height:1.7; margin:6px 0; text-align:justify; color:var(--ink); }
+ul.p-fields{ list-style:none; margin:0 0 10px; padding:0; columns:1; }
+ul.p-fields li{ margin:4px 0; font-size:14px; color:var(--ink); }
+ul.p-fields b{ color:var(--wine-dim); }
+ul.p-plain{ margin:6px 0 10px 20px; padding:0; }
+ul.p-plain li{ margin-bottom:6px; font-size:14px; line-height:1.6; color:var(--ink); }
+
+table.p-table{ width:100%; border-collapse:collapse; margin:10px 0 16px; font-size:12.5px; }
+table.p-table th{
+  background:var(--wine); color:#fdf6ee; border:1px solid var(--line); padding:7px 8px;
+  text-align:left; font-weight:600; font-size:11.5px;
 }
-.print-only h3.p-sub{ font-size:11.5px; font-weight:700; margin:12px 0 4px; }
-.print-only p{ margin:4px 0; text-align:justify; }
-.print-only ul.p-fields{ list-style:none; margin:0 0 6px; padding:0; }
-.print-only ul.p-fields li{ margin:2px 0; }
-.print-only ul.p-fields b{ display:inline-block; min-width:2px; }
-.print-only ul.p-plain{ margin:4px 0 4px 18px; padding:0; }
-.print-only ul.p-plain li{ margin-bottom:3px; }
-.print-only table.p-table{ width:100%; border-collapse:collapse; margin:6px 0 10px; font-size:10px; }
-.print-only table.p-table th{
-  background:#ddd; border:1px solid #000; padding:4px 5px; text-align:left; font-weight:700;
-}
-.print-only table.p-table td{ border:1px solid #000; padding:4px 5px; vertical-align:top; }
-.print-only .p-unit-meta{ font-size:10.5px; margin:2px 0 6px; }
-.print-only .p-unit-meta b{ font-weight:700; }
-.print-only .p-progress{ font-size:10.5px; font-weight:700; margin:6px 0; }
-.print-only .p-note{ font-size:9.5px; font-style:italic; color:#333; margin:4px 0 0; }
-.print-only .p-footer-date{ text-align:right; margin-top:24px; font-size:11px; }
-.print-only .p-biblio-label{ font-weight:700; text-transform:uppercase; font-size:10.5px; display:block; margin:8px 0 2px; }
+table.p-table td{ border:1px solid var(--line); padding:7px 8px; vertical-align:top; color:var(--ink); }
+table.p-table tr:nth-child(even) td{ background:rgba(216,168,78,.07); }
+
+.p-unit-meta{ font-size:13px; margin:4px 0 10px; color:var(--ink-soft); }
+.p-unit-meta b{ color:var(--ink); font-weight:600; }
+.p-progress{ font-size:13px; font-weight:700; margin:8px 0; color:var(--sage-dim); }
+.p-note{ font-size:12px; font-style:italic; color:var(--ink-soft); margin:6px 0 0; }
+.p-footer-date{ text-align:right; margin-top:30px; font-size:14px; color:var(--ink-soft); font-style:italic; }
+.p-biblio-label{ font-weight:700; text-transform:uppercase; font-size:11.5px; display:block; margin:12px 0 4px; color:var(--sage-dim); letter-spacing:.5px; }
 
 @media print{
-  .foto-fixed, .hero, .wrap, .top-btn{ display:none !important; }
-  .print-only{ display:block !important; padding:14mm 12mm; }
-  .print-only table.p-table{ break-inside:auto; }
-  .print-only tr{ break-inside:avoid; }
-  .print-only h2.p-section{ break-after:avoid; break-inside:avoid; }
-  .print-only h3.p-sub{ break-after:avoid; }
+  .foto-fixed, .hero-actions, .breadcrumb, nav.toc, .top-btn, .footer-back{ display:none !important; }
+  body, .hero{ background:#fff !important; color:#000 !important; }
+  .hero{ border-bottom:2px solid #333; padding:16px 10px; }
+  .hero h1, .hero-code, .hero .subtitle, .hero .docente-box, .hero .docente-box b, .hero .pill{
+    color:#000 !important; text-shadow:none !important; border-color:#333 !important; background:none !important;
+  }
+  .frame{ border:none; box-shadow:none; background:#fff; }
+  .frame-inner{ border:none; padding:0; }
+  .wrap{ max-width:100%; padding:0; }
+  .corner{ display:none; }
+
+  .p-header{ border-bottom:2px solid #000; }
+  .p-header .p-title, .p-header .p-org{ color:#000 !important; }
+  h2.p-section{ background:#e4e4e4 !important; color:#000 !important; border:1px solid #000; border-radius:0; }
+  h3.p-sub{ color:#000 !important; }
+  .frame-inner p, ul.p-fields li, ul.p-plain li{ color:#000 !important; }
+  ul.p-fields b{ color:#000 !important; }
+  table.p-table th{ background:#ddd !important; color:#000 !important; border-color:#000; }
+  table.p-table td{ border-color:#000 !important; color:#000 !important; }
+  table.p-table tr:nth-child(even) td{ background:#f2f2f2 !important; }
+  .p-progress, .p-note, .p-footer-date, .p-biblio-label, .p-unit-meta{ color:#000 !important; }
+
+  table.p-table{ break-inside:auto; }
+  tr{ break-inside:avoid; }
+  h2.p-section{ break-after:avoid; break-inside:avoid; }
+  h3.p-sub{ break-after:avoid; }
   @page{ margin:14mm 12mm; }
 }
 </style>
@@ -396,127 +421,17 @@ footer{
     </div>
 
     <nav class="toc">
-      <a href="#sumilla">Sumilla</a>
-      <a href="#perfil">Perfil</a>
-      <a href="#logro">Logro</a>
-      <a href="#contenido">Contenido</a>
-      <a href="#metodologia">Metodología</a>
-      <a href="#evaluacion">Evaluación</a>
-      <a href="#bibliografia">Bibliografía</a>
-      <a href="#contacto">Contacto</a>
+      <a href="#p-info">Información</a>
+      <a href="#p-sumilla">Sumilla</a>
+      <a href="#p-perfil">Perfil</a>
+      <a href="#p-logro">Logro</a>
+      <a href="#p-unidades">Unidades</a>
+      <a href="#p-metodologia">Metodología</a>
+      <a href="#p-medios">Medios</a>
+      <a href="#p-evaluacion">Evaluación</a>
+      <a href="#p-fuentes">Fuentes</a>
     </nav>
 
-    <section id="sumilla">
-      <h2>Sumilla</h2>
-      <p class="body-text dropcap">El curso de Arquitectura de Redes y Protocolos corresponde al área de estudios de especialidad, es de naturaleza teórico-práctica, cuyo propósito es proporcionar al estudiante la comprensión para implementar la organización de redes computacionales y los protocolos sobre los que se fundamenta su lógica de funcionamiento, con énfasis en la conectividad usando modernas tecnologías de transmisión de datos y comunicaciones. Unidad 1: fundamentos, arquitectura, tipos, medios y protocolos de comunicación de datos. Unidad 2: fundamentos de servicios y seguridad, con talleres de simulación de la red de comunicación de datos de una organización.</p>
-    </section>
-
-    <section id="perfil">
-      <h2>Perfil del egresado</h2>
-      <p class="body-text">Capacidad de diseñar, configurar y administrar redes de telecomunicaciones de acuerdo a políticas de seguridad y estándares vigentes.</p>
-    </section>
-
-    <section id="logro">
-      <h2>Logro del curso</h2>
-      <p class="body-text">Comprende el fundamento de Arquitectura de Redes y Protocolos para el diseño, configuración y administración de redes de telecomunicaciones utilizando algunas herramientas de simulación.</p>
-    </section>
-
-    <div class="flourish">❧</div>
-    <section id="contenido">
-      <h2>Contenido</h2>
-      <div class="unit-card">
-        <p class="unit-title">Unidad I · Fundamentos de comunicación de datos y arquitectura de redes</p>
-        <p class="unit-meta"><b>Duración:</b> 30 de marzo al 1 de junio 2026 (semanas 1–9, 36 horas)<br><b>Logro de unidad:</b> Determina las condiciones técnicas y arquitectónicas del funcionamiento de redes informáticas y teleprocesamiento, tomando en cuenta arquitectura, medios, elementos y protocolos.</p>
-        <ul class="week-list">
-          <li><b>Semanas 1–2:</b> Conceptos y elementos de arquitectura de redes; conmutación, modulación y multiplexación.</li>
-          <li><b>Semanas 3–4:</b> Tipos de redes (PAN, LAN, MAN, WAN, WLAN, GAN, CAN, SAN) y topologías físicas/lógicas con Cisco Packet Tracer.</li>
-          <li><b>Semanas 5–6:</b> Modelos OSI y TCP/IP: protocolos, capas e interfaces; capa física, señalización y codificación.</li>
-          <li><b>Semanas 7–9:</b> Tecnología Ethernet e IEEE 802.x, capa de enlace de datos y capa de red (enrutamiento IPv4, direcciones IP).</li>
-        </ul>
-      </div>
-      <div class="unit-card">
-        <p class="unit-title">Unidad II · Diseño arquitectónico lógico y protocolar en capas OSI/TCP-IP</p>
-        <p class="unit-meta"><b>Duración:</b> 1 de junio al 27 de julio 2026 (semanas 10–17, 32 horas)<br><b>Logro de unidad:</b> Diseño arquitectónico lógico y protocolar en diferentes capas de OSI y TCP/IP.</p>
-        <ul class="week-list">
-          <li><b>Semanas 10–11:</b> Dispositivo Router, enrutamiento IPv6 y direccionamiento de IPs con Cisco Packet Tracer.</li>
-          <li><b>Semanas 12–13:</b> Capas de transporte, sesión, presentación y aplicación (TCP/UDP, DNS, FTP, SNMP); enrutamiento estático y dinámico.</li>
-          <li><b>Semanas 14–16:</b> Redes inalámbricas (WLAN, IEEE 802.11), redes satelitales y redes de fibra óptica.</li>
-          <li><b>Semana 17:</b> Fundamentos de seguridad de redes de computadoras.</li>
-        </ul>
-      </div>
-    </section>
-
-    <div class="flourish">❧</div>
-    <section id="metodologia">
-      <h2>Metodología</h2>
-      <ul class="plain">
-        <li><b>Enseñanza:</b> Videoconferencias, foros de debate, chat en línea, diapositivas, videos referenciales y clases magistrales.</li>
-        <li><b>Aprendizaje:</b> Comprensión de textos, trabajos grupales, debate, exposición y aprendizaje basado en problemas y proyectos.</li>
-        <li><b>Investigación formativa:</b> Investigación activa y seminarios de investigación en semilleros.</li>
-        <li><b>Responsabilidad social:</b> Investigación diagnóstica de la problemática educativa en una IES estatal de Puno.</li>
-        <li><b>Enseñanza virtual:</b> Zoom, aulas virtuales UNAP, G-Suite, Moodle y redes sociales para comunicación.</li>
-      </ul>
-    </section>
-
-    <section id="evaluacion">
-      <h2>Evaluación</h2>
-      <table class="eval">
-        <tr><th>Unidad</th><th>Logro de aprendizaje</th><th>Evidencia</th><th>Ponderación</th></tr>
-        <tr><td>1</td><td>Condiciones técnicas y arquitectónicas de redes informáticas</td><td>Unidad 1 EV (100%)</td><td>50%</td></tr>
-        <tr><td>2</td><td>Diseño arquitectónico lógico y protocolar</td><td>Unidad 2 EV (100%)</td><td>50%</td></tr>
-      </table>
-      <p class="formula-note">Promedio parcial unidad 1 = 40% (EVI 1) + 60% (EVI 2) &nbsp;·&nbsp; Promedio parcial unidad 2 = 30% (EVI 1) + 20% (EVI 2) + 50% (EVI 3) &nbsp;·&nbsp; Promedio final = 50% (I UPP) + 50% (II UPP)</p>
-    </section>
-
-    <div class="flourish">❧</div>
-    <section id="bibliografia">
-      <h2>Bibliografía</h2>
-      <div class="biblio-block">
-        <span class="biblio-label">Básica</span>
-        <ul class="plain">
-          <li>Apaza T., A. (2002). <i>Redes y Teleproceso</i> (1ra ed.). Puno, Perú: Lucero Impresiones.</li>
-          <li>Domingo, A. A. (2013). <i>Redes locales</i>. McGraw-Hill/Interamericana de España.</li>
-          <li>Dordoigne, J. (2015). <i>Redes informáticas — Nociones fundamentales</i> (5ta ed.). Ediciones Eni.</li>
-          <li>Font, R., Lara, E., Serral i Gracià, R. &amp; Vilajosana, X. (2011). <i>Estructura de redes de computadores</i>. UOC, España.</li>
-          <li>Stallings, W. (2004). <i>Comunicaciones y Redes de Computadores</i> (7ma ed.). Pearson Educación, Madrid.</li>
-          <li>Tanenbaum, A. S. &amp; Wetherall, D. J. (2012). <i>Redes de computadoras</i> (5ta ed.). Pearson Educación, México.</li>
-        </ul>
-      </div>
-      <div class="biblio-block">
-        <span class="biblio-label">Complementaria</span>
-        <ul class="plain">
-          <li>Carballar, J. (2005). <i>Wi-Fi: Cómo construir una Red Inalámbrica</i>. AlfaOmega.</li>
-          <li>Huidobro, J. M. (2001). <i>Redes y servicios de Telecomunicaciones</i>. Paraninfo.</li>
-          <li>Tomasi, W. (2003). <i>Sistemas de Comunicación Electrónicas</i> (4ta ed.). Pearson Educación, México.</li>
-        </ul>
-      </div>
-      <div class="biblio-block">
-        <span class="biblio-label">Electrónica</span>
-        <ul class="plain">
-          <li>Liberatori, M. C. (2018). <i>Redes de datos y sus protocolos</i>. EUDEM, Mar del Plata.</li>
-          <li>GSMA (2017). Emisión electromagnética de la tecnología 5G, IoT y accesorios tecnológicos.</li>
-        </ul>
-      </div>
-      <div class="biblio-block">
-        <span class="biblio-label">Producción intelectual del docente</span>
-        <ul class="plain"><li>Apaza T., A. (2020). <i>Redes y Teleproceso</i> (2da ed.). Puno, Perú: Lucero Impresiones.</li></ul>
-      </div>
-    </section>
-
-    <section id="contacto">
-      <h2>Contacto</h2>
-      <div class="contact-box">Escuela Profesional de Ingeniería Estadística e Informática — FINESI, Universidad Nacional del Altiplano, Puno.</div>
-    </section>
-
-    <footer>
-      © 2026 UNAP · FINESI · Ingeniería Estadística e Informática<br>
-      <a class="footer-back" href="../../../../">← Volver al índice de cursos</a>
-    </footer>
-
-  </div></div>
-</div>
-
-<div class="print-only">
 
   <div class="p-header">
     <p class="p-title">SÍLABO</p>
@@ -525,7 +440,7 @@ footer{
     <p class="p-org">Programa de Estudios Ingeniería Estadística e Informática</p>
   </div>
 
-  <h2 class="p-section">I. Información General</h2>
+  <h2 class="p-section" id="p-info">I. Información General</h2>
   <h3 class="p-sub">1.1 Identificación Académica</h3>
   <ul class="p-fields">
     <li><b>a) Curso:</b> Arquitectura de Redes y Protocolos</li>
@@ -556,20 +471,20 @@ footer{
   <h3 class="p-sub">1.3 Ambiente donde se realizó el aprendizaje</h3>
   <p>a) 205-A</p>
 
-  <h2 class="p-section">II. Sumilla</h2>
+  <h2 class="p-section" id="p-sumilla">II. Sumilla</h2>
   <p>El curso de Arquitectura de Redes y Protocolos corresponde al área de estudios de especialidad, es de naturaleza teórica-práctica, cuyo propósito es proporcionar al estudiante la comprensión para implementar la organización de redes computacionales y los protocolos sobre las que se fundamenta su lógica de funcionamiento con énfasis en la conectividad usando las modernas tecnologías de transmisión de datos y comunicaciones, cuyos contenidos son:</p>
   <ul class="p-plain">
     <li>Fundamentos, arquitectura, tipos, medios y protocolos de comunicación de datos.</li>
     <li>Fundamentos de servicios y la seguridad con talleres de simulación de la red de comunicación de datos de una organización.</li>
   </ul>
 
-  <h2 class="p-section">III. Perfil del Egresado</h2>
+  <h2 class="p-section" id="p-perfil">III. Perfil del Egresado</h2>
   <p>Capacidad de diseñar, configurar y administrar redes de telecomunicaciones de acuerdo a políticas de seguridad y estándares vigentes.</p>
 
-  <h2 class="p-section">IV. Logro de Aprendizaje del Curso</h2>
+  <h2 class="p-section" id="p-logro">IV. Logro de Aprendizaje del Curso</h2>
   <p>Comprende el fundamento de Arquitectura de Redes y Protocolos para diseño, configuración y administración de redes de telecomunicaciones utilizando algunas herramientas de simulación.</p>
 
-  <h2 class="p-section">V. Tratamiento de Unidades Didácticas</h2>
+  <h2 class="p-section" id="p-unidades">V. Tratamiento de Unidades Didácticas</h2>
 
   <h3 class="p-sub">Unidad 1: Fundamentos de comunicación de datos y la arquitectura de redes</h3>
   <p class="p-unit-meta"><b>Logro de aprendizaje de la unidad:</b> Determina las condiciones técnicas y arquitectónicas del funcionamiento de Redes Informáticas y teleprocesamiento tomando en cuenta arquitectura, medios, elementos y protocolos.</p>
@@ -608,7 +523,7 @@ footer{
   <p class="p-progress">Porcentaje de avance académico de la unidad: 100%</p>
   <p class="p-note">Durante el desarrollo de la unidad, el docente deberá implementar procesos permanentes de evaluación formativa, brindando retroalimentación descriptiva y reflexiva a partir de los criterios de desempeño establecidos, con la finalidad de orientar la mejora progresiva de las evidencias de aprendizaje y promover la autorregulación del aprendizaje en los estudiantes.</p>
 
-  <h2 class="p-section">VI. Estrategias Metodológicas</h2>
+  <h2 class="p-section" id="p-metodologia">VI. Estrategias Metodológicas</h2>
   <h3 class="p-sub">6.1 De enseñanza</h3>
   <p>Exposiciones y conferencias magistrales: videoconferencia, foros de debate, chat en línea, diapositivas en PPT, videos referenciales. Actividades asíncronas: plataforma del aula virtual, foros de análisis y discusión, tareas en aula virtual, biblioteca virtual, enseñanza basada en problemas, casos y proyectos. Metodología de proyectos de investigación, clases magistrales.</p>
   <h3 class="p-sub">6.2 De aprendizaje</h3>
@@ -620,11 +535,11 @@ footer{
   <h3 class="p-sub">6.5 De enseñanza virtual</h3>
   <p>Navegación de páginas web en el proceso de investigación, utilización de plataforma de videoconferencia Zoom, utilización de plataforma de aulas virtuales UNAP, utilización de aulas virtuales G-Suite y Moodle. Utilización de redes sociales como YouTube, Facebook, etc. en el proceso de aprendizaje, videos interactivos, redes sociales para comunicación como WhatsApp.</p>
 
-  <h2 class="p-section">VII. Medios y Materiales Didácticos</h2>
+  <h2 class="p-section" id="p-medios">VII. Medios y Materiales Didácticos</h2>
   <p><b>Medios:</b> Presentaciones en PowerPoint, textos seleccionados, separatas, guías de laboratorios, aula virtual, videoconferencia, biblioteca virtual, documentos bibliográficos digitales, videos.</p>
   <p><b>Materiales:</b> Diapositivas en PPT, separatas y guías de trabajo, páginas web, software: Cisco Packet Tracer, Benchwork.</p>
 
-  <h2 class="p-section">VIII. Evaluación del Aprendizaje</h2>
+  <h2 class="p-section" id="p-evaluacion">VIII. Evaluación del Aprendizaje</h2>
   <h3 class="p-sub">8.1 Logro de aprendizaje, evidencias de desempeño, ponderación, técnicas e instrumentos de evaluación</h3>
   <table class="p-table">
     <tr><th style="width:6%">Unidad</th><th style="width:34%">Logros de aprendizaje</th><th style="width:16%">Evidencias</th><th style="width:10%">Ponderación</th><th style="width:16%">Técnicas</th><th style="width:18%">Instrumentos</th></tr>
@@ -652,7 +567,7 @@ footer{
     <li>I UPP: Primera unidad promedio parcial &nbsp;·&nbsp; II UPP: Segunda unidad promedio parcial</li>
   </ul>
 
-  <h2 class="p-section">IX. Fuentes de Información</h2>
+  <h2 class="p-section" id="p-fuentes">IX. Fuentes de Información</h2>
   <h3 class="p-sub">9.1 Bibliográficas</h3>
   <span class="p-biblio-label">Básica</span>
   <ul class="p-plain">
@@ -684,9 +599,15 @@ footer{
 
   <p class="p-footer-date">Puno, Julio del 2026</p>
 
+    <footer>
+      © 2026 UNAP · FINESI · Ingeniería Estadística e Informática<br>
+      <a class="footer-back" href="../../../../">← Volver al índice de cursos</a>
+    </footer>
+
+  </div></div>
 </div>
 
-<button id="topBtn" class="top-btn" onclick="window.scrollTo({top:0, behavior:'smooth'})" aria-label="Volver arriba">
+on id="topBtn" class="top-btn" onclick="window.scrollTo({top:0, behavior:'smooth'})" aria-label="Volver arriba">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
 </button>
 
