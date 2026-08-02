@@ -314,21 +314,47 @@ footer{
   .frame-inner{ padding:30px 22px 36px; }
 }
 
+/* ===== Documento oficial de impresión (oculto en pantalla) ===== */
+.print-only{ display:none; }
+
+.print-only{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color:#000; background:#fff; font-size:11px; line-height:1.45;
+}
+.print-only .p-header{ text-align:center; margin-bottom:10px; }
+.print-only .p-header .p-title{ font-size:15px; font-weight:700; letter-spacing:1px; margin:0 0 3px; }
+.print-only .p-header .p-org{ font-size:11px; font-weight:700; margin:1px 0; text-transform:uppercase; }
+.print-only h2.p-section{
+  font-size:12px; font-weight:700; background:#e4e4e4; border:1px solid #000;
+  padding:4px 8px; margin:16px 0 8px; text-transform:uppercase;
+}
+.print-only h3.p-sub{ font-size:11.5px; font-weight:700; margin:12px 0 4px; }
+.print-only p{ margin:4px 0; text-align:justify; }
+.print-only ul.p-fields{ list-style:none; margin:0 0 6px; padding:0; }
+.print-only ul.p-fields li{ margin:2px 0; }
+.print-only ul.p-fields b{ display:inline-block; min-width:2px; }
+.print-only ul.p-plain{ margin:4px 0 4px 18px; padding:0; }
+.print-only ul.p-plain li{ margin-bottom:3px; }
+.print-only table.p-table{ width:100%; border-collapse:collapse; margin:6px 0 10px; font-size:10px; }
+.print-only table.p-table th{
+  background:#ddd; border:1px solid #000; padding:4px 5px; text-align:left; font-weight:700;
+}
+.print-only table.p-table td{ border:1px solid #000; padding:4px 5px; vertical-align:top; }
+.print-only .p-unit-meta{ font-size:10.5px; margin:2px 0 6px; }
+.print-only .p-unit-meta b{ font-weight:700; }
+.print-only .p-progress{ font-size:10.5px; font-weight:700; margin:6px 0; }
+.print-only .p-note{ font-size:9.5px; font-style:italic; color:#333; margin:4px 0 0; }
+.print-only .p-footer-date{ text-align:right; margin-top:24px; font-size:11px; }
+.print-only .p-biblio-label{ font-weight:700; text-transform:uppercase; font-size:10.5px; display:block; margin:8px 0 2px; }
+
 @media print{
-  .foto-fixed, .hero::before, .hero-actions, .breadcrumb, nav.toc, .top-btn, .footer-back{
-    display:none !important;
-  }
-  body, .hero{ background:#fff !important; color:#000 !important; }
-  .hero{ border-bottom:2px solid #333; padding:20px 10px; }
-  .hero h1, .hero-code, .hero .subtitle, .hero .docente-box, .hero .docente-box b, .hero .pill{
-    color:#000 !important; text-shadow:none !important; border-color:#333 !important; background:none !important;
-  }
-  .frame{ border:none; box-shadow:none; background:#fff; }
-  .frame-inner{ border:none; padding:0; }
-  .wrap{ max-width:100%; padding:0; }
-  .unit-card, .contact-box{ background:#f7f7f7 !important; break-inside:avoid; }
-  section{ break-inside:avoid-page; }
-  a{ color:#000 !important; text-decoration:none !important; }
+  .foto-fixed, .hero, .wrap, .top-btn{ display:none !important; }
+  .print-only{ display:block !important; padding:14mm 12mm; }
+  .print-only table.p-table{ break-inside:auto; }
+  .print-only tr{ break-inside:avoid; }
+  .print-only h2.p-section{ break-after:avoid; break-inside:avoid; }
+  .print-only h3.p-sub{ break-after:avoid; }
+  @page{ margin:14mm 12mm; }
 }
 </style>
 </head>
@@ -488,6 +514,176 @@ footer{
     </footer>
 
   </div></div>
+</div>
+
+<div class="print-only">
+
+  <div class="p-header">
+    <p class="p-title">SÍLABO</p>
+    <p class="p-org">Facultad Ingeniería Estadística e Informática</p>
+    <p class="p-org">Escuela Profesional Ingeniería Estadística e Informática</p>
+    <p class="p-org">Programa de Estudios Ingeniería Estadística e Informática</p>
+  </div>
+
+  <h2 class="p-section">I. Información General</h2>
+  <h3 class="p-sub">1.1 Identificación Académica</h3>
+  <ul class="p-fields">
+    <li><b>a) Curso:</b> Arquitectura de Redes y Protocolos</li>
+    <li><b>b) Código:</b> EST316</li>
+    <li><b>c) Prerrequisito:</b> ELE311 — Arquitectura de Computadoras</li>
+    <li><b>d) Número de horas lectivas:</b> 02h teóricas, 02h prácticas, Total 04 horas</li>
+    <li><b>e) Número de horas no lectivas del estudiante:</b> 1 h y 20 min</li>
+    <li><b>f) N° de créditos:</b> 03</li>
+    <li><b>g) Número de horas virtuales por unidad:</b> 02</li>
+    <li><b>h) Área curricular:</b> Estudios de especialidad</li>
+    <li><b>i) Ciclo del plan de estudios:</b> VI</li>
+    <li><b>j) Características del curso:</b> Investigación, desarrollo e innovación (I+D+i)</li>
+    <li><b>k) Duración:</b> Del 30 de marzo al 31 de julio del 2026</li>
+    <li><b>l) Semestre académico:</b> 2026-I</li>
+    <li><b>m) Modalidad de estudios:</b> Presencial</li>
+    <li><b>n) Idioma de desarrollo del curso:</b> Español</li>
+    <li><b>o) Currículo vigente:</b> 2021 - 2025 V.2.0</li>
+    <li><b>p) Nivel de desempeño:</b> Básico</li>
+  </ul>
+
+  <h3 class="p-sub">1.2 Docente</h3>
+  <ul class="p-fields">
+    <li><b>a) Apellidos y nombres:</b> Apaza Tarqui Alejandro</li>
+    <li><b>b) Condición y categoría:</b> Nombrado, Profesor Principal</li>
+    <li><b>c) Especialidad:</b> Ing. Estadístico, Sistemas e Informática</li>
+  </ul>
+
+  <h3 class="p-sub">1.3 Ambiente donde se realizó el aprendizaje</h3>
+  <p>a) 205-A</p>
+
+  <h2 class="p-section">II. Sumilla</h2>
+  <p>El curso de Arquitectura de Redes y Protocolos corresponde al área de estudios de especialidad, es de naturaleza teórica-práctica, cuyo propósito es proporcionar al estudiante la comprensión para implementar la organización de redes computacionales y los protocolos sobre las que se fundamenta su lógica de funcionamiento con énfasis en la conectividad usando las modernas tecnologías de transmisión de datos y comunicaciones, cuyos contenidos son:</p>
+  <ul class="p-plain">
+    <li>Fundamentos, arquitectura, tipos, medios y protocolos de comunicación de datos.</li>
+    <li>Fundamentos de servicios y la seguridad con talleres de simulación de la red de comunicación de datos de una organización.</li>
+  </ul>
+
+  <h2 class="p-section">III. Perfil del Egresado</h2>
+  <p>Capacidad de diseñar, configurar y administrar redes de telecomunicaciones de acuerdo a políticas de seguridad y estándares vigentes.</p>
+
+  <h2 class="p-section">IV. Logro de Aprendizaje del Curso</h2>
+  <p>Comprende el fundamento de Arquitectura de Redes y Protocolos para diseño, configuración y administración de redes de telecomunicaciones utilizando algunas herramientas de simulación.</p>
+
+  <h2 class="p-section">V. Tratamiento de Unidades Didácticas</h2>
+
+  <h3 class="p-sub">Unidad 1: Fundamentos de comunicación de datos y la arquitectura de redes</h3>
+  <p class="p-unit-meta"><b>Logro de aprendizaje de la unidad:</b> Determina las condiciones técnicas y arquitectónicas del funcionamiento de Redes Informáticas y teleprocesamiento tomando en cuenta arquitectura, medios, elementos y protocolos.</p>
+  <p class="p-unit-meta"><b>Tiempo de desarrollo:</b> Del 30 de marzo al 1 de junio del 2026 (Total 36 horas) &nbsp;·&nbsp; <b>Horas de enseñanza virtual/unidad:</b> 02</p>
+
+  <table class="p-table">
+    <tr><th style="width:6%">Sem.</th><th style="width:32%">Criterios de desempeño</th><th style="width:38%">Conocimientos</th><th style="width:24%">Retroalimentación formal</th></tr>
+    <tr><td>1</td><td>Conceptos y elementos de arquitectura de redes y telecomunicaciones son comprendidos para mejorar el sistema de comunicaciones en las organizaciones.</td><td>Conceptos, elementos, dispositivos, arquitectura de redes y protocolos, teleproceso y proyectos de conectividad.</td><td>Recuperación de saberes previos</td></tr>
+    <tr><td>2</td><td>Conmutación, modulación y multiplexación son explicados como fundamento de sistemas de transmisión de datos.</td><td>Paradigmas de transmisión y acceso al medio de datos: conmutación, modulación y multiplexación.</td><td>Mapas conceptuales</td></tr>
+    <tr><td>3</td><td>Tipos de redes son identificados para definir la cobertura y localización de sistemas de telecomunicación de datos.</td><td>Tipos de redes PAN, LAN, MAN, WAN, WLAN, GAN, CAN, SAN, internet, intranet y extranet.</td><td>Debate</td></tr>
+    <tr><td>4</td><td>Topologías de red a nivel lógico y físico son aplicadas para implementar la arquitectura física utilizando el simulador Cisco Packet Tracer.</td><td>Topologías físicas y lógicas de la red, tecnologías, cableado estructurado, redes de banda ancha.</td><td>Examen escrito (100%)</td></tr>
+    <tr><td>5</td><td>Los protocolos del modelo OSI y modelo TCP/IP son reconocidos para diferenciar la teoría y las aplicaciones de los sistemas de redes de datos.</td><td>Protocolos, arquitecturas y capas de modelos OSI, TCP/IP: interfaces, medidas, algoritmos y servicios.</td><td>Debate</td></tr>
+    <tr><td>6</td><td>La estructura, medio y dispositivos de la capa física de redes son reconocidos para generar proyectos de comunicación de datos.</td><td>Capa física de OSI: medios de comunicación. Señalización, representación y codificación física.</td><td>Debate</td></tr>
+    <tr><td>7</td><td>Las aplicaciones de la tecnología Ethernet y su relación con IEEE 802.x son identificadas para diferenciar los medios y dispositivos de comunicación de datos.</td><td>Tecnología Ethernet - Gigabit Ethernet (IEEE 802.x), control de acceso al medio: NICs, HUBs y SWITCHES, protocolo ARP.</td><td>Implementa el proyecto de conectividad de cables UTP y coaxial</td></tr>
+    <tr><td>8</td><td>Protocolos, implementación y aplicaciones de la capa de enlace de datos son reconocidos para comprender la estructura lógica de redes.</td><td>Capa de enlace de datos, técnicas de control de acceso al medio, entramado de datos.</td><td>Exposición</td></tr>
+    <tr><td>9</td><td>Protocolos, implementación y aplicaciones de la capa de red son aplicados en la comprensión de proyectos de redes.</td><td>Capa Red (Internet): enrutamiento IPv4, dispositivos y protocolos en la capa de red, paquetes, procesos, interfaces y direcciones IP.</td><td>Presenta y expone el producto de la primera unidad</td></tr>
+  </table>
+  <p class="p-progress">Porcentaje de avance académico de la unidad: 100%</p>
+  <p class="p-note">Durante el desarrollo de la unidad, el docente deberá implementar procesos permanentes de evaluación formativa, brindando retroalimentación descriptiva y reflexiva a partir de los criterios de desempeño establecidos, con la finalidad de orientar la mejora progresiva de las evidencias de aprendizaje y promover la autorregulación del aprendizaje en los estudiantes.</p>
+
+  <h3 class="p-sub">Unidad 2: Diseño arquitectónico lógico y protocolar en diferentes capas de OSI y TCP/IP</h3>
+  <p class="p-unit-meta"><b>Logro de aprendizaje de la unidad:</b> Diseño arquitectónico lógico y protocolar en diferentes capas de OSI y TCP/IP.</p>
+  <p class="p-unit-meta"><b>Tiempo de desarrollo:</b> Del 1 de junio al 27 de julio del 2026 (Total 32 horas) &nbsp;·&nbsp; <b>Horas de enseñanza virtual/unidad:</b> 02</p>
+
+  <table class="p-table">
+    <tr><th style="width:6%">Sem.</th><th style="width:32%">Criterios de desempeño</th><th style="width:38%">Conocimientos</th><th style="width:24%">Retroalimentación formal</th></tr>
+    <tr><td>10</td><td>Dispositivos Switches y Routers son identificados para comprender el funcionamiento práctico de direccionamiento de IP.</td><td>Dispositivo Router: técnicas de enrutamiento, protocolos IPv6, paquetes, procesos, interfaces y estructura.</td><td>Exposición</td></tr>
+    <tr><td>11</td><td>Simulaciones de direccionamiento de IPs v4 y v6 son implementadas en Cisco Packet Tracer para simular redes.</td><td>Configuración de servicios de Router: direccionamiento de IPs de redes y subredes con Cisco Packet Tracer.</td><td>Exposición</td></tr>
+    <tr><td>12</td><td>Los protocolos, medios y servicios de las capas de transporte, presentación y sesión son aplicados en las redes de comunicación de datos.</td><td>Capas Transporte, Sesión, Presentación y Aplicación: funciones, servicios y protocolos (TCP/UDP, NFS, NIS, DNS, LDAP, TELNET, FTP, RLOGIN, RSH, RCP, RIP, RDISC, SNMP y otros).</td><td>Exposición</td></tr>
+    <tr><td>13</td><td>Protocolos de enrutamiento estático o dinámico son configurados para la administración de redes utilizando Packet Tracer.</td><td>Enrutamiento estático y dinámico de redes: configuración de servicios.</td><td>Unidad 2 EV (100%) — Proyecto: configuración de servidores DNS, HTTP, FTP y correos en Cisco Packet Tracer</td></tr>
+    <tr><td>14</td><td>Las redes inalámbricas son diseñadas, configuradas y simuladas en Cisco Packet Tracer para casos de redes.</td><td>Redes Inalámbricas (WLAN): arquitectura, servicios y control de acceso al medio IEEE 802.11.</td><td>Práctica en Cisco Packet Tracer</td></tr>
+    <tr><td>15</td><td>Las redes satelitales son reconocidas para proponer sistemas de comunicación alternativos en telecomunicaciones.</td><td>Redes Satelitales: arquitectura, servicios y control de acceso al medio de redes globales.</td><td>Foro</td></tr>
+    <tr><td>16</td><td>Las redes de fibra óptica, sus elementos y características son reconocidos para implementar redes avanzadas.</td><td>Arquitectura, estructura y características de redes ópticas.</td><td>Formula un proyecto de red de área local (LAN), con subneteo</td></tr>
+    <tr><td>17</td><td>Sistemas de seguridad de redes son validados para asegurar un sistema de procesamiento remoto seguro y confiable según normatividad técnica.</td><td>Fundamentos de seguridad de la red de computadoras.</td><td>Examen escrito</td></tr>
+  </table>
+  <p class="p-progress">Porcentaje de avance académico de la unidad: 100%</p>
+  <p class="p-note">Durante el desarrollo de la unidad, el docente deberá implementar procesos permanentes de evaluación formativa, brindando retroalimentación descriptiva y reflexiva a partir de los criterios de desempeño establecidos, con la finalidad de orientar la mejora progresiva de las evidencias de aprendizaje y promover la autorregulación del aprendizaje en los estudiantes.</p>
+
+  <h2 class="p-section">VI. Estrategias Metodológicas</h2>
+  <h3 class="p-sub">6.1 De enseñanza</h3>
+  <p>Exposiciones y conferencias magistrales: videoconferencia, foros de debate, chat en línea, diapositivas en PPT, videos referenciales. Actividades asíncronas: plataforma del aula virtual, foros de análisis y discusión, tareas en aula virtual, biblioteca virtual, enseñanza basada en problemas, casos y proyectos. Metodología de proyectos de investigación, clases magistrales.</p>
+  <h3 class="p-sub">6.2 De aprendizaje</h3>
+  <p>Comprensión de textos, producción de folletos de ejercicios resueltos, trabajos grupales, debate, exposición. Estrategias de elaboración y organización de aprendizaje basado en problemas, casos y proyectos. Aulas virtuales asíncronas y síncronas, videos de YouTube, videoconferencias grabadas, diapositivas.</p>
+  <h3 class="p-sub">6.3 De investigación formativa</h3>
+  <p>Investigación activa y seminarios de investigación y proyecto de semilleros.</p>
+  <h3 class="p-sub">6.4 De responsabilidad social universitaria</h3>
+  <p>Investigación diagnóstica de la problemática educativa en una IES estatal de la ciudad de Puno.</p>
+  <h3 class="p-sub">6.5 De enseñanza virtual</h3>
+  <p>Navegación de páginas web en el proceso de investigación, utilización de plataforma de videoconferencia Zoom, utilización de plataforma de aulas virtuales UNAP, utilización de aulas virtuales G-Suite y Moodle. Utilización de redes sociales como YouTube, Facebook, etc. en el proceso de aprendizaje, videos interactivos, redes sociales para comunicación como WhatsApp.</p>
+
+  <h2 class="p-section">VII. Medios y Materiales Didácticos</h2>
+  <p><b>Medios:</b> Presentaciones en PowerPoint, textos seleccionados, separatas, guías de laboratorios, aula virtual, videoconferencia, biblioteca virtual, documentos bibliográficos digitales, videos.</p>
+  <p><b>Materiales:</b> Diapositivas en PPT, separatas y guías de trabajo, páginas web, software: Cisco Packet Tracer, Benchwork.</p>
+
+  <h2 class="p-section">VIII. Evaluación del Aprendizaje</h2>
+  <h3 class="p-sub">8.1 Logro de aprendizaje, evidencias de desempeño, ponderación, técnicas e instrumentos de evaluación</h3>
+  <table class="p-table">
+    <tr><th style="width:6%">Unidad</th><th style="width:34%">Logros de aprendizaje</th><th style="width:16%">Evidencias</th><th style="width:10%">Ponderación</th><th style="width:16%">Técnicas</th><th style="width:18%">Instrumentos</th></tr>
+    <tr><td>1</td><td>Determina las condiciones técnicas y arquitectónicas del funcionamiento de Redes Informáticas y teleprocesamiento tomando en cuenta arquitectura, medios, elementos y protocolos.</td><td>Unidad 1 EV (100%)</td><td>50%</td><td>Comprobación, expresión oral, análisis de desempeño</td><td>Prueba escrita, Rúbrica 3, Rúbrica 1</td></tr>
+    <tr><td>2</td><td>Diseño arquitectónico lógico y protocolar en diferentes capas de OSI y TCP/IP.</td><td>Unidad 2 EV (100%)</td><td>50%</td><td>Comprobación, expresión oral, análisis de desempeño</td><td>Prueba escrita, Rúbrica 3, Rúbrica 2</td></tr>
+  </table>
+
+  <h3 class="p-sub">8.2 Evidencias de aprendizaje del semestre académico</h3>
+  <table class="p-table">
+    <tr><th style="width:40%">Logro de aprendizaje del curso</th><th style="width:44%">Evidencias: acción, objeto o producto</th><th style="width:16%">Fecha de presentación</th></tr>
+    <tr><td rowspan="2">Comprende el fundamento de Arquitectura de Redes y Protocolos para diseño, configuración y administración de redes de telecomunicaciones utilizando algunas herramientas de simulación.</td><td>Diseño y construcción de medio físico guiado con cable par trenzado UTP y coaxial.</td><td>Semana 9</td></tr>
+    <tr><td>Diseño y configuración de servidores DHCP, DNS, Web, FTP y Correos en Cisco Packet Tracer.</td><td>Semana 17</td></tr>
+  </table>
+  <p class="p-note">Es el trabajo realizado durante el desarrollo del curso, con el monitoreo permanente del docente. Es importante tener en cuenta que la naturaleza del producto debe ser coherente con el logro del aprendizaje.</p>
+
+  <h3 class="p-sub">8.3 Calificación</h3>
+  <p>La fórmula para la obtención del promedio parcial de cada unidad didáctica es la siguiente:</p>
+  <ul class="p-plain">
+    <li>Promedio parcial de la unidad 1 = 40% (EVI 1) + 60% (EVI 2)</li>
+    <li>Promedio parcial de la unidad 2 = 30% (EVI 1) + 20% (EVI 2) + 50% (EVI 3)</li>
+  </ul>
+  <p>La fórmula para la obtención del promedio final del curso es la siguiente:</p>
+  <ul class="p-plain">
+    <li>Promedio final = 50% (I UPP) + 50% (II UPP)</li>
+    <li>I UPP: Primera unidad promedio parcial &nbsp;·&nbsp; II UPP: Segunda unidad promedio parcial</li>
+  </ul>
+
+  <h2 class="p-section">IX. Fuentes de Información</h2>
+  <h3 class="p-sub">9.1 Bibliográficas</h3>
+  <span class="p-biblio-label">Básica</span>
+  <ul class="p-plain">
+    <li>Apaza T., A. (2002). <i>Redes y Teleproceso</i> (1ra ed.). Puno, Perú: Lucero Impresiones.</li>
+    <li>Domingo, A. A. (2013). <i>Redes locales</i>. McGraw-Hill/Interamericana de España.</li>
+    <li>Dordoigne, J. (2015). <i>Redes informáticas — Nociones fundamentales</i> (5ta ed.). Ediciones Eni.</li>
+    <li>Font, R., Lara, E., Serral i Gracià, R. &amp; Vilajosana, X. (2011). <i>Estructura de redes de computadores</i>. Cataluña, España: Universitat Oberta de Catalunya.</li>
+    <li>Herrera P., E. (2004). <i>Introducción a las telecomunicaciones modernas</i>. México: Limusa.</li>
+    <li>Pérez, S. C. &amp; Facchini, H. (2017). <i>Dispositivos y protocolos de redes LAN y WAN — Conmutadores y encaminadores</i>. Mendoza, Argentina: UTN Regional Mendoza.</li>
+    <li>Stallings, W. (2004). <i>Comunicaciones y Redes de Computadores</i> (7ma ed.). Madrid, España: Pearson Educación.</li>
+    <li>Tanenbaum, A. S. &amp; Wetherall, D. J. (2012). <i>Redes de computadoras</i> (5ta ed.). México: Pearson Educación.</li>
+  </ul>
+  <span class="p-biblio-label">Complementarias</span>
+  <ul class="p-plain">
+    <li>Carballar, J. (2005). <i>Wi-Fi: Cómo construir una Red Inalámbrica</i>. AlfaOmega.</li>
+    <li>Carballar, J. (2007). <i>Wi-Fi: Instalación, Seguridad y Aplicaciones</i> (1ra ed.). AlfaOmega-Rama A.</li>
+    <li>Huidobro, J. M. (2001). <i>Redes y servicios de Telecomunicaciones</i>. Paraninfo.</li>
+    <li>Tomasi, W. (2003). <i>Sistemas de Comunicación Electrónicas</i> (4ta ed.). México: Pearson Educación.</li>
+  </ul>
+  <span class="p-biblio-label">Electrónicas</span>
+  <ul class="p-plain">
+    <li>Liberatori, M. C. (2018). <i>Redes de datos y sus protocolos</i> (1ra ed.). Mar del Plata, Argentina: EUDEM.</li>
+    <li>GSMA (2017). <i>Emisión Electromagnética de la Tecnología 5G, el Internet de las Cosas y los Accesorios Tecnológicos</i>. Sede Central de GSMA.</li>
+  </ul>
+  <span class="p-biblio-label">Producción intelectual del docente relacionado con el curso</span>
+  <ul class="p-plain">
+    <li>Apaza T., A. (2020). <i>Redes y Teleproceso</i> (2da ed.). Puno, Perú: Lucero Impresiones.</li>
+  </ul>
+
+  <p class="p-footer-date">Puno, Julio del 2026</p>
+
 </div>
 
 <button id="topBtn" class="top-btn" onclick="window.scrollTo({top:0, behavior:'smooth'})" aria-label="Volver arriba">
