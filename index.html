@@ -65,33 +65,47 @@ body{ margin:0; background:transparent; font-family:'Spectral', serif; color:var
 .wrap{max-width:1000px; margin:0 auto; padding:0 24px 90px; position:relative; z-index:1;}
 
 .frame{
-  position:relative; border:1.5px solid var(--line); border-top:none;
-  border-radius:0 0 6px 6px; padding:3px; background:var(--paper);
-  box-shadow:0 20px 40px -20px var(--shadow);
+  position:relative; padding:3px; background:transparent;
 }
-.corner{ position:absolute; width:34px; height:34px; opacity:.55; z-index:2; }
-.corner svg{ width:100%; height:100%; }
-.corner.bl{ bottom:6px; left:6px; transform:scaleY(-1); }
-.corner.br{ bottom:6px; right:6px; transform:scale(-1,-1); }
-.frame-inner{ border:1px solid var(--line); border-radius:0 0 4px 4px; padding:44px 46px 50px; position:relative; }
+.corner{ display:none; }
+.frame-inner{ padding:44px 26px 50px; position:relative; }
 
-p.intro{ font-size:15px; line-height:1.75; color:var(--ink); text-align:center; max-width:640px; margin:0 auto 30px;}
+p.intro{ font-size:15px; line-height:1.75; color:#efe6d0; text-align:center; max-width:640px; margin:0 auto 30px; text-shadow:0 2px 8px rgba(0,0,0,.5);}
 
-.flourish{ text-align:center; color:var(--gold-dim); font-size:15px; letter-spacing:8px; margin:0 0 30px; opacity:.7; }
+.flourish{ text-align:center; color:var(--gold); font-size:15px; letter-spacing:8px; margin:0 0 30px; opacity:.85; text-shadow:0 2px 6px rgba(0,0,0,.4); }
 
 .grid{
-  display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:18px;
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:34px 24px;
+  padding-top:16px;
 }
 .card{
   display:block; text-decoration:none; color:inherit;
   background:var(--paper-2); border:1px solid var(--line); border-radius:6px;
-  padding:22px 22px 20px 26px; position:relative; transition:transform .15s ease, box-shadow .15s ease;
+  padding:26px 22px 20px 26px; position:relative;
+  box-shadow:0 18px 30px -12px rgba(0,0,0,.55), 0 4px 10px -4px rgba(0,0,0,.35);
+  transform:rotate(var(--tilt,0deg));
+  transition:transform .2s ease, box-shadow .2s ease;
 }
+.grid .card:nth-child(1){ --tilt:-1.4deg; }
+.grid .card:nth-child(2){ --tilt:1deg; }
+.grid .card:nth-child(3){ --tilt:-0.8deg; }
+.grid .card:nth-child(4){ --tilt:1.6deg; }
+.grid .card:nth-child(5){ --tilt:-1.2deg; }
+.grid .card:nth-child(6){ --tilt:0.9deg; }
 .card::before{
   content:""; position:absolute; left:0; top:14px; bottom:14px; width:4px;
   background:var(--wine); border-radius:2px; transition:background .15s ease;
 }
-.card:hover{ transform:translateY(-3px); box-shadow:0 14px 26px -14px var(--shadow); }
+.card::after{
+  content:""; position:absolute; top:-9px; left:50%; transform:translateX(-50%);
+  width:16px; height:16px; border-radius:50%;
+  background:radial-gradient(circle at 35% 30%, #f0cf87, var(--gold-dim));
+  box-shadow:0 3px 5px rgba(0,0,0,.45);
+}
+.card:hover{
+  transform:rotate(0deg) translateY(-6px) scale(1.02);
+  box-shadow:0 26px 40px -14px rgba(0,0,0,.6), 0 6px 14px -6px rgba(0,0,0,.4);
+}
 .card:hover::before{ background:var(--gold); }
 .card-code{
   font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:1.5px;
@@ -110,8 +124,9 @@ p.intro{ font-size:15px; line-height:1.75; color:var(--ink); text-align:center; 
 }
 
 footer{
-  text-align:center; margin-top:44px; padding-top:22px; border-top:1px solid var(--line);
-  font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:1px; color:var(--ink-soft);
+  text-align:center; margin-top:44px; padding-top:22px; border-top:1px solid rgba(216,198,163,.35);
+  font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:1px; color:#c9c2ad;
+  text-shadow:0 2px 6px rgba(0,0,0,.5);
 }
 
 @media (max-width:600px){
