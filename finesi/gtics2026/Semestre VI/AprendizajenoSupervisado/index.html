@@ -314,21 +314,72 @@ footer{
   .frame-inner{ padding:30px 22px 36px; }
 }
 
+/* ===== Documento oficial del sílabo (visible en pantalla y al imprimir) ===== */
+.p-header{ text-align:center; margin-bottom:22px; padding-bottom:16px; border-bottom:2px solid var(--gold); }
+.p-header .p-title{
+  font-family:'Fraunces', serif; font-weight:700; font-size:24px; letter-spacing:1px;
+  margin:0 0 6px; color:var(--wine-dim);
+}
+.p-header .p-org{ font-size:12.5px; font-weight:600; margin:2px 0; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.3px; }
+
+h2.p-section{
+  font-family:'Fraunces', serif; font-weight:600; font-size:18px; color:#fdf6ee;
+  background:var(--wine); padding:8px 14px; margin:32px 0 14px; border-radius:4px;
+  text-transform:none; letter-spacing:.2px;
+}
+h3.p-sub{ font-family:'Fraunces', serif; font-weight:600; font-size:15px; color:var(--wine-dim); margin:16px 0 6px; }
+.p-header + h2.p-section, h2.p-section:first-of-type{ margin-top:0; }
+
+.frame-inner p{ font-size:14.5px; line-height:1.7; margin:6px 0; text-align:justify; color:var(--ink); }
+ul.p-fields{ list-style:none; margin:0 0 10px; padding:0; columns:1; }
+ul.p-fields li{ margin:4px 0; font-size:14px; color:var(--ink); }
+ul.p-fields b{ color:var(--wine-dim); }
+ul.p-plain{ margin:6px 0 10px 20px; padding:0; }
+ul.p-plain li{ margin-bottom:6px; font-size:14px; line-height:1.6; color:var(--ink); }
+
+table.p-table{ width:100%; border-collapse:collapse; margin:10px 0 16px; font-size:12.5px; }
+table.p-table th{
+  background:var(--wine); color:#fdf6ee; border:1px solid var(--line); padding:7px 8px;
+  text-align:left; font-weight:600; font-size:11.5px;
+}
+table.p-table td{ border:1px solid var(--line); padding:7px 8px; vertical-align:top; color:var(--ink); }
+table.p-table tr:nth-child(even) td{ background:rgba(216,168,78,.07); }
+
+.p-unit-meta{ font-size:13px; margin:4px 0 10px; color:var(--ink-soft); }
+.p-unit-meta b{ color:var(--ink); font-weight:600; }
+.p-progress{ font-size:13px; font-weight:700; margin:8px 0; color:var(--sage-dim); }
+.p-note{ font-size:12px; font-style:italic; color:var(--ink-soft); margin:6px 0 0; }
+.p-footer-date{ text-align:right; margin-top:30px; font-size:14px; color:var(--ink-soft); font-style:italic; }
+.p-biblio-label{ font-weight:700; text-transform:uppercase; font-size:11.5px; display:block; margin:12px 0 4px; color:var(--sage-dim); letter-spacing:.5px; }
+
 @media print{
-  .foto-fixed, .hero::before, .hero-actions, .breadcrumb, nav.toc, .top-btn, .footer-back{
-    display:none !important;
-  }
+  .foto-fixed, .hero-actions, .breadcrumb, nav.toc, .top-btn, .footer-back{ display:none !important; }
   body, .hero{ background:#fff !important; color:#000 !important; }
-  .hero{ border-bottom:2px solid #333; padding:20px 10px; }
+  .hero{ border-bottom:2px solid #333; padding:16px 10px; }
   .hero h1, .hero-code, .hero .subtitle, .hero .docente-box, .hero .docente-box b, .hero .pill{
     color:#000 !important; text-shadow:none !important; border-color:#333 !important; background:none !important;
   }
   .frame{ border:none; box-shadow:none; background:#fff; }
   .frame-inner{ border:none; padding:0; }
   .wrap{ max-width:100%; padding:0; }
-  .unit-card, .contact-box{ background:#f7f7f7 !important; break-inside:avoid; }
-  section{ break-inside:avoid-page; }
-  a{ color:#000 !important; text-decoration:none !important; }
+  .corner{ display:none; }
+
+  .p-header{ border-bottom:2px solid #000; }
+  .p-header .p-title, .p-header .p-org{ color:#000 !important; }
+  h2.p-section{ background:#e4e4e4 !important; color:#000 !important; border:1px solid #000; border-radius:0; }
+  h3.p-sub{ color:#000 !important; }
+  .frame-inner p, ul.p-fields li, ul.p-plain li{ color:#000 !important; }
+  ul.p-fields b{ color:#000 !important; }
+  table.p-table th{ background:#ddd !important; color:#000 !important; border-color:#000; }
+  table.p-table td{ border-color:#000 !important; color:#000 !important; }
+  table.p-table tr:nth-child(even) td{ background:#f2f2f2 !important; }
+  .p-progress, .p-note, .p-footer-date, .p-biblio-label, .p-unit-meta{ color:#000 !important; }
+
+  table.p-table{ break-inside:auto; }
+  tr{ break-inside:avoid; }
+  h2.p-section{ break-after:avoid; break-inside:avoid; }
+  h3.p-sub{ break-after:avoid; }
+  @page{ margin:14mm 12mm; }
 }
 </style>
 </head>
@@ -355,7 +406,7 @@ footer{
   <div class="docente-box">
     <b>Prerrequisito:</b> EST312 — Estadística Computacional<br>
     <b>Docente:</b> Alemán Gonzales Leonid — Nombrado-Ordinario, Profesor Asociado<br>
-    <b>Ambiente:</b> Aula 201 · Pabellón A y Laboratorio 02
+    <b>Ambiente:</b> Aula 201, Pabellón A y Laboratorio 02
   </div>
 </div>
 
@@ -370,119 +421,223 @@ footer{
     </div>
 
     <nav class="toc">
-      <a href="#sumilla">Sumilla</a>
-      <a href="#perfil">Perfil</a>
-      <a href="#logro">Logro</a>
-      <a href="#contenido">Contenido</a>
-      <a href="#metodologia">Metodología</a>
-      <a href="#evaluacion">Evaluación</a>
-      <a href="#bibliografia">Bibliografía</a>
-      <a href="#contacto">Contacto</a>
+      <a href="#p-info">Información</a>
+      <a href="#p-sumilla">Sumilla</a>
+      <a href="#p-perfil">Perfil</a>
+      <a href="#p-logro">Logro</a>
+      <a href="#p-unidades">Unidades</a>
+      <a href="#p-metodologia">Metodología</a>
+      <a href="#p-medios">Medios</a>
+      <a href="#p-evaluacion">Evaluación</a>
+      <a href="#p-fuentes">Fuentes</a>
     </nav>
 
-    <section id="sumilla">
-      <h2>Sumilla</h2>
-      <p class="body-text dropcap">El curso de Aprendizaje No Supervisado corresponde al área curricular de Estudios de especialidad, es de naturaleza teórico-práctica, cuyo propósito es proponer y aplicar técnicas de preparación, preprocesamiento, reducción de la dimensionalidad, agrupamiento y reglas de asociación sobre un conjunto de datos y sus aplicaciones. Unidad I: metodología, técnicas de preprocesamiento y reducción de dimensionalidad. Unidad II: técnicas de agrupamiento, reglas de asociación y aplicaciones avanzadas.</p>
-    </section>
 
-    <section id="perfil">
-      <h2>Perfil del egresado</h2>
-      <p class="body-text">CE2. Construye y analiza modelos estadísticos y/o algoritmos computacionales para la toma de mejores decisiones en condiciones de incertidumbre, para el desarrollo de la región y el país, asumiendo una actitud científica y ética, utilizando técnicas estadísticas y/o informáticas referidas a la ciencia de datos.</p>
-    </section>
+  <div class="p-header">
+    <p class="p-title">SÍLABO</p>
+    <p class="p-org">Facultad Ingeniería Estadística e Informática</p>
+    <p class="p-org">Escuela Profesional Ingeniería Estadística e Informática</p>
+    <p class="p-org">Programa de Estudios Ingeniería Estadística e Informática</p>
+  </div>
 
-    <section id="logro">
-      <h2>Logro del curso</h2>
-      <p class="body-text">Aplica adecuadamente las técnicas de aprendizaje no supervisado para el desarrollo aplicado a casos avanzados, en cuatro dimensiones: metodología, reducción de dimensionalidad, agrupamiento y reglas de decisiones.</p>
-    </section>
+  <h2 class="p-section" id="p-info">I. Información General</h2>
+  <h3 class="p-sub">1.1 Identificación Académica</h3>
+  <ul class="p-fields">
+    <li><b>a) Curso:</b> Aprendizaje No Supervisado</li>
+    <li><b>b) Código:</b> EST314</li>
+    <li><b>c) Prerrequisito:</b> EST312 — Estadística Computacional</li>
+    <li><b>d) Número de horas lectivas:</b> 03h teóricas, 02h prácticas, Total 05 horas</li>
+    <li><b>e) Número de horas no lectivas del estudiante:</b> 1 h y 40 min</li>
+    <li><b>f) N° de créditos:</b> 04</li>
+    <li><b>g) Número de horas virtuales por unidad:</b> 02</li>
+    <li><b>h) Área curricular:</b> Estudios de especialidad</li>
+    <li><b>i) Ciclo del plan de estudios:</b> VI</li>
+    <li><b>j) Características del curso:</b> Teórico práctico</li>
+    <li><b>k) Duración:</b> Del 30 de marzo al 31 de julio del 2026</li>
+    <li><b>l) Semestre académico:</b> 2026-I</li>
+    <li><b>m) Modalidad de estudios:</b> Presencial</li>
+    <li><b>n) Idioma de desarrollo del curso:</b> Español</li>
+    <li><b>o) Currículo vigente:</b> 2021 - 2025 V.2.0</li>
+    <li><b>p) Nivel de desempeño:</b> Avanzado</li>
+  </ul>
 
-    <div class="flourish">❧</div>
-    <section id="contenido">
-      <h2>Contenido</h2>
-      <div class="unit-card">
-        <p class="unit-title">Unidad I · Metodología, preprocesamiento y reducción de dimensionalidad</p>
-        <p class="unit-meta"><b>Duración:</b> 30 de marzo al 1 de junio 2026 (semanas 1–9, 45 horas)<br><b>Logro de unidad:</b> Aplica adecuadamente la metodología y técnicas de preprocesamiento de datos y reducción de dimensionalidad de las variables para casos de aplicación.</p>
-        <ul class="week-list">
-          <li><b>Semanas 1–2:</b> Introducción al aprendizaje automático no supervisado, metodología de proyectos y flujo de trabajo.</li>
-          <li><b>Semanas 3–4:</b> Preprocesamiento y preparación de datos, Data Wrangling y Feature Engineering.</li>
-          <li><b>Semanas 5–6:</b> Reducción de dimensionalidad clásica y basada en redes neuronales — PCA, SVD, LDA, t-SNE, UMAP, Isomap, LLE. Evaluación de técnicas básicas ANS (50%).</li>
-          <li><b>Semanas 7–8:</b> Reducción probabilística y basada en grafos, extracción avanzada de características — Factor Analysis, SimCLR, Isolation Forest, One-Class SVM.</li>
-          <li><b>Semana 9:</b> Avance de proyecto de aplicación. Evaluación parcial de reducción de dimensionalidad (50%).</li>
-        </ul>
-      </div>
-      <div class="unit-card">
-        <p class="unit-title">Unidad II · Agrupamiento, reglas de asociación y aplicaciones avanzadas</p>
-        <p class="unit-meta"><b>Duración:</b> 1 de junio al 31 de julio 2026 (semanas 10–18, 45 horas)<br><b>Logro de unidad:</b> Aplica adecuadamente técnicas de agrupamiento y reglas de asociación del aprendizaje no supervisado en aplicaciones reales.</p>
-        <ul class="week-list">
-          <li><b>Semanas 10–11:</b> Clustering particional (k-means, k-medoids), jerárquico (Agglomerative) y basado en densidad (DBSCAN, HDBSCAN).</li>
-          <li><b>Semanas 12–13:</b> Clustering probabilístico (Gaussian Mixture Model), basado en grafos (Spectral Clustering), difuso (Fuzzy C-Means) y Deep Embedded Clustering.</li>
-          <li><b>Semanas 14–15:</b> Reglas de asociación: support, confidence, lift, algoritmos Apriori, FP-Growth, Eclat; variantes ponderadas y secuenciales. Evaluación de técnicas avanzadas de agrupamiento (50%).</li>
-          <li><b>Semanas 16–18:</b> Enfoques avanzados (big data, grafos, deep learning), integración final del proyecto y defensa. Evaluación final de Aprendizaje No Supervisado (50%).</li>
-        </ul>
-      </div>
-    </section>
+  <h3 class="p-sub">1.2 Docente</h3>
+  <ul class="p-fields">
+    <li><b>a) Apellidos y nombres:</b> Alemán Gonzales Leonid</li>
+    <li><b>b) Condición y categoría:</b> Nombrado-Ordinario, Profesor Asociado</li>
+    <li><b>c) Especialidad:</b> Ingeniería de Software / Ciencia de Datos</li>
+  </ul>
 
-    <div class="flourish">❧</div>
-    <section id="metodologia">
-      <h2>Metodología</h2>
-      <ul class="plain">
-        <li><b>Enseñanza:</b> Videoconferencias, foros de discusión en línea, sala de chat, materiales de lectura, diapositivas y videos.</li>
-        <li><b>Aprendizaje:</b> Análisis de textos, uso de Google Colab y Jupyter Notebook, lenguajes R y Python, resolución de casos y debate.</li>
-        <li><b>Investigación formativa:</b> Revisión estructurada de recursos bibliográficos y presentación de informes con normas APA e IEEE.</li>
-        <li><b>Responsabilidad social:</b> Análisis de problemas sociales mediante estudios de caso o proyectos, con difusión de resultados.</li>
-        <li><b>Enseñanza virtual:</b> Aula virtual, materiales digitales y almacenamiento/procesamiento paralelo en la nube.</li>
-      </ul>
-    </section>
+  <h3 class="p-sub">1.3 Ambiente donde se realizó el aprendizaje</h3>
+  <p>a) Aula 201, Pabellón A y Laboratorio 02.</p>
 
-    <section id="evaluacion">
-      <h2>Evaluación</h2>
-      <table class="eval">
-        <tr><th>Unidad</th><th>Logro de aprendizaje</th><th>Evidencias</th><th>Ponderación</th></tr>
-        <tr><td>1</td><td>Metodología, preprocesamiento y reducción de dimensionalidad</td><td>Evaluación técnicas básicas (50%) + Evaluación parcial reducción (50%)</td><td>50%</td></tr>
-        <tr><td>2</td><td>Agrupamiento y reglas de asociación</td><td>Evaluación técnicas avanzadas (50%) + Evaluación final (50%)</td><td>50%</td></tr>
-      </table>
-      <p class="formula-note">Promedio parcial de unidad = 50% (EVI 1) + 50% (EVI 2) &nbsp;·&nbsp; Promedio final del curso = 50% (I UPP) + 50% (II UPP)</p>
-    </section>
+  <h2 class="p-section" id="p-sumilla">II. Sumilla</h2>
+  <p>El curso de Aprendizaje No Supervisado corresponde al área curricular de estudios de especialidad, es de naturaleza teórico-práctica, cuyo propósito es proponer y aplicar técnicas de preparación, preprocesamiento, reducción de la dimensionalidad, agrupamiento y reglas de asociación sobre un conjunto de datos y sus aplicaciones. Su contenido está organizado en:</p>
+  <ul class="p-plain">
+    <li>Unidad I: Metodología, técnicas de preprocesamiento y reducción de dimensionalidad en variables de problemas de aplicación.</li>
+    <li>Unidad II: Técnicas de agrupamiento, reglas de asociación y aplicaciones avanzadas.</li>
+  </ul>
 
-    <div class="flourish">❧</div>
-    <section id="bibliografia">
-      <h2>Bibliografía</h2>
-      <div class="biblio-block">
-        <span class="biblio-label">Básica</span>
-        <ul class="plain">
-          <li>Correa, J. (2014). <i>Introducción a la Estadística Bayesiana con R</i>. Universidad Nacional de Medellín, Colombia.</li>
-          <li>Correa, J. (2019). <i>Introducción a la Estadística Bayesiana</i>. Instituto Tecnológico Metropolitano.</li>
-          <li>Barber, D. (2017). <i>Bayesian Reasoning and Machine Learning</i> (3ra ed.). Cambridge University Press.</li>
-          <li>Theodoridis, S. (2017). <i>Machine Learning: A Bayesian and Optimization Perspective</i>. Elsevier Ac. Press.</li>
-          <li>Hoff, P. (2009). <i>A First Course in Bayesian Statistical Methods</i>. Springer, USA.</li>
-          <li>Goodfellow, I. &amp; Bengio, Y. (2016). <i>Deep Learning</i>. MIT Press, USA.</li>
-          <li>Bishop, C. (2006). <i>Pattern Recognition and Machine Learning</i>. Springer, USA.</li>
-        </ul>
-      </div>
-      <div class="biblio-block">
-        <span class="biblio-label">Complementaria</span>
-        <ul class="plain">
-          <li>Hastie, T., Tibshirani, R. &amp; Friedman, J. (2014). <i>The Elements of Statistical Learning</i> (2da ed.). Springer.</li>
-          <li>Russell, S. &amp; Norvig, P. (2014). <i>Inteligencia Artificial: Un Enfoque Moderno</i> (3ra ed.). Prentice Hall, México.</li>
-          <li>Stanton, J. (2017). <i>Reasoning with Data: Traditional and Bayesian Statistics Using R</i>. The Guilford Press.</li>
-        </ul>
-      </div>
-      <div class="biblio-block">
-        <span class="biblio-label">Electrónica</span>
-        <ul class="plain">
-          <li>cs.sunysb.edu/~algorith — Algorithm and heuristics.</li>
-          <li>realpython.com/tutorials/machine-learning — Python Machine Learning Tutorials.</li>
-        </ul>
-      </div>
-      <div class="biblio-block">
-        <span class="biblio-label">Producción intelectual del docente</span>
-        <ul class="plain"><li>Guías de programación con Python para Machine Learning (2019).</li></ul>
-      </div>
-    </section>
+  <h2 class="p-section" id="p-perfil">III. Perfil del Egresado</h2>
+  <p>CE2. Construye y analiza modelos estadísticos y/o algoritmos computacionales para la toma de mejores decisiones en condiciones de incertidumbre, para el desarrollo de la región y el país, asumiendo una actitud científica y ética, utilizando técnicas estadísticas y/o informáticas referidas a la ciencia de datos.</p>
 
-    <section id="contacto">
-      <h2>Contacto</h2>
-      <div class="contact-box">Escuela Profesional de Ingeniería Estadística e Informática — FINESI, Universidad Nacional del Altiplano, Puno.</div>
-    </section>
+  <h2 class="p-section" id="p-logro">IV. Logro de Aprendizaje del Curso</h2>
+  <p>Aplica adecuadamente las técnicas de aprendizaje no supervisado para el desarrollo aplicado a casos avanzados, en cuatro dimensiones:</p>
+  <ul class="p-plain">
+    <li>Metodología</li>
+    <li>Reducción de dimensionalidad</li>
+    <li>Agrupamiento</li>
+    <li>Reglas de decisiones</li>
+  </ul>
+
+  <h2 class="p-section" id="p-unidades">V. Tratamiento de Unidades Didácticas</h2>
+
+  <h3 class="p-sub">Unidad 1: Metodología, preprocesamiento y reducción de dimensionalidad</h3>
+  <p class="p-unit-meta"><b>Logro de aprendizaje de la unidad:</b> Aplica adecuadamente la metodología y técnicas de preprocesamiento de datos y reducción de dimensionalidad de las variables para casos de aplicación.</p>
+  <p class="p-unit-meta"><b>Tiempo de desarrollo:</b> Del 30 de marzo al 1 de junio del 2026 (Total 45 horas) &nbsp;·&nbsp; <b>Horas de enseñanza virtual/unidad:</b> 04</p>
+
+  <table class="p-table">
+    <tr><th style="width:6%">Sem.</th><th style="width:32%">Criterios de desempeño</th><th style="width:38%">Conocimientos</th><th style="width:24%">Retroalimentación formal</th></tr>
+    <tr><td>1</td><td>Comprende el aprendizaje automático, la metodología, sus variantes y sus aplicaciones reales.</td><td>Introducción al aprendizaje automático, tipos de aprendizaje automático, aprendizaje automático no supervisado, diferencias respecto a otros tipos de aprendizaje automático, aplicaciones en la vida real.</td><td>—</td></tr>
+    <tr><td>2</td><td>Comprende los proyectos basados en la metodología del aprendizaje automático no supervisado.</td><td>Proyectos con la metodología para aprendizaje automático no supervisado, flujo de trabajo y elementos de trabajo.</td><td>—</td></tr>
+    <tr><td>3</td><td>Prepara los datos con criterio adecuado para el modelamiento con técnicas de aprendizaje no supervisado.</td><td>Preprocesamiento, preparación de datos, limpieza, transformación de datos y codificación de variables.</td><td>—</td></tr>
+    <tr><td>4</td><td>Analiza la propiedad de técnicas de Data Wrangling y la ingeniería de características.</td><td>Data wrangling. Feature engineering.</td><td>—</td></tr>
+    <tr><td>5</td><td>Comprende la aplicación idónea de la reducción de dimensionalidad y extracción de características.</td><td>Técnicas de reducción de dimensionalidad y extracción de características, métodos clásicos: lineales y no lineales (manifold learning). PCA, SVD, LDA, t-SNE, UMAP, Isomap, LLE.</td><td>—</td></tr>
+    <tr><td>6</td><td>Comprende la aplicación adecuada de las redes neuronales en la reducción de dimensionalidad.</td><td>Redes neuronales. Reducción de dimensionalidad basada en redes neuronales.</td><td>Evaluación de técnicas básicas ANS (50%)</td></tr>
+    <tr><td>7</td><td>Comprende la aplicación idónea de la reducción de dimensionalidad.</td><td>Reducción de dimensionalidad basada en técnicas probabilísticas, en grafos y métodos modernos. Factor Analysis, Gaussian Processes Latent Variable Models, Laplacian Eigenmaps.</td><td>—</td></tr>
+    <tr><td>8</td><td>Comprende la aplicación idónea de la extracción de características.</td><td>Técnicas avanzadas de extracción de características modernas: SimCLR, extracción para detección de anomalías, Isolation Forest, One-Class SVM.</td><td>—</td></tr>
+    <tr><td>9</td><td>Presenta de manera apropiada los avances de sus aplicaciones en forma de proyecto.</td><td>Avance del proyecto de aplicación. Evaluación. Retroalimentación.</td><td>Evaluación parcial de reducción de dimensionalidad (50%)</td></tr>
+  </table>
+  <p class="p-progress">Porcentaje de avance académico de la unidad: 55%</p>
+  <p class="p-note">Durante el desarrollo de la unidad, el docente deberá implementar procesos permanentes de evaluación formativa, brindando retroalimentación descriptiva y reflexiva a partir de los criterios de desempeño establecidos, con la finalidad de orientar la mejora progresiva de las evidencias de aprendizaje y promover la autorregulación del aprendizaje en los estudiantes.</p>
+
+  <h3 class="p-sub">Unidad 2: Agrupamiento, reglas de asociación y aplicaciones avanzadas</h3>
+  <p class="p-unit-meta"><b>Logro de aprendizaje de la unidad:</b> Aplica adecuadamente técnicas de agrupamiento y reglas de asociación del aprendizaje no supervisado en aplicaciones reales.</p>
+  <p class="p-unit-meta"><b>Tiempo de desarrollo:</b> Del 1 de junio al 31 de julio del 2026 (Total 45 horas) &nbsp;·&nbsp; <b>Horas de enseñanza virtual/unidad:</b> 04</p>
+
+  <table class="p-table">
+    <tr><th style="width:6%">Sem.</th><th style="width:32%">Criterios de desempeño</th><th style="width:38%">Conocimientos</th><th style="width:24%">Retroalimentación formal</th></tr>
+    <tr><td>10</td><td>Analiza y comprende los problemas de análisis de agrupamiento o clustering y plantea soluciones.</td><td>Técnicas de agrupamiento en aprendizaje no supervisado, el concepto de distancia en diferentes contextos, clustering con métodos particionales (centroides), K-Means, K-Medoids.</td><td>Dominio del tema. Explicación clara y defensa apropiada.</td></tr>
+    <tr><td>11</td><td>Analiza y comprende los problemas de análisis de agrupamiento o clustering y plantea soluciones.</td><td>Agrupamiento con métodos jerárquicos, Agglomerative Clustering, métodos basados en densidad, DBSCAN, HDBSCAN.</td><td>—</td></tr>
+    <tr><td>12</td><td>Comprende los problemas de análisis de agrupamiento o clustering y plantea soluciones.</td><td>Agrupamiento con métodos basados en modelos probabilísticos, Gaussian Mixture Model, basados en grafos, Spectral Clustering.</td><td>—</td></tr>
+    <tr><td>13</td><td>Comprende los problemas de análisis de agrupamiento o clustering con técnicas avanzadas.</td><td>Agrupamiento difuso (fuzzy): Fuzzy C-Means, métodos basados en subespacios: CLIQUE, PROCLUS, Deep Clustering (moderno), Deep Embedded Clustering (DEC).</td><td>—</td></tr>
+    <tr><td>14</td><td>Analiza las propiedades de las reglas de asociación y sus aplicaciones.</td><td>Introducción a las reglas de asociación, métricas fundamentales y avanzadas (support, confidence, importance, conviction, leverage, Jaccard), algoritmos clásicos (Apriori, FP-Growth, Eclat).</td><td>—</td></tr>
+    <tr><td>15</td><td>Comprende las variantes y extensiones de las reglas de asociación de manera crítica.</td><td>Variantes y extensiones en reglas de asociación: asociación ponderada, asociación negativa, alto orden, reglas secuenciales, algoritmos PrefixSpan, SPADE.</td><td>Evaluación de técnicas avanzadas de agrupamiento (50%)</td></tr>
+    <tr><td>16</td><td>Analiza apropiadamente los nuevos enfoques de las reglas de asociación en nuevos contextos.</td><td>Enfoques avanzados en reglas de asociación: datos continuos, big data, basadas en grafos, aprendizaje profundo.</td><td>—</td></tr>
+    <tr><td>17</td><td>Integra el desarrollo del proyecto y la idoneidad metodológica final.</td><td>Integración y revisión de proyectos pertinentes al aprendizaje no supervisado.</td><td>—</td></tr>
+    <tr><td>18</td><td>Presenta y defiende el proyecto desarrollado utilizando la pertinencia metodológica.</td><td>Dominio del tema. Explicación clara y defensa apropiada.</td><td>Evaluación final de Aprendizaje No Supervisado (50%)</td></tr>
+  </table>
+  <p class="p-progress">Porcentaje de avance académico de la unidad: 100%</p>
+  <p class="p-note">Durante el desarrollo de la unidad, el docente deberá implementar procesos permanentes de evaluación formativa, brindando retroalimentación descriptiva y reflexiva a partir de los criterios de desempeño establecidos, con la finalidad de orientar la mejora progresiva de las evidencias de aprendizaje y promover la autorregulación del aprendizaje en los estudiantes.</p>
+
+  <h2 class="p-section" id="p-metodologia">VI. Estrategias Metodológicas</h2>
+  <h3 class="p-sub">6.1 De enseñanza</h3>
+  <p><b>Actividades síncronas:</b></p>
+  <ul class="p-plain">
+    <li>Actividades en videoconferencias.</li>
+    <li>Implementación de foros de discusión en línea.</li>
+    <li>Uso de sala de chat en línea.</li>
+  </ul>
+  <p><b>Actividades asíncronas:</b></p>
+  <ul class="p-plain">
+    <li>Revisión de foros de información sobre la temática.</li>
+    <li>Planteamiento y revisión de tareas.</li>
+    <li>Uso de materiales de lectura.</li>
+    <li>Diapositivas con la temática y vídeos.</li>
+  </ul>
+  <h3 class="p-sub">6.2 De aprendizaje</h3>
+  <ul class="p-plain">
+    <li>Análisis de textos y artículos.</li>
+    <li>Revisión de guías y manuales.</li>
+    <li>Plataforma en la nube de programación Google Colab, Jupyter Notebook.</li>
+    <li>Debate, análisis y discriminación de ideas.</li>
+    <li>Uso de software de lenguajes R y Python y plataformas de programación en PC y en la nube.</li>
+    <li>Resolución de casos y exposición de propuestas de solución y análisis de soluciones.</li>
+    <li>Resolución de problemas y casos.</li>
+  </ul>
+  <h3 class="p-sub">6.3 De investigación formativa</h3>
+  <ul class="p-plain">
+    <li>Revisión de recursos bibliográficos (libros, artículos y tesis) de forma estructurada y usando herramientas automatizadas.</li>
+    <li>Presentación de informes y trabajos usando las normas APA e IEEE y herramientas de publicación de artículos y reportes de investigación (estructura, partes, gráficos, citas, referencias, similaridad).</li>
+  </ul>
+  <h3 class="p-sub">6.4 De responsabilidad social universitaria</h3>
+  <p>Analizar problemas de la sociedad a ser abordados a través de estudios de caso o proyectos y proponer soluciones buscando optimizar sus resultados, socializándolos en la realidad y difundiéndolos a través de medios sociales.</p>
+  <h3 class="p-sub">6.5 De enseñanza virtual</h3>
+  <p>Uso de aula virtual, materiales digitales y recursos de aprendizaje de la nube, así como la administración y almacenamiento del trabajo y procesamiento paralelo en la nube.</p>
+
+  <h2 class="p-section" id="p-medios">VII. Medios y Materiales Didácticos</h2>
+  <ul class="p-plain">
+    <li>Revistas indexadas.</li>
+    <li>Resúmenes de conferencias.</li>
+    <li>Uso de plataformas web, máquinas virtuales y servicios web.</li>
+    <li>Diapositivas, manuales y guías de aprendizaje digital.</li>
+    <li>Materiales en vídeo y pizarra en línea.</li>
+    <li>Software IDE y framework para Python y R.</li>
+  </ul>
+
+  <h2 class="p-section" id="p-evaluacion">VIII. Evaluación del Aprendizaje</h2>
+  <h3 class="p-sub">8.1 Logro de aprendizaje, evidencias de desempeño, ponderación, técnicas e instrumentos de evaluación</h3>
+  <table class="p-table">
+    <tr><th style="width:6%">Unidad</th><th style="width:30%">Logros de aprendizaje</th><th style="width:20%">Evidencias</th><th style="width:10%">Ponderación</th><th style="width:17%">Técnicas</th><th style="width:17%">Instrumentos</th></tr>
+    <tr><td>1</td><td>Aplica adecuadamente la metodología, técnicas de preprocesamiento de datos y reducción de dimensionalidad de las variables para casos de aplicación.</td><td>Evaluación de técnicas básicas ANS (50%) · Evaluación parcial de reducción de dimensionalidad (50%)</td><td>50%</td><td>Revisión de informes. Test valorativo. Preguntas y respuestas analíticas.</td><td>Lista de cotejo. Rúbrica.</td></tr>
+    <tr><td>2</td><td>Aplica adecuadamente técnicas de agrupamiento y reglas de asociación del aprendizaje no supervisado en aplicaciones reales.</td><td>Evaluación de técnicas avanzadas de agrupamiento (50%) · Evaluación final de Aprendizaje No Supervisado (50%)</td><td>50%</td><td>Revisión de proyecto. Test valorativo. Preguntas y respuestas.</td><td>Lista de cotejo. Rúbrica. Informe.</td></tr>
+  </table>
+
+  <h3 class="p-sub">8.2 Evidencias de aprendizaje del semestre académico</h3>
+  <table class="p-table">
+    <tr><th style="width:40%">Logro de aprendizaje del curso</th><th style="width:40%">Evidencias: acción, objeto o producto</th><th style="width:20%">Fecha de presentación</th></tr>
+    <tr><td>Aplica adecuadamente las técnicas de aprendizaje no supervisado para el desarrollo aplicado a casos avanzados, en cuatro dimensiones: metodología, reducción de dimensionalidad, agrupamiento y reglas de decisiones.</td><td>Presentación puntual y pertinente del proyecto con el caso aplicado. Resolución del test valorativo. Defensa apropiada del trabajo desarrollado.</td><td>Semana 7 y 8, del 20 al 31 de julio de 2026</td></tr>
+  </table>
+  <p class="p-note">Es el trabajo realizado durante el desarrollo del curso, con el monitoreo permanente del docente. Es importante tener en cuenta que la naturaleza del producto debe ser coherente con el logro del aprendizaje.</p>
+
+  <h3 class="p-sub">8.3 Calificación</h3>
+  <p>La fórmula para la obtención del promedio parcial de cada unidad didáctica es la siguiente:</p>
+  <ul class="p-plain">
+    <li>Promedio parcial de la unidad 1 = 50% (EVI 1) + 50% (EVI 2)</li>
+    <li>Promedio parcial de la unidad 2 = 50% (EVI 1) + 50% (EVI 2)</li>
+    <li>EVI 1: Evidencia de aprendizaje 1 &nbsp;·&nbsp; EVI 2: Evidencia de aprendizaje 2</li>
+  </ul>
+  <p>La fórmula para la obtención del promedio final del curso es la siguiente:</p>
+  <ul class="p-plain">
+    <li>Promedio final = 50% (I UPP) + 50% (II UPP)</li>
+    <li>I UPP: Primera unidad promedio parcial &nbsp;·&nbsp; II UPP: Segunda unidad promedio parcial</li>
+  </ul>
+
+  <h2 class="p-section" id="p-fuentes">IX. Fuentes de Información</h2>
+  <h3 class="p-sub">9.1 Bibliográficas</h3>
+  <span class="p-biblio-label">Básica</span>
+  <ul class="p-plain">
+    <li>Correa, J. (2014). <i>Introducción a la Estadística Bayesiana con R</i>. Medellín, Colombia: Universidad Nacional de Medellín.</li>
+    <li>Correa, J. (2019). <i>Introducción a la Estadística Bayesiana</i>. Instituto Tecnológico Metropolitano, Biblioteca ITM.</li>
+    <li>Barber, D. (2017). <i>Bayesian Reasoning and Machine Learning</i> (3ra ed.). Cambridge University Press.</li>
+    <li>Theodoridis, S. (2017). <i>Machine Learning: A Bayesian and Optimization Perspective</i>. Elsevier Academic Press.</li>
+    <li>Hoff, P. (2009). <i>A First Course in Bayesian Statistical Methods</i>. USA: Springer.</li>
+    <li>Lambert, B. (2014). <i>A Student's Guide to Bayesian Statistics</i>. SAGE.</li>
+    <li>Albert, J. (2012). <i>Bayesian Computation with R</i> (2da ed.). Use R Series, Springer.</li>
+    <li>Christensen, R. (2012). <i>Bayesian Ideas and Data Analysis: An Introduction for Scientists and Statisticians</i>. CRC Press.</li>
+    <li>Koski, T. &amp; Noble, J. (2010). <i>Bayesian Networks: An Introduction</i>. Wiley.</li>
+    <li>Goodfellow, I. &amp; Bengio, Y. (2016). <i>Deep Learning</i>. USA: MIT Press.</li>
+    <li>Bishop, C. (2006). <i>Pattern Recognition and Machine Learning</i>. USA: Springer.</li>
+    <li>Duda, R., Hart, P. &amp; Stork, D. (2000). <i>Pattern Classification</i> (2da ed.). Wiley Interscience.</li>
+  </ul>
+  <span class="p-biblio-label">Complementarias</span>
+  <ul class="p-plain">
+    <li>Hastie, T., Tibshirani, R. &amp; Friedman, J. (2014). <i>The Elements of Statistical Learning</i> (2da ed.). Springer Series in Statistics.</li>
+    <li>Glover, F. &amp; Kochenberger, G. (1998). <i>Algoritmos e Heurísticas</i>. Brasil: Universidad Federal Fluminense.</li>
+    <li>Russell, S. &amp; Norvig, P. (2014). <i>Inteligencia Artificial: Un Enfoque Moderno</i> (3ra ed.). México: Prentice Hall.</li>
+    <li>Stanton, J. (2017). <i>Reasoning with Data: Traditional and Bayesian Statistics Using R</i>. The Guilford Press.</li>
+  </ul>
+  <span class="p-biblio-label">Electrónicas</span>
+  <ul class="p-plain">
+    <li>Algorithm and heuristics: http://www.cs.sunysb.edu/~algorith/</li>
+    <li>Python Machine Learning Tutorials: https://realpython.com/tutorials/machine-learning/</li>
+  </ul>
+  <span class="p-biblio-label">Producción intelectual del docente relacionado con el curso</span>
+  <ul class="p-plain">
+    <li>Guías de programación con Python para Machine Learning (2019).</li>
+  </ul>
+
+  <p class="p-footer-date">Puno, Julio del 2026</p>
 
     <footer>
       © 2026 UNAP · FINESI · Ingeniería Estadística e Informática<br>
